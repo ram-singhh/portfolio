@@ -2976,3 +2976,196 @@ kbd {
         animation: none !important;
     }
 }
+
+/* ===== HOMEPAGE WORKSPACE GRID ===== */
+.home-workspace {
+    position: relative;
+    min-height: 100vh;
+    padding: 8rem 2rem 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.home-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3rem 2rem;
+    width: 100%;
+    max-width: 1200px;
+    align-items: start;
+}
+
+.grid-hero-card {
+    grid-column: span 7;
+}
+
+.grid-projects-card {
+    grid-column: span 5;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.grid-services-card {
+    grid-column: span 4;
+}
+
+.grid-spotify-card {
+    grid-column: span 4;
+}
+
+.grid-navigation-card {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-self: stretch;
+    justify-content: center;
+}
+
+.grid-cta-card {
+    grid-column: span 12;
+    justify-self: center;
+    text-align: center;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Custom styles for projects preview page box graphic */
+.ascii-box-graphic {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    white-space: pre;
+    color: var(--text-dark);
+    margin: 1.5rem auto;
+    text-align: center;
+    display: inline-block;
+    transition: color var(--transition-fast);
+}
+
+.paper-component:hover .ascii-box-graphic {
+    color: var(--color-ink-blue);
+}
+
+/* Retro tactile button styling inside design system sheets */
+.tactile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-paper-light);
+    color: #111;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.tactile-btn:hover {
+    border-color: #111;
+    background-color: #f7f3eb;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.tactile-btn-primary {
+    background-color: #121212;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.tactile-btn-primary:hover {
+    background-color: #242424;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Spotify section card details */
+.spotify-mock-player {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.spotify-cassette {
+    height: 100px;
+    border: 2px solid var(--border-secondary);
+    border-radius: var(--radius-lg);
+    background: #1b1917;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+
+.cassette-label {
+    width: 70%;
+    height: 50px;
+    background: #fdfcf7;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #111;
+}
+
+.cassette-reels {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4px;
+}
+
+.cassette-reel {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px dotted #444;
+    animation: spin-reel 8s linear infinite;
+}
+
+@keyframes spin-reel {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 992px) {
+    .grid-hero-card { grid-column: span 12; }
+    .grid-projects-card { grid-column: span 12; margin-top: 1rem; }
+    .grid-services-card { grid-column: span 6; }
+    .grid-spotify-card { grid-column: span 6; }
+    .grid-navigation-card { grid-column: span 12; align-items: center; }
+}
+
+@media (max-width: 768px) {
+    .home-layout-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    .grid-services-card, .grid-spotify-card {
+        width: 100%;
+    }
+    .header-cta-btn {
+        display: none !important;
+    }
+}
+

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -9,12 +9,10 @@ export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Work", href: "/projects/" },
     { name: "About", href: "/about/" },
-    { name: "Skills", href: "/skills/" },
-    { name: "Projects", href: "/projects/" },
-    { name: "Experience", href: "/experience/" },
-    { name: "Certificates", href: "/certificates/" },
+    { name: "Services", href: "/#services" },
+    { name: "Lab", href: "/design-system/" },
     { name: "Contact", href: "/contact/" },
   ];
 
@@ -61,29 +59,40 @@ export default function Header() {
           <Link href="/" className="nav-logo">
             @ramsingh
           </Link>
-          <nav aria-label="Main navigation">
-            <ul className="nav-links">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={isActive(link.href) ? "active" : ""}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <button
-            className={`mobile-menu-btn ${isOpen ? "active" : ""}`}
-            aria-label="Toggle mobile menu"
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            ☰
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            <nav aria-label="Main navigation">
+              <ul className="nav-links">
+                {navLinks.map((link) => (
+                  link.name !== "Contact" && (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={isActive(link.href) ? "active" : ""}
+                        aria-current={isActive(link.href) ? "page" : undefined}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  )
+                ))}
+              </ul>
+            </nav>
+            <Link 
+              href="/contact/" 
+              className="tactile-btn header-cta-btn"
+              style={{ textDecoration: "none" }}
+            >
+              [ BOOK A PROJECT ]
+            </Link>
+            <button
+              className={`mobile-menu-btn ${isOpen ? "active" : ""}`}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              ☰
+            </button>
+          </div>
         </div>
       </header>
 

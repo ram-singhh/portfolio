@@ -1,417 +1,275 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import TypingText from "@/components/ui/TypingText";
-import HeroParticles from "@/components/ui/HeroParticles";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import DeskBackground from "@/components/ui/DeskBackground";
+import Paper from "@/components/ui/Paper";
+import Polaroid from "@/components/ui/Polaroid";
+import TypewriterLabel from "@/components/ui/TypewriterLabel";
+import HandwrittenNote from "@/components/ui/HandwrittenNote";
+import CurrentlyPlaying from "@/components/spotify/CurrentlyPlaying";
+
+export const metadata = {
+  title: "Ram Singh | Freelance Web Developer",
+  description: "I design and build fast, responsive websites and web experiences for people with things to build, sell, or share. Freelance web development, frontend engineering, and landing pages.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
-    <>
-      <ScrollReveal />
-      
-      {/* Hero Section */}
-      <section id="home" className="hero section-padding">
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1>
-                Ram Singh — <span className="text-gradient">Freelance Web Developer</span>
+    <main className="home-workspace">
+      {/* Workspace physical desk background */}
+      <DeskBackground />
+
+      <div className="home-layout-grid" style={{ zIndex: 1 }}>
+        
+        {/* Section 1: Hero Desk Sheet */}
+        <section className="grid-hero-card" aria-label="Introduction">
+          <Paper variant="lined" rotation={-1} padding="large">
+            <header style={{ marginBottom: "2rem" }}>
+              {/* Visually styled, semantically correct H1 */}
+              <h1 style={{ fontSize: "1.1rem", fontFamily: "var(--font-mono)", fontWeight: 700, letterSpacing: "0.05em", color: "var(--color-ink-red)", textTransform: "uppercase", margin: 0 }}>
+                Ram Singh — Freelance Web Developer
               </h1>
-              <p className="subtitle">
-                I am Ram Singh, a freelance web developer building fast, responsive, and modern websites and web experiences. I focus on quality web development while exploring <TypingText />.
-              </p>
-              <div className="hero-actions">
-                <Link href="/projects/" className="hero-cta">
-                  View Projects
-                </Link>
-                <Link href="/contact/" className="btn btn-secondary">
-                  Contact Me
-                </Link>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)", display: "block", marginTop: "0.25rem" }}>
+                Mumbai, India
+              </span>
+            </header>
+
+            <div style={{ margin: "2.5rem 0" }}>
+              <div 
+                style={{ 
+                  fontFamily: "var(--font-serif)", 
+                  fontSize: "clamp(2rem, 5.5vw, 3.25rem)", 
+                  fontWeight: 700, 
+                  fontStyle: "italic", 
+                  lineHeight: 1.1, 
+                  color: "var(--text-dark)", 
+                  marginBottom: "1.5rem" 
+                }}
+              >
+                THIS IS NOT A PORTFOLIO.
               </div>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.15rem, 3.5vw, 1.5rem)", lineHeight: "1.45", color: "#2c251f", maxWidth: "520px", margin: 0 }}>
+                I design and build fast, responsive websites and web experiences for people with things to build, sell, or share.
+              </p>
             </div>
-            <div className="hero-image">
-              <Image
-                src="/assets/images/Profile.jpg"
-                alt="Ram Singh - Freelance Web Developer"
-                width={320}
-                height={320}
-                priority
-              />
-              <div className="floating-element">Open to Internships</div>
-              <div className="floating-element">Available for Collaboration</div>
-              <HeroParticles />
+
+            <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", marginTop: "3rem" }}>
+              <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a project with Ram Singh">
+                [ BOOK A PROJECT ]
+              </Link>
+              <Link href="/projects/" className="tactile-btn" aria-label="Explore Ram Singh's work">
+                [ EXPLORE MY WORK ]
+              </Link>
             </div>
-          </div>
-        </div>
-      </section>
+          </Paper>
+        </section>
 
-      {/* Quote Section */}
-      <section className="quote-section section-padding reveal">
-        <div className="container">
-          <div className="quote-card glow-border">
-            <p className="quote-text">
-              Control can sometimes be an illusion. But sometimes you need illusion to gain control.
-            </p>
-            <p className="quote-author">— Mr. Robot</p>
-          </div>
-        </div>
-      </section>
+        {/* Right Side: Identity Polaroid & Projects Card */}
+        <section className="grid-projects-card" aria-label="Visual identity and selected projects teaser">
+          <Polaroid
+            src="/assets/images/Profile.jpg"
+            alt="Freelance developer Ram Singh photographed at desk"
+            caption="me @ desk, building things"
+            rotation={-2.5}
+            hasTape={true}
+            tapeRotation={1}
+            width={260}
+            height={260}
+          />
+          
+          <Link href="/projects/" style={{ textDecoration: "none", width: "100%", maxWidth: "320px" }}>
+            <Paper variant="grid" rotation={1.5} padding="medium" style={{ cursor: "pointer", textAlign: "center" }}>
+              <div className="ascii-box-graphic" aria-hidden="true">
+{`┌───────────────┐
+│   PROJECTS    │
+│               │
+│   selected    │
+│   work        │
+└───────────────┘`}
+              </div>
+              <div>
+                <TypewriterLabel variant="plain" rotation={-1}>
+                  OPEN PROJECT FILING CABINET &rarr;
+                </TypewriterLabel>
+              </div>
+            </Paper>
+          </Link>
+        </section>
 
-      {/* Projects Preview Section */}
-      <section id="projects" className="section-padding reveal">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">projects</h2>
-            <p className="section-subtitle">A showcase of my recent work and personal projects</p>
-          </div>
+        {/* Section 2: Projects List */}
+        <section id="projects" style={{ gridColumn: "span 12", marginTop: "2rem" }}>
+          <h2 style={{ marginBottom: "2rem" }}>
+            <TypewriterLabel variant="paper" rotation={-1}>Projects & Selected Work</TypewriterLabel>
+          </h2>
 
-          <div className="cards-grid">
-            {/* AI Multi-Module System Project */}
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">🤖</div>
-                <h3 className="card-title">AI Multi-Module System</h3>
-              </div>
-              <p className="card-description">
-                A modular AI system supporting multiple AI-powered functionalities through independent, reusable modules. Demonstrates scalable architecture, clean separation of concerns, and real-world AI integration.
-              </p>
-              <div className="card-tech">
-                <span className="tech-tag">Python</span>
-                <span className="tech-tag">AI/LLM APIs</span>
-                <span className="tech-tag">Modular Design</span>
-                <span className="tech-tag">GitHub</span>
-              </div>
-              <div className="project-highlights">
-                <h4>Key Features:</h4>
-                <ul>
-                  <li>Modular architecture with independent AI modules</li>
-                  <li>Central controller for routing and managing AI tasks</li>
-                  <li>Designed for scalability and future AI integrations</li>
-                </ul>
-              </div>
-              <div className="card-actions">
-                <a
-                  href="https://multi-module-ai-system.vercel.app/"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live App
-                </a>
-                <a
-                  href="https://github.com/Ramsingh4656/MultiModule-AI-System"
-                  className="btn btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View MultiModule AI System source code on GitHub"
-                >
-                  GitHub
-                </a>
-              </div>
-            </article>
-
-            {/* Modern Calculator Project */}
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">🧮</div>
-                <h3 className="card-title">Modern Calculator</h3>
-              </div>
-              <p className="card-description">
-                A responsive calculator application solving the need for accessible mathematical operations with keyboard support and error handling.
-              </p>
-              <div className="card-tech">
-                <span className="tech-tag">HTML5</span>
-                <span className="tech-tag">CSS3</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">Responsive Design</span>
-              </div>
-              <div className="project-highlights">
-                <h4>Key Features & Learning:</h4>
-                <ul>
-                  <li>Implemented event handling for both click and keyboard inputs</li>
-                  <li>Built responsive UI with CSS Grid and modern design principles</li>
-                  <li>Learned error handling and input validation techniques</li>
-                </ul>
-              </div>
-              <div className="card-actions">
-                <Link href="/projects/modern-calculator/" className="btn btn-primary">
-                  Live Demo
-                </Link>
-                <a
-                  href="https://github.com/Ramsingh4656/Modern-Calculator"
-                  className="btn btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Modern Calculator source code on GitHub"
-                >
-                  GitHub
-                </a>
-              </div>
-            </article>
-
-            {/* Portfolio Project */}
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">💼</div>
-                <h3 className="card-title">Portfolio Website</h3>
-              </div>
-              <p className="card-description">
-                A professional portfolio website designed to showcase skills and projects to potential employers and collaborators.
-              </p>
-              <div className="card-tech">
-                <span className="tech-tag">HTML5</span>
-                <span className="tech-tag">CSS3</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">SEO Optimized</span>
-              </div>
-              <div className="project-highlights">
-                <h4>Key Features & Learning:</h4>
-                <ul>
-                  <li>Designed mobile-first responsive layout with CSS Grid and Flexbox</li>
-                  <li>Implemented smooth scroll animations and intersection observers</li>
-                  <li>Learned SEO optimization and accessibility best practices</li>
-                </ul>
-              </div>
-              <div className="card-actions">
-                <Link href="/" className="btn btn-primary" aria-label="View Portfolio website live demo">
-                  Live Demo
-                </Link>
-                <a
-                  href="https://github.com/Ramsingh4656/portfolio"
-                  className="btn btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Portfolio website source code on GitHub"
-                >
-                  GitHub
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <Link href="/projects/" className="btn btn-primary">
-              View all projects →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section id="certifications" className="section-padding reveal">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">certifications</h2>
-            <p className="section-subtitle">
-              Professional certifications validating my skills and commitment to learning
-            </p>
-          </div>
-
-          <div className="cards-grid">
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">☁️</div>
-                <h3 className="card-title">Microsoft Azure Internship</h3>
-              </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                  Microsoft Elevate (AICTE)
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
+            {/* Real Project 1: Modern Calculator */}
+            <article>
+              <Paper variant="light" rotation={1} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                <header style={{ marginBottom: "1rem" }}>
+                  <TypewriterLabel variant="plain">01. TOOL</TypewriterLabel>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                    Modern Calculator
+                  </h3>
+                </header>
+                <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
+                  A fully functional calculator solving the need for accessible mathematical calculations with keyboard support and responsive grid design.
                 </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>February 2026</p>
-              </div>
-              <p className="card-description">
-                Completed comprehensive internship program with hands-on Azure cloud services experience.
-              </p>
-              <div className="card-actions">
-                <Link href="/certificates/" className="btn btn-primary">
-                  View Certificate
-                </Link>
-              </div>
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+                  <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Open Modern Calculator demo">
+                    [ LIVE DEMO ]
+                  </Link>
+                  <a href="https://github.com/Ramsingh4656/Modern-Calculator" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Modern Calculator source code on GitHub">
+                    [ SOURCE ]
+                  </a>
+                </div>
+              </Paper>
             </article>
 
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">🤖</div>
-                <h3 className="card-title">AI & Machine Learning</h3>
-              </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                  Microsoft Elevate (AICTE)
+            {/* Real Project 2: AI Multi-Module System */}
+            <article>
+              <Paper variant="lined" rotation={-1.5} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                <header style={{ marginBottom: "1rem" }}>
+                  <TypewriterLabel variant="plain">02. SYSTEM</TypewriterLabel>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                    AI Multi-Module System
+                  </h3>
+                </header>
+                <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
+                  A modular AI implementation supporting multiple functionalities through independent modules. Showcases scalable Python scripting and AI integration.
                 </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>January 2026 • 20 Hours</p>
-              </div>
-              <p className="card-description">
-                Comprehensive training in AI/ML concepts, algorithms, and practical applications.
-              </p>
-              <div className="card-actions">
-                <Link href="/certificates/" className="btn btn-primary">
-                  View Certificate
-                </Link>
-              </div>
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+                  <a href="https://multi-module-ai-system.vercel.app/" target="_blank" rel="noopener noreferrer" className="tactile-btn tactile-btn-primary" aria-label="Open AI Multi-Module system app">
+                    [ LIVE APP ]
+                  </a>
+                  <a href="https://github.com/Ramsingh4656/MultiModule-AI-System" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View AI Multi-Module source code on GitHub">
+                    [ SOURCE ]
+                  </a>
+                </div>
+              </Paper>
             </article>
 
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">⚙️</div>
-                <h3 className="card-title">Cloud Administration</h3>
-              </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                  Microsoft Elevate (AICTE)
+            {/* Real Project 3: Portfolio Website */}
+            <article>
+              <Paper variant="craft" rotation={0.8} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                <header style={{ marginBottom: "1rem" }}>
+                  <TypewriterLabel variant="plain">03. EXPERIMENT</TypewriterLabel>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                    Portfolio Website
+                  </h3>
+                </header>
+                <p style={{ color: "#221e1a", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
+                  The very codebase you are navigating. Built using Next.js with a highly optimized custom visual design system modeled after physical dark desks.
                 </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>January 2026 • 40 Hours</p>
-              </div>
-              <p className="card-description">
-                Extensive program covering cloud administration and engineering practices.
-              </p>
-              <div className="card-actions">
-                <Link href="/certificates/" className="btn btn-primary">
-                  View Certificate
-                </Link>
-              </div>
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+                  <Link href="/" className="tactile-btn tactile-btn-primary" aria-label="Open homepage demo">
+                    [ LIVE DEMO ]
+                  </Link>
+                  <a href="https://github.com/Ramsingh4656/portfolio" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Portfolio source code on GitHub">
+                    [ SOURCE ]
+                  </a>
+                </div>
+              </Paper>
             </article>
           </div>
+        </section>
 
-          <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <Link href="/certificates/" className="btn btn-primary">
-              View All Certificates →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="section-padding reveal">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">skills</h2>
-            <p className="section-subtitle">
-              Technologies and tools I work with, organized by expertise area
+        {/* Section 3: Services */}
+        <section id="services" className="grid-services-card" style={{ marginTop: "2rem" }}>
+          <Paper variant="craft" rotation={-1} padding="medium">
+            <h2 style={{ marginBottom: "1.5rem" }}>
+              <TypewriterLabel variant="paper" rotation={1.5}>Web Development Services</TypewriterLabel>
+            </h2>
+            <p style={{ fontSize: "0.9rem", color: "#221e1a", marginBottom: "1.5rem", lineHeight: "1.5" }}>
+              I construct fast, optimized web spaces configured directly for conversions. Simple setups, complex modules.
             </p>
-          </div>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.85rem", fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "#2c251f", fontWeight: 700 }}>
+              <li>
+                <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> WEB DEVELOPMENT
+              </li>
+              <li>
+                <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> FRONTEND DEVELOPMENT
+              </li>
+              <li>
+                <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> RESPONSIVE WEBSITES
+              </li>
+              <li>
+                <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> LANDING PAGES
+              </li>
+              <li>
+                <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> WEBSITE REDESIGNS
+              </li>
+            </ul>
+          </Paper>
+        </section>
 
-          {/* Frontend Skills */}
-          <div className="skill-category">
-            <h3 className="skill-category-title">Frontend Development</h3>
-            <div className="skills-grid">
-              <div className="skill-item glow-border">
-                <div className="skill-icon">🌐</div>
-                <div className="skill-name">HTML5</div>
-                <div className="skill-level">Advanced</div>
-              </div>
-
-              <div className="skill-item glow-border">
-                <div className="skill-icon">🎨</div>
-                <div className="skill-name">CSS3</div>
-                <div className="skill-level">Advanced</div>
-              </div>
-
-              <div className="skill-item glow-border">
-                <div className="skill-icon">⚡</div>
-                <div className="skill-name">JavaScript</div>
-                <div className="skill-level">Intermediate</div>
-              </div>
-
-              <div className="skill-item glow-border">
-                <div className="skill-icon">📱</div>
-                <div className="skill-name">Responsive Design</div>
-                <div className="skill-level">Advanced</div>
-              </div>
+        {/* Section 4: Currently Playing */}
+        <section className="grid-spotify-card" style={{ marginTop: "2rem" }} aria-label="Spotify integration placeholder">
+          <Paper variant="dark" rotation={1.2} padding="medium">
+            <div style={{ marginBottom: "1.5rem" }}>
+              <TypewriterLabel variant="dymo" rotation={-1.5}>
+                CURRENTLY PLAYING
+              </TypewriterLabel>
             </div>
-          </div>
+            <CurrentlyPlaying />
+          </Paper>
+        </section>
 
-          <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <Link href="/skills/" className="btn btn-primary">
-              View All Skills →
+        {/* Section 5: About Section Teaser */}
+        <section className="grid-navigation-card" style={{ marginTop: "2rem" }} aria-label="Biography and Notes shortcuts">
+          <Paper variant="light" rotation={-1.5} padding="medium">
+            <h2 style={{ marginBottom: "1rem" }}>
+              <TypewriterLabel variant="plain">About Ram Singh</TypewriterLabel>
+            </h2>
+            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.5rem" }}>
+              First-year BSc-IT student focusing on web engineering, responsive layout structures, and cloud deployments.
+            </p>
+            <Link href="/about/" className="tactile-btn" aria-label="Read more about Ram Singh">
+              [ READ MY STORY &rarr; ]
             </Link>
-          </div>
-        </div>
-      </section>
+          </Paper>
 
-      {/* About Section */}
-      <section id="about" className="section-padding reveal">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">about-me</h2>
-            <p className="section-subtitle">Passionate first-year BSc-IT student ready to make an impact</p>
-          </div>
-
-          <div className="cards-grid">
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">🎓</div>
-                <h3 className="card-title">Education & Focus</h3>
-              </div>
-              <p className="card-description">
-                First-year BSc-IT student with strong interest in frontend development, cloud computing, and AI/ML fundamentals. Actively building practical skills through hands-on projects and industry-recognized certifications.
-              </p>
-              <div className="card-tech" style={{ marginTop: "1rem" }}>
-                <span className="tech-tag">BSc-IT Student</span>
-                <span className="tech-tag">2025-2028</span>
-              </div>
-            </article>
-
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">💡</div>
-                <h3 className="card-title">What I Build</h3>
-              </div>
-              <p className="card-description">
-                I create responsive web applications with clean, modern interfaces. Currently learning React and exploring cloud deployment with Microsoft Azure. Passionate about writing efficient code and solving real-world problems through technology.
-              </p>
-            </article>
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <Link href="/about/" className="btn btn-primary">
-              More About Me →
+          {/* Section 6: Notes Teaser */}
+          <Paper variant="light" rotation={1.5} padding="medium" id="notes-lab">
+            <h2 style={{ marginBottom: "1rem" }}>
+              <TypewriterLabel variant="plain">Notes / Lab</TypewriterLabel>
+            </h2>
+            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.5rem" }}>
+              Thoughts, experiments, and code design rules I discover during study.
+            </p>
+            <Link href="/design-system/" className="tactile-btn" aria-label="Explore the design system laboratory">
+              [ OPEN LAB &rarr; ]
             </Link>
-          </div>
-        </div>
-      </section>
+          </Paper>
+        </section>
 
-      {/* Contact Preview Section */}
-      <section id="contact-preview" className="section-padding reveal">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">contacts</h2>
-            <p className="section-subtitle">Open to internships, freelance work, and collaborations</p>
-          </div>
+        {/* Section 7: Final Conversion CTA Note */}
+        <section className="grid-cta-card" aria-label="Booking call to action">
+          <Paper variant="lined" rotation={-0.5} padding="large">
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontStyle: "italic", color: "var(--text-dark)", marginBottom: "1rem" }}>
+              READY TO BUILD SOMETHING?
+            </h2>
+            <p style={{ color: "#333", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "2rem", maxWidth: "480px", marginLeft: "auto", marginRight: "auto" }}>
+              Let's talk about your business website, landing page, or custom frontend experience.
+            </p>
+            
+            <div style={{ margin: "2rem 0" }}>
+              <HandwrittenNote color="blue" tilt={-1.5}>
+                let's build your project together
+              </HandwrittenNote>
+            </div>
 
-          <div className="cards-grid">
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">📧</div>
-                <h3 className="card-title">Ready to Collaborate</h3>
-              </div>
-              <p className="card-description">
-                I'm actively seeking internship opportunities and excited to contribute to meaningful projects. Let's discuss how I can add value to your team!
-              </p>
-              <div className="card-actions">
-                <Link href="/contact/" className="btn btn-primary">
-                  Get in Touch
-                </Link>
-              </div>
-            </article>
+            <div style={{ marginTop: "2.5rem" }}>
+              <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a project with Ram Singh">
+                [ BOOK A PROJECT ]
+              </Link>
+            </div>
+          </Paper>
+        </section>
 
-            <article className="card glow-border">
-              <div className="card-header">
-                <div className="card-icon">💼</div>
-                <h3 className="card-title">Resume & Portfolio</h3>
-              </div>
-              <p className="card-description">
-                Download my resume to learn more about my experience, skills, and educational background, or explore my complete portfolio.
-              </p>
-              <div className="card-actions">
-                <a href="/Ram-Singh-Resume.pdf" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                  Download Resume
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </main>
   );
 }
