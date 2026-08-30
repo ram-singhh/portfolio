@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/skills",
     "/projects",
     "/projects/modern-calculator",
+    "/projects/ai-multi-module-system",
+    "/projects/portfolio-website",
     "/experience",
     "/certificates",
     "/contact",
@@ -17,12 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     let priority = 0.8;
     if (route === "") priority = 1.0;
     else if (route === "/projects") priority = 0.9;
-    else if (route === "/projects/modern-calculator") priority = 0.6;
+    else if (route.startsWith("/projects/")) priority = 0.8;
     else if (route === "/certificates") priority = 0.7;
     else if (route === "/contact") priority = 0.7;
 
     let changefreq: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" = "monthly";
-    if (route === "/projects/modern-calculator" || route === "/contact") {
+    if (route.startsWith("/projects/") || route === "/contact") {
       changefreq = "yearly";
     }
 

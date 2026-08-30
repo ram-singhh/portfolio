@@ -117,12 +117,12 @@ export default function Home() {
                 <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
                   A fully functional calculator solving the need for accessible mathematical calculations with keyboard support and responsive grid design.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
-                  <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Open Modern Calculator demo">
-                    [ LIVE DEMO ]
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Open Modern Calculator interactive demo and case study">
+                    [ CASE STUDY &amp; DEMO ]
                   </Link>
                   <a href="https://github.com/Ramsingh4656/Modern-Calculator" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Modern Calculator source code on GitHub">
-                    [ SOURCE ]
+                    [ GITHUB SOURCE ]
                   </a>
                 </div>
               </Paper>
@@ -140,12 +140,12 @@ export default function Home() {
                 <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
                   A modular AI implementation supporting multiple functionalities through independent modules. Showcases scalable Python scripting and AI integration.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
-                  <a href="https://multi-module-ai-system.vercel.app/" target="_blank" rel="noopener noreferrer" className="tactile-btn tactile-btn-primary" aria-label="Open AI Multi-Module system app">
-                    [ LIVE APP ]
-                  </a>
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/ai-multi-module-system/" className="tactile-btn tactile-btn-primary" aria-label="Open AI Multi-Module system case study">
+                    [ OPEN CASE STUDY ]
+                  </Link>
                   <a href="https://github.com/Ramsingh4656/MultiModule-AI-System" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View AI Multi-Module source code on GitHub">
-                    [ SOURCE ]
+                    [ GITHUB SOURCE ]
                   </a>
                 </div>
               </Paper>
@@ -163,12 +163,12 @@ export default function Home() {
                 <p style={{ color: "#221e1a", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
                   The very codebase you are navigating. Built using Next.js with a highly optimized custom visual design system modeled after physical dark desks.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
-                  <Link href="/" className="tactile-btn tactile-btn-primary" aria-label="Open homepage demo">
-                    [ LIVE DEMO ]
+                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/portfolio-website/" className="tactile-btn tactile-btn-primary" aria-label="Open Portfolio Website case study">
+                    [ OPEN CASE STUDY ]
                   </Link>
-                  <a href="https://github.com/Ramsingh4656/portfolio" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Portfolio source code on GitHub">
-                    [ SOURCE ]
+                  <a href="https://github.com/Ramsingh4656/portfolio" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Portfolio Website source code on GitHub">
+                    [ GITHUB SOURCE ]
                   </a>
                 </div>
               </Paper>

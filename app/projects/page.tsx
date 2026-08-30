@@ -1,218 +1,208 @@
 import React from "react";
 import Link from "next/link";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import Paper from "@/components/ui/Paper";
+import Tape from "@/components/ui/Tape";
+import TypewriterLabel from "@/components/ui/TypewriterLabel";
+import HandwrittenNote from "@/components/ui/HandwrittenNote";
+import DeskBackground from "@/components/ui/DeskBackground";
+import ProjectVisual from "@/components/projects/ProjectVisual";
+import { projectsData } from "@/data/projects";
 
 export const metadata = {
-  title: "Web Development Projects",
-  description: "Explore the web development projects of freelance web developer Ram Singh, including the AI Multi-Module System and Modern Calculator applications.",
+  title: "Web Development Project Archive | Ram Singh",
+  description: "Explore the verified software projects and case studies built by freelance web developer Ram Singh, featuring the Modern Calculator and AI Multi-Module System.",
   alternates: {
     canonical: "/projects/",
   },
 };
 
 export default function Projects() {
-  const featuredProjects = [
-    {
-      title: "AI Multi-Module System",
-      icon: "🤖",
-      description: "A modular AI system supporting multiple AI-powered functionalities through independent, reusable modules. Demonstrates scalable architecture, clean separation of concerns, and real-world AI integration.",
-      tech: ["Python", "AI/LLM APIs", "Modular Design", "GitHub"],
-      liveUrl: "https://multi-module-ai-system.vercel.app/",
-      githubUrl: "https://github.com/Ramsingh4656/MultiModule-AI-System",
-      isInternalLink: false,
-    },
-    {
-      title: "Modern Calculator",
-      icon: "🧮",
-      description: "A fully functional calculator with keyboard support, clean gradient UI, and all basic mathematical operations. Features error handling, responsive design, and smooth animations.",
-      tech: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-      liveUrl: "/projects/modern-calculator/",
-      githubUrl: "https://github.com/Ramsingh4656/Modern-Calculator",
-      isInternalLink: true,
-    },
-    {
-      title: "Portfolio Website",
-      icon: "💼",
-      description: "A modern, dark-themed developer portfolio with smooth animations, responsive design, and clean architecture. Built with vanilla JavaScript and optimized for performance.",
-      tech: ["HTML5", "CSS3", "JavaScript", "SEO", "PWA"],
-      liveUrl: "/",
-      githubUrl: "https://github.com/Ramsingh4656/portfolio",
-      isInternalLink: true,
-    },
-  ];
-
-  const upcomingProjects = [
-    {
-      title: "CryptoTrack",
-      icon: "₿",
-      description: "Real-time cryptocurrency price tracker with interactive charts, portfolio management, and market analysis. Features live data updates and responsive design.",
-      tech: ["React", "API Integration", "Charts.js", "CSS3"],
-    },
-    {
-      title: "TaskFlow",
-      icon: "✅",
-      description: "A modern task management application with drag-and-drop functionality, categories, deadlines, and progress tracking. Built with vanilla JavaScript.",
-      tech: ["HTML5", "CSS3", "JavaScript", "Local Storage"],
-    },
-    {
-      title: "WeatherNow",
-      icon: "🌤️",
-      description: "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather information. Features smooth animations and intuitive UI.",
-      tech: ["JavaScript", "Weather API", "Geolocation", "CSS3"],
-    },
-    {
-      title: "ShopLanding",
-      icon: "🛒",
-      description: "Modern e-commerce landing page with product showcase, shopping cart functionality, and payment integration. Fully responsive and optimized for conversions.",
-      tech: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-    },
-    {
-      title: "DevBlog",
-      icon: "📝",
-      description: "A clean, minimalist blog platform for developers with markdown support, syntax highlighting, and responsive design. Features dark mode and reading time estimates.",
-      tech: ["React", "Markdown", "Syntax Highlighting", "CSS3"],
-    },
-    {
-      title: "MemoryGame",
-      icon: "🎮",
-      description: "Interactive memory card game with multiple difficulty levels, scoring system, and smooth animations. Built with vanilla JavaScript and CSS animations.",
-      tech: ["HTML5", "CSS3", "JavaScript", "Animations"],
-    },
-  ];
-
   return (
-    <>
-      <ScrollReveal />
-      
-      {/* Projects Header */}
-      <section className="section-padding" style={{ paddingTop: "8rem" }}>
-        <div className="container">
-          <div className="section-header">
-            <h1 className="section-title">projects</h1>
-            <p className="section-subtitle">
-              A comprehensive showcase of my development work, from simple utilities to complex applications
-            </p>
-          </div>
-        </div>
-      </section>
+    <main className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "8rem" }}>
+      {/* Desk Background */}
+      <DeskBackground />
 
-      {/* Featured Projects */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Featured Projects
-          </h2>
-          
-          <div className="cards-grid">
-            {featuredProjects.map((project) => (
-              <article key={project.title} className="card glow-border reveal">
-                <div className="card-header">
-                  <div className="card-icon">{project.icon}</div>
-                  <h3 className="card-title">{project.title}</h3>
-                </div>
-                <p className="card-description">{project.description}</p>
-                <div className="card-tech">
-                  {project.tech.map((t) => (
-                    <span key={t} className="tech-tag">{t}</span>
-                  ))}
-                </div>
-                <div className="card-actions">
-                  {project.isInternalLink ? (
-                    <Link href={project.liveUrl} className="btn btn-primary">
-                      Live Demo
+      <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem" }}>
+        
+        {/* Page Header */}
+        <section aria-label="Archive introduction" style={{ marginBottom: "4rem", textAlign: "center" }}>
+          <div style={{ transform: "rotate(-0.5deg)", display: "inline-block" }}>
+            <Paper variant="lined" rotation={0} padding="medium" style={{ maxWidth: "600px", margin: "0 auto" }}>
+              <div style={{ marginBottom: "0.75rem" }}>
+                <TypewriterLabel variant="dymo" rotation={1}>
+                  PROJECT ARCHIVE
+                </TypewriterLabel>
+              </div>
+              <h1 style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "clamp(2.25rem, 5vw, 3rem)", 
+                fontWeight: 700, 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                margin: "0 0 0.5rem 0" 
+              }}>
+                #project-filing-cabinet
+              </h1>
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", color: "#333", lineHeight: "1.4", margin: 0 }}>
+                A collection of verified software implementations. Each document serves as proof of capabilities, engineering practices, and lessons learned.
+              </p>
+            </Paper>
+          </div>
+        </section>
+
+        {/* Project Files (Tactile Scattered Documents) */}
+        <section aria-label="List of projects" style={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          gap: "4rem", 
+          maxWidth: "720px", 
+          margin: "0 auto" 
+        }}>
+          {projectsData.map((project, idx) => {
+            // Alternating rotations and variants for visual interest
+            const rotation = idx % 2 === 0 ? -1.2 : 0.8;
+            const paperVariant = idx % 3 === 0 ? "craft" : idx % 3 === 1 ? "lined" : "light";
+            const fileIndexStr = `FILE_0${idx + 1}`;
+
+            return (
+              <article key={project.slug} style={{ transform: `rotate(${rotation}deg)` }}>
+                <Paper variant={paperVariant} rotation={0} padding="large" style={{ position: "relative" }}>
+                  <Tape rotation={idx % 2 === 0 ? 2 : -1.5} position="top-right" width="90px" />
+                  
+                  {/* Category & Folder Tab */}
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem" }}>
+                    <TypewriterLabel variant="dymo" rotation={-1}>
+                      {fileIndexStr}
+                    </TypewriterLabel>
+                    <span style={{ 
+                      fontFamily: "var(--font-mono)", 
+                      fontSize: "0.75rem", 
+                      fontWeight: "bold",
+                      color: paperVariant === "craft" ? "#2c251f" : "var(--text-muted)"
+                    }}>
+                      // {project.category.toUpperCase()}
+                    </span>
+                  </div>
+
+                  {/* Title & Short Description */}
+                  <h2 style={{ 
+                    fontFamily: "var(--font-serif)", 
+                    fontSize: "1.75rem", 
+                    fontWeight: 700, 
+                    fontStyle: "italic",
+                    color: "var(--text-dark)", 
+                    margin: "0 0 1rem 0" 
+                  }}>
+                    {project.title}
+                  </h2>
+                  
+                  <p style={{ 
+                    fontFamily: "var(--font-primary)", 
+                    fontSize: "0.95rem", 
+                    lineHeight: "1.5", 
+                    color: paperVariant === "craft" ? "#2c251f" : "#333", 
+                    marginBottom: "1.5rem" 
+                  }}>
+                    {project.shortDescription}
+                  </p>
+
+                  {/* Visual Preview Box */}
+                  <div style={{ margin: "1.5rem 0", display: "flex", justifyContent: "center" }}>
+                    <div style={{ transform: `rotate(${idx % 2 === 0 ? 0.5 : -0.5}deg)`, width: "100%" }}>
+                      <ProjectVisual slug={project.slug} />
+                    </div>
+                  </div>
+
+                  {/* Tech stack badges */}
+                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "2rem" }}>
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <span 
+                        key={tech} 
+                        style={{ 
+                          fontFamily: "var(--font-mono)", 
+                          fontSize: "0.7rem", 
+                          fontWeight: "bold",
+                          backgroundColor: "rgba(0,0,0,0.06)",
+                          border: "1px solid rgba(0,0,0,0.12)",
+                          borderRadius: "2px",
+                          padding: "1px 5px",
+                          color: "#333"
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "var(--text-muted)", padding: "1px 5px" }}>
+                        +{project.technologies.length - 4} more
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                    <Link 
+                      href={project.slug === "modern-calculator" ? "/projects/modern-calculator/" : `/projects/${project.slug}/`} 
+                      className="tactile-btn tactile-btn-primary"
+                      style={{ textDecoration: "none" }}
+                      aria-label={`Read case study for ${project.title}`}
+                    >
+                      [ OPEN CASE STUDY ]
                     </Link>
-                  ) : (
-                    <a href={project.liveUrl} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                      Live App
-                    </a>
-                  )}
-                  <a href={project.githubUrl} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                    Source Code
-                  </a>
-                </div>
+                    
+                    {project.githubUrl && (
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="tactile-btn"
+                        style={{ textDecoration: "none" }}
+                        aria-label={`View source code for ${project.title} on GitHub`}
+                      >
+                        [ GITHUB SOURCE ]
+                      </a>
+                    )}
+                  </div>
+                </Paper>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
+            );
+          })}
+        </section>
 
-      {/* Upcoming Projects */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Upcoming Projects
-          </h2>
-          
-          <div className="cards-grid">
-            {upcomingProjects.map((project) => (
-              <article key={project.title} className="card glow-border reveal">
-                <div className="card-header">
-                  <div className="card-icon">{project.icon}</div>
-                  <h3 className="card-title">{project.title}</h3>
-                </div>
-                <p className="card-description">{project.description}</p>
-                <div className="card-tech">
-                  {project.tech.map((t) => (
-                    <span key={t} className="tech-tag">{t}</span>
-                  ))}
-                </div>
-                <div className="card-actions">
-                  <span className="btn btn-primary" style={{ opacity: 0.6, cursor: "not-allowed" }}>
-                    Coming Soon
-                  </span>
-                  <span className="btn btn-secondary" style={{ opacity: 0.6, cursor: "not-allowed" }}>
-                    Source Code
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* CTA Banner at the bottom of the page */}
+        <section aria-labelledby="cta-heading" style={{ marginTop: "6rem", display: "flex", justifyContent: "center" }}>
+          <div style={{ transform: "rotate(1deg)", width: "100%", maxWidth: "520px" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ textAlign: "center" }}>
+              <h2 id="cta-heading" style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "1.75rem", 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                marginBottom: "0.5rem" 
+              }}>
+                READY TO BUILD YOUR PROJECT?
+              </h2>
+              
+              <p style={{ color: "#333", fontSize: "0.9rem", lineHeight: "1.4", marginBottom: "1.5rem" }}>
+                Let's discuss your requirements and design a fast, custom web experience that fits your goals.
+              </p>
 
-      {/* Project Stats */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="cards-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>2+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Completed Projects</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>3+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Projects in Development</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>10+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Technologies Used</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>100%</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Open Source</p>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div style={{ margin: "1.5rem 0" }}>
+                <HandwrittenNote color="blue" tilt={-1.5} fontSize="1.2rem">
+                  let's build your solution
+                </HandwrittenNote>
+              </div>
 
-      {/* Call to Action */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="card glow-border reveal" style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
-            <h2 style={{ marginBottom: "1rem" }}>Have a Project Idea?</h2>
-            <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-              I'm always interested in collaborating on exciting projects. Let's discuss how we can bring your ideas to life!
-            </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" className="btn btn-primary">
-                Get in Touch
-              </Link>
-              <a href="https://github.com/Ramsingh4656" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                View GitHub
-              </a>
-            </div>
+              <div>
+                <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a project with Ram Singh">
+                  [ BOOK A PROJECT ]
+                </Link>
+              </div>
+            </Paper>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+
+      </div>
+    </main>
   );
 }
