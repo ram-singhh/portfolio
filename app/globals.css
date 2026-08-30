@@ -3147,6 +3147,28 @@ kbd {
     100% { transform: rotate(360deg); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .cassette-reel {
+        animation: none !important;
+    }
+}
+
+@keyframes pulse-dot {
+    0% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.4; transform: scale(0.9); }
+}
+
+.pulse-dot {
+    animation: pulse-dot 1.5s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pulse-dot {
+        animation: none !important;
+    }
+}
+
 @media (max-width: 992px) {
     .grid-hero-card { grid-column: span 12; }
     .grid-projects-card { grid-column: span 12; margin-top: 1rem; }
