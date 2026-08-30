@@ -10,6 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects/modern-calculator",
     "/projects/ai-multi-module-system",
     "/projects/portfolio-website",
+    "/services",
+    "/services/web-development",
+    "/services/frontend-development",
+    "/services/landing-pages",
+    "/services/website-redesign",
     "/experience",
     "/certificates",
     "/contact",
@@ -18,13 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => {
     let priority = 0.8;
     if (route === "") priority = 1.0;
-    else if (route === "/projects") priority = 0.9;
-    else if (route.startsWith("/projects/")) priority = 0.8;
+    else if (route === "/projects" || route === "/services") priority = 0.9;
+    else if (route.startsWith("/projects/") || route.startsWith("/services/")) priority = 0.8;
     else if (route === "/certificates") priority = 0.7;
     else if (route === "/contact") priority = 0.7;
 
     let changefreq: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" = "monthly";
-    if (route.startsWith("/projects/") || route === "/contact") {
+    if (route.startsWith("/projects/") || route.startsWith("/services/") || route === "/contact") {
       changefreq = "yearly";
     }
 

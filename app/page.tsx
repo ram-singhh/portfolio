@@ -202,6 +202,11 @@ export default function Home() {
                 <span style={{ color: "var(--color-ink-red)" }}>&bull;</span> WEBSITE REDESIGNS
               </li>
             </ul>
+            <div style={{ marginTop: "1.5rem" }}>
+              <Link href="/services/" className="tactile-btn" aria-label="View freelance web development services">
+                [ VIEW SERVICES &rarr; ]
+              </Link>
+            </div>
           </Paper>
         </section>
 
