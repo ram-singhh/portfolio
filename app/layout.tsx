@@ -3,7 +3,37 @@ import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
+import { Inter, Playfair_Display, Courier_Prime, Caveat } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
+
+const courier = Courier_Prime({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-handwritten",
+  display: "swap",
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -67,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${courier.variable} ${caveat.variable}`}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content

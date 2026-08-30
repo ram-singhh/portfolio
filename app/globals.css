@@ -6,47 +6,96 @@
 }
 
 :root {
-    /* ===== REFINED COLOR SYSTEM ===== */
-    /* Background Layers */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-elevated: #1a1a1a;
-    --bg-card: #1c1c1e;
-    --bg-card-hover: #252529;
-    --bg-glass: rgba(28, 28, 30, 0.8);
+    /* ===== TACTILE VISUAL REDESIGN TOKENS ===== */
+    /* Backgrounds */
+    --color-desk: #0f0d0c;             /* Dark wood/slate desk background */
+    --color-desk-dark: #080706;        /* Deep shade desk tone */
+    --color-surface: #171513;          /* Surface of dark wood */
+    --color-paper-light: #fdfcf7;      /* Warm aged cream paper */
+    --color-paper-dark: #191716;       /* Dark moleskine paper */
+    --color-paper-craft: #d4c6b5;      /* Craft cardboard paper */
+    --color-tape-base: rgba(225, 212, 190, 0.35); /* Translucent masking tape */
     
-    /* Violet/Purple Accent System */
+    /* Typography Fonts */
+    --font-primary: var(--font-sans), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: var(--font-serif), Georgia, serif;
+    --font-mono: var(--font-mono), 'Courier New', Courier, monospace;
+    --font-handwritten: var(--font-handwritten), 'Caveat', 'Architects Daughter', cursive;
+    
+    /* Text Colors */
+    --text-primary: #f2ede4;           /* Warm readable white */
+    --text-secondary: #c5beb4;         /* Muted warm gray */
+    --text-muted: #8d857a;             /* Secondary muted text */
+    --text-dark: #1a1816;              /* Dark ink text for papers */
+    
+    /* Inks for notes */
+    --color-ink-blue: #1b3d6d;         /* Classic ballpoint blue */
+    --color-ink-red: #9e1f1f;          /* Red gel pen */
+    --color-ink-green: #1b5e32;        /* Green pen */
+    --color-pencil: #44403c;           /* Gray pencil lead */
+    
+    /* Borders */
+    --border-subtle: rgba(242, 237, 228, 0.08); /* Subtle lines on dark desk */
+    --border-paper: rgba(0, 0, 0, 0.07);        /* Subtle edge on papers */
+    --border-dark: rgba(0, 0, 0, 0.85);         /* Crisp dark edge for embossed tape */
+    
+    /* Shadows */
+    --shadow-paper: 0 4px 12px rgba(0, 0, 0, 0.28), 0 1px 4px rgba(0, 0, 0, 0.18);
+    --shadow-floating: 0 15px 30px rgba(0, 0, 0, 0.35), 0 5px 15px rgba(0, 0, 0, 0.25);
+    --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    --spacing-section: 6rem;
+    --spacing-page: 8rem;
+    
+    /* Radius */
+    --radius-sm: 2px;                  /* Harder edges for tactile papers/tapes */
+    --radius-md: 4px;
+    --radius-lg: 8px;                  /* Avoid high SaaS rounding */
+    
+    /* Motion */
+    --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ===== MAPPED BACKWARD COMPATIBLE SYSTEM ===== */
+    --bg-primary: var(--color-desk);
+    --bg-secondary: var(--color-surface);
+    --bg-elevated: #1d1b19;
+    --bg-card: var(--color-paper-dark);
+    --bg-card-hover: #22201e;
+    --bg-glass: rgba(29, 27, 25, 0.85);
+    
+    /* Violet/Purple Accent System (retained for highlights/subtle glow) */
     --accent-primary: #8b5cf6;
     --accent-hover: #a855f7;
     --accent-light: #c084fc;
-    --accent-glow: rgba(139, 92, 246, 0.25);
-    --accent-glow-strong: rgba(139, 92, 246, 0.4);
-    --accent-border: rgba(139, 92, 246, 0.3);
-    --accent-subtle: rgba(139, 92, 246, 0.1);
+    --accent-glow: rgba(139, 92, 246, 0.2);
+    --accent-glow-strong: rgba(139, 92, 246, 0.35);
+    --accent-border: rgba(139, 92, 246, 0.25);
+    --accent-subtle: rgba(139, 92, 246, 0.08);
     
-    /* Text Hierarchy */
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --text-muted: #6b7280;
+    /* Text Hierarchy Mapped */
     --text-accent: var(--accent-primary);
     
-    /* Border System */
-    --border-primary: #2a2a2e;
-    --border-secondary: #3a3a3e;
+    /* Border System Mapped */
+    --border-primary: var(--border-subtle);
+    --border-secondary: rgba(242, 237, 228, 0.15);
     --border-accent: var(--accent-border);
     --border-focus: var(--accent-primary);
     
-    /* Shadow System */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    /* Shadow System Mapped */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --shadow-lg: var(--shadow-paper);
+    --shadow-xl: var(--shadow-floating);
     --shadow-glow: 0 0 20px var(--accent-glow);
     --shadow-glow-strong: 0 0 30px var(--accent-glow-strong);
-    
-    /* Typography System */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
     
     /* Font Weights */
     --font-light: 300;
@@ -66,23 +115,12 @@
     --letter-spacing-normal: 0;
     --letter-spacing-wide: 0.025em;
     
-    /* Spacing System */
+    /* Spacing System Mapped */
     --container-max-width: 1200px;
-    --section-padding: 4rem 0;
-    --section-gap: 6rem;
-    --card-padding: 2.5rem;
-    --element-gap: 1.5rem;
-    
-    /* Transition System */
-    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Border Radius */
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    --section-padding: var(--spacing-xl) 0;
+    --section-gap: var(--spacing-section);
+    --card-padding: var(--spacing-lg);
+    --element-gap: var(--spacing-md);
     
     /* Z-Index Scale */
     --z-dropdown: 1000;
@@ -2562,5 +2600,379 @@ kbd {
         --bg-secondary: #111111;
         --text-primary: #ffffff;
         --border-primary: #444444;
+    }
+}
+
+/* ==================================================
+   TASK 04 — VISUAL DESIGN SYSTEM COMPONENTS
+   ================================================== */
+
+/* 1. DESK BACKGROUND */
+.desk-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.desk-surface {
+    position: absolute;
+    inset: 0;
+    /* Rich dark wooden desk tone with vertical plank lines */
+    background-color: var(--color-desk);
+    background-image: 
+        /* Plank seams */
+        linear-gradient(90deg, rgba(0, 0, 0, 0.25) 1px, transparent 1px),
+        /* Subtle wood highlights */
+        linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
+    background-size: 240px 100%, 120px 100%;
+}
+
+.desk-grain {
+    position: absolute;
+    inset: 0;
+    /* High quality SVG fractal noise overlay */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.038;
+}
+
+.desk-lighting {
+    position: absolute;
+    inset: 0;
+    background: 
+        /* Cozy warm desk lamp illumination */
+        radial-gradient(circle at 50% -10%, rgba(220, 175, 125, 0.075) 0%, transparent 65%),
+        /* Deep desk edge shading/vignette */
+        radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* 2. PAPER COMPONENT */
+.paper-component {
+    position: relative;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-paper);
+    transform: rotate(var(--paper-rotation, 0deg));
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    overflow: hidden;
+}
+
+/* Paper Hover Lift */
+.paper-component:hover {
+    transform: translateY(-4px) rotate(calc(var(--paper-rotation, 0deg) * 0.9)) scale(1.008);
+    box-shadow: var(--shadow-floating);
+}
+
+.paper-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Paper Variants */
+.paper-variant-light {
+    background-color: var(--color-paper-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-paper);
+}
+
+.paper-variant-dark {
+    background-color: var(--color-paper-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+
+.paper-variant-craft {
+    background-color: var(--color-paper-craft);
+    color: #2c251f;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Lined Notebook Paper styling */
+.paper-variant-lined {
+    background-color: var(--color-paper-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-paper);
+    background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+    background-size: 100% 26px;
+    line-height: 26px;
+}
+.paper-variant-lined::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 45px;
+    width: 1px;
+    background: rgba(220, 38, 38, 0.2);
+    pointer-events: none;
+    z-index: 1;
+}
+.paper-variant-lined .paper-content {
+    padding-left: 55px; /* Leave space for red margin line */
+}
+
+/* Grid Notebook Paper styling */
+.paper-variant-grid {
+    background-color: var(--color-paper-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-paper);
+    background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+/* Padding scale */
+.paper-padding-none { padding: 0; }
+.paper-padding-small { padding: 1rem; }
+.paper-padding-medium { padding: 2rem; }
+.paper-padding-large { padding: 3rem; }
+
+/* Responsive adjustments for Paper component */
+@media (max-width: 768px) {
+    .paper-component {
+        transform: rotate(calc(var(--paper-rotation, 0deg) * 0.25)) !important;
+    }
+    .paper-component:hover {
+        transform: translateY(-2px) rotate(calc(var(--paper-rotation, 0deg) * 0.2)) scale(1.002) !important;
+    }
+    .paper-padding-large { padding: 2rem; }
+    .paper-variant-lined .paper-content {
+        padding-left: 45px;
+    }
+    .paper-variant-lined::before {
+        left: 35px;
+    }
+}
+
+/* 3. MASKING TAPE COMPONENT */
+.masking-tape-component {
+    position: absolute;
+    height: 22px;
+    width: var(--tape-width, 90px);
+    background-color: var(--color-tape-base);
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        inset 0 0 3px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
+    z-index: 10;
+    opacity: 0.9;
+    pointer-events: none;
+    transform: rotate(var(--tape-rotation, 1.5deg));
+    
+    /* Jagged hand-torn tape ends */
+    clip-path: polygon(
+        0% 0%, 3% 20%, 0% 40%, 4% 60%, 1% 80%, 4% 100%, 
+        96% 100%, 99% 80%, 96% 60%, 100% 40%, 97% 20%, 100% 0%
+    );
+}
+
+/* Tape position presets */
+.tape-pos-top-center {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(var(--tape-rotation, 1.5deg));
+}
+
+.tape-pos-top-left {
+    top: -8px;
+    left: -12px;
+    transform: rotate(calc(var(--tape-rotation, 1.5deg) - 25deg));
+}
+
+.tape-pos-top-right {
+    top: -8px;
+    right: -12px;
+    transform: rotate(calc(var(--tape-rotation, 1.5deg) + 25deg));
+}
+
+.tape-pos-bottom-center {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(var(--tape-rotation, 1.5deg));
+}
+
+/* 4. POLAROID / PHOTO COMPONENT */
+.polaroid-component {
+    position: relative;
+    display: inline-block;
+    transform: rotate(var(--polaroid-rotation, -1.5deg));
+    transition: transform var(--transition-normal) var(--ease-out-back);
+    margin: 1rem;
+}
+
+.polaroid-frame {
+    background-color: #fdfdfa; /* Polaroid white board border */
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 12px 12px 38px 12px; /* Thick bottom border */
+    box-shadow: var(--shadow-paper);
+    border-radius: 1px;
+}
+
+.polaroid-image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.polaroid-image {
+    display: block;
+    filter: contrast(1.02) saturate(0.95) brightness(0.98);
+}
+
+/* Polaroid film glossy sheen glare */
+.polaroid-gloss {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(255, 255, 255, 0) 45%, 
+        rgba(255, 255, 255, 0.02) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+}
+
+.polaroid-caption-container {
+    margin-top: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.polaroid-caption-text {
+    font-family: var(--font-handwritten), cursive;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-ink-blue);
+    line-height: 1.1;
+    display: block;
+    word-break: break-word;
+}
+
+/* Polaroid Hover Interaction */
+.polaroid-component:hover {
+    transform: translateY(-8px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.6)) scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .polaroid-component {
+        transform: rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.3)) !important;
+        margin: 0.5rem;
+    }
+    .polaroid-component:hover {
+        transform: translateY(-3px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.2)) scale(1.005) !important;
+    }
+}
+
+/* 5. HANDWRITTEN NOTE COMPONENT */
+.handwritten-note-component {
+    font-family: var(--font-handwritten), cursive;
+    display: inline-block;
+    transform: rotate(var(--note-tilt, -1.5deg));
+    transition: transform var(--transition-normal);
+    line-height: 1.2;
+    padding: 2px 4px;
+}
+
+/* Note Ink Color definitions */
+.note-ink-blue {
+    color: var(--color-ink-blue);
+    text-shadow: 0 0 0.5px rgba(27, 61, 109, 0.15);
+}
+
+.note-ink-red {
+    color: var(--color-ink-red);
+    text-shadow: 0 0 0.5px rgba(158, 31, 31, 0.15);
+}
+
+.note-ink-green {
+    color: var(--color-ink-green);
+    text-shadow: 0 0 0.5px rgba(27, 94, 50, 0.15);
+}
+
+.note-ink-pencil {
+    color: var(--color-pencil);
+    text-shadow: 0 0 0.5px rgba(68, 64, 60, 0.1);
+}
+
+/* 6. TYPEWRITER LABEL COMPONENT */
+.typewriter-label-component {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transform: rotate(var(--label-rotation, 0.5deg));
+    padding: 4px 10px;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+/* Typewriter plain */
+.label-style-plain {
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0;
+    transform: none;
+}
+
+/* Typewriter paper strip */
+.label-style-paper {
+    background-color: var(--color-paper-light);
+    color: #1a1a1a;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 1px;
+}
+
+/* Dymo Embossed Label Tape */
+.label-style-dymo {
+    background-color: #121212;
+    color: #ffffff;
+    border: 1px solid #000;
+    border-bottom: 2px solid #000;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.12em;
+}
+
+/* Small alignment dots simulating the embossed tape machine grip */
+.dymo-emboss-dots {
+    display: inline-block;
+    width: 4px;
+    height: 10px;
+    border-left: 1px dotted rgba(255, 255, 255, 0.18);
+    margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+    .typewriter-label-component {
+        transform: rotate(calc(var(--label-rotation, 0.5deg) * 0.3)) !important;
+    }
+}
+
+/* ===== ACCESSIBILITY REDUCED MOTION (EXTENDED) ===== */
+@media (prefers-reduced-motion: reduce) {
+    .paper-component,
+    .paper-component:hover,
+    .polaroid-component,
+    .polaroid-component:hover,
+    .handwritten-note-component,
+    .typewriter-label-component,
+    .masking-tape-component {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
     }
 }
