@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return {
       url: `${siteConfig.url}${route}/`,
-      lastModified: new Date("2026-03-27"),
+      lastModified: new Date("2026-08-30"),
       changeFrequency: changefreq,
       priority: priority,
     };

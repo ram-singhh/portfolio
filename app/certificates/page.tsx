@@ -1,10 +1,13 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata = {
-  title: "Certificates",
-  description: "Ram Singh's Certificates - Microsoft Azure, AI/ML, Cloud Administration, Power BI, Cybersecurity, and more from AICTE, Microsoft Elevate, and Udemy.",
+  title: "Certifications",
+  description: "View the professional certifications earned by Ram Singh, including Microsoft Azure cloud engineering, AI/ML, and web development courses.",
+  alternates: {
+    canonical: "/certificates/",
+  },
 };
 
 export default function Certificates() {
@@ -109,7 +112,7 @@ export default function Certificates() {
       <section className="section-padding" style={{ paddingTop: "8rem" }}>
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">certificates</h2>
+            <h1 className="section-title">certificates</h1>
             <p className="section-subtitle">
               Professional certifications and achievements that validate my skills and knowledge
             </p>
@@ -224,7 +227,7 @@ export default function Certificates() {
           <div className="card glow-border reveal" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
             <div className="card-header" style={{ justifyContent: "center" }}>
               <div className="card-icon">🎓</div>
-              <h2 className="card-title">Continuous Learning</h2>
+              <h3 className="card-title">Continuous Learning</h3>
             </div>
             <p style={{ color: "var(--text-secondary)", marginBottom: "2rem", fontSize: "1.125rem", lineHeight: "1.6" }}>
               I believe in continuous learning and staying updated with the latest technologies. These certificates represent my commitment to professional growth and my dedication to mastering the skills needed to build exceptional web experiences.

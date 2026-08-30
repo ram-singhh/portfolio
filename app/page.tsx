@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import TypingText from "@/components/ui/TypingText";
@@ -16,11 +16,10 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-text">
               <h1>
-                Web Developer | <span className="text-gradient">AIML Learner</span> |{" "}
-                <span className="text-gradient">Azure Fundamentals</span> | BSc-IT Student
+                Ram Singh — <span className="text-gradient">Freelance Web Developer</span>
               </h1>
               <p className="subtitle">
-                Building modern web experiences while exploring <TypingText />
+                I am Ram Singh, a freelance web developer building fast, responsive, and modern websites and web experiences. I focus on quality web development while exploring <TypingText />.
               </p>
               <div className="hero-actions">
                 <Link href="/projects/" className="hero-cta">
@@ -34,7 +33,7 @@ export default function Home() {
             <div className="hero-image">
               <Image
                 src="/assets/images/Profile.jpg"
-                alt="Ram Singh - Frontend Developer"
+                alt="Ram Singh - Freelance Web Developer"
                 width={320}
                 height={320}
                 priority

@@ -1,10 +1,15 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata = {
-  title: "About",
-  description: "About Ram Singh - Frontend Developer and BSc-IT Student with expertise in HTML, CSS, JavaScript, and Microsoft Azure. Seeking internships in web development.",
+  title: {
+    absolute: "About Ram Singh | Freelance Web Developer",
+  },
+  description: "Learn about Ram Singh, a freelance web developer and BSc-IT student building fast, responsive, and modern websites and web experiences.",
+  alternates: {
+    canonical: "/about/",
+  },
 };
 
 export default function About() {
@@ -16,7 +21,7 @@ export default function About() {
       <section className="section-padding" style={{ paddingTop: "8rem" }}>
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">about-me</h2>
+            <h1 className="section-title">about-me</h1>
             <p className="section-subtitle">Passionate first-year BSc-IT student ready to make an impact</p>
           </div>
         </div>

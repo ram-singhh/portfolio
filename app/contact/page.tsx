@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -164,7 +164,7 @@ export default function Contact() {
       <section className="section-padding" style={{ paddingTop: "8rem" }}>
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">contacts</h2>
+            <h1 className="section-title">contacts</h1>
             <p className="section-subtitle">Open to internships, freelance work, and collaborations</p>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default function Contact() {
             <article className="card glow-border reveal contact-form-card">
               <div className="card-header">
                 <div className="card-icon">📧</div>
-                <h2 className="card-title">Send me a message</h2>
+                <h3 className="card-title">Send me a message</h3>
               </div>
               <p className="card-description">
                 Have an internship opportunity? Want to collaborate on a project? Or just want to connect? I'd love to hear from you and discuss how I can contribute to your team!

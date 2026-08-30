@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
         url: "/assets/images/Profile.jpg",
         width: 800,
         height: 800,
-        alt: "Ram Singh - Frontend Developer",
+        alt: "Ram Singh - Freelance Web Developer",
       },
     ],
     locale: "en_US",
@@ -74,6 +75,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <PersonJsonLd />
+        <WebSiteJsonLd />
       </body>
     </html>
   );

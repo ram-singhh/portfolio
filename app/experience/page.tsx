@@ -1,10 +1,13 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata = {
   title: "Experience",
-  description: "Ram Singh's Experience - Microsoft Azure Internship via AICTE, BSc-IT studies, and frontend development projects. Actively seeking internships in web development and cloud computing.",
+  description: "Explore the professional experience of Ram Singh, including his Microsoft Azure cloud internship and his IT academic background.",
+  alternates: {
+    canonical: "/experience/",
+  },
 };
 
 export default function Experience() {
@@ -16,7 +19,7 @@ export default function Experience() {
       <section className="section-padding" style={{ paddingTop: "8rem" }}>
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">experience</h2>
+            <h1 className="section-title">experience</h1>
             <p className="section-subtitle">My professional journey, internships, and career development in technology</p>
           </div>
         </div>
