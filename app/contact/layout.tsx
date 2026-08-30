@@ -2,11 +2,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Contact Ram Singh | Freelance Web Developer",
+    absolute: "Book a Web Development Project | Ram Singh",
   },
-  description: "Get in touch with freelance web developer Ram Singh. Open to web development internships, collaborations, and freelance opportunities.",
+  description: "Submit a project brief to book a web development project with freelance developer Ram Singh. Open to responsive web designs, frontend modernization, and custom web applications.",
   alternates: {
-    canonical: "/contact/",
+    canonical: "https://www.ramsingh.dev/contact/",
   },
 };
 

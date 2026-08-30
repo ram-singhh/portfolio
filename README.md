@@ -128,3 +128,37 @@ When deploying to Vercel (or any other hosting provider), navigate to your Proje
 - `SPOTIFY_REFRESH_TOKEN`
 Do not prefix these variables with `NEXT_PUBLIC_` to keep them securely server-side.
 
+## Freelance Project Brief & Inquiry System
+
+The website features an interactive project request/brief system at `/contact/` which submits data to `/api/contact/` using client-side validation and server-side verification before dispatching a notification email using the Resend API.
+
+### 1. Environment Variables Configuration
+
+To enable the inquiry form, add the following variables to `.env.local` (local development) and your production environment settings:
+
+```env
+# Resend API Key (get from resend.com)
+RESEND_API_KEY=re_your_api_key
+
+# Destination email where inquiries will be received (e.g. ram01singh4656@gmail.com)
+CONTACT_EMAIL=your_receive_email@example.com
+
+# Verified sender email configured in Resend (defaults to onboarding@resend.dev)
+CONTACT_SENDER=onboarding@resend.dev
+```
+
+### 2. Local Development Behavior
+
+If `RESEND_API_KEY` is not set locally:
+- The backend API route will fail gracefully, outputting a safe configuration error to the server console.
+- The web page will show a user-friendly error without exposing API configuration details or breaking the user interface.
+- No email is sent, but the application remains fully functional and compiles.
+
+### 3. Production Configuration & Email Provider Setup
+
+- **Provider**: [Resend](https://resend.com/)
+- **Sender Verification**: Add and verify your domain in the Resend dashboard. Set `CONTACT_SENDER` to an email address under your verified domain (e.g., `briefs@yourdomain.com`).
+- **Reply-To**: The system automatically sets the `Reply-To` header to the visitor's email address so you can reply directly to their inquiry from your mail client.
+- **Rate Limiting**: Includes a lightweight, in-memory IP rate limiter limiting each IP to 3 requests per 5 minutes. For multi-instance, globally distributed serverless environments (such as Vercel), a centralized database (like Redis) should be introduced for rate-limiting persistence.
+
+
