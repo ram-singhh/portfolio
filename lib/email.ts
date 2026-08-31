@@ -43,6 +43,39 @@ export function isValidUrl(str: string): boolean {
 }
 
 /**
+ * Formats process.env.CONTACT_SENDER into a valid Resend "from" address format:
+ * "Name <email@example.com>" or "email@example.com".
+ * Prevents invalid double angle-bracket nesting like "Ram Singh Briefs <Ram Singh <email>>".
+ */
+export function formatSenderAddress(rawSender: string): string {
+  const trimmed = (rawSender || "").trim();
+  if (!trimmed) {
+    return "Ram Singh <onboarding@resend.dev>";
+  }
+
+  // 1. Check if rawSender is already in "Name <email@domain.com>" or "<email@domain.com>" format
+  const angleMatch = trimmed.match(/^(?:["']?([^<"']+)["']?\s*)?<([^>]+)>$/);
+  if (angleMatch) {
+    const [, extractedName, extractedEmail] = angleMatch;
+    const cleanEmail = extractedEmail.trim();
+    const cleanName = extractedName ? extractedName.trim() : "";
+    if (cleanName) {
+      return `${cleanName} <${cleanEmail}>`;
+    }
+    return `Ram Singh <${cleanEmail}>`;
+  }
+
+  // 2. Check if rawSender is a plain email address without angle brackets
+  if (trimmed.includes("@") && !trimmed.includes("<") && !trimmed.includes(">")) {
+    const cleanEmail = trimmed.replace(/["']/g, "").trim();
+    return `Ram Singh <${cleanEmail}>`;
+  }
+
+  // 3. Fallback to rawSender if unrecognized
+  return trimmed;
+}
+
+/**
  * Sends a project inquiry email notification via the Resend API.
  */
 export async function sendProjectInquiryEmail(
@@ -52,6 +85,7 @@ export async function sendProjectInquiryEmail(
   const destinationEmail = process.env.CONTACT_EMAIL || "ram01singh4656@gmail.com";
   // Resend default onboarding sender
   const senderEmail = process.env.CONTACT_SENDER || "onboarding@resend.dev";
+  const fromAddress = formatSenderAddress(senderEmail);
 
   if (!apiKey) {
     console.error("Email service error: RESEND_API_KEY environment variable is not configured.");
@@ -60,6 +94,13 @@ export async function sendProjectInquiryEmail(
       error: "Email service is currently unconfigured. Please check environment configuration.",
     };
   }
+
+  // Safe diagnostic logging (reveals ONLY configuration status and sanitized sender format/domain - NO secrets or credentials)
+  console.log("[Email Service] Configuration status:", {
+    apiKeyConfigured: true,
+    destinationConfigured: Boolean(process.env.CONTACT_EMAIL),
+    senderFormat: fromAddress.replace(/<[^@]+@/, "<***@"),
+  });
 
   // Construct structured, readable HTML content
   const emailHtml = `
@@ -132,10 +173,11 @@ export async function sendProjectInquiryEmail(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: `Ram Singh Briefs <${senderEmail}>`,
+        from: fromAddress,
         to: destinationEmail,
         subject: `New Project Inquiry from ${data.name}`,
         reply_to: data.email,
+        replyTo: data.email,
         html: emailHtml,
       }),
     });
