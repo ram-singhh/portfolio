@@ -7,7 +7,7 @@ import DeskBackground from "@/components/ui/DeskBackground";
 
 export default function NotFound() {
   return (
-    <main className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "6rem" }}>
+    <main id="main-content" tabIndex={-1} className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "6rem" }}>
       <DeskBackground />
       <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "10rem", maxWidth: "560px", margin: "0 auto" }}>
         <div style={{ transform: "rotate(-1.5deg)" }}>
@@ -15,7 +15,7 @@ export default function NotFound() {
             <Tape rotation={-3} position="top-center" width="110px" />
             <div style={{ marginBottom: "1.5rem" }}>
               <TypewriterLabel variant="dymo" rotation={1.5}>
-                ERROR 404
+                404
               </TypewriterLabel>
             </div>
             <h1 style={{ 
@@ -26,7 +26,7 @@ export default function NotFound() {
               color: "var(--text-dark)", 
               marginBottom: "1rem" 
             }}>
-              Document Not Found
+              THIS PAGE GOT LOST.
             </h1>
             <p style={{ 
               fontFamily: "var(--font-primary)", 
@@ -35,17 +35,14 @@ export default function NotFound() {
               color: "#333", 
               marginBottom: "2rem" 
             }}>
-              The filing cabinet does not contain the page you requested. It may have been moved, renamed, or is temporarily archived.
+              The requested document is not on the desk. It may have been moved or archived.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", maxWidth: "240px", margin: "0 auto" }}>
               <Link href="/" className="tactile-btn tactile-btn-primary" style={{ textDecoration: "none" }}>
-                [ RETURN HOME ]
+                [ BACK HOME ]
               </Link>
               <Link href="/projects/" className="tactile-btn" style={{ textDecoration: "none" }}>
-                [ VIEW PROJECTS ]
-              </Link>
-              <Link href="/services/" className="tactile-btn" style={{ textDecoration: "none" }}>
-                [ VIEW SERVICES ]
+                [ VIEW MY WORK ]
               </Link>
               <Link href="/contact/" className="tactile-btn" style={{ textDecoration: "none" }}>
                 [ BOOK A PROJECT ]

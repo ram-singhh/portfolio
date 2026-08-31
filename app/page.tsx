@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="home-workspace">
+    <main id="main-content" tabIndex={-1} className="home-workspace">
       {/* Workspace physical desk background */}
       <DeskBackground />
 
@@ -83,10 +83,10 @@ export default function Home() {
           />
         </section>
 
-        {/* Currently Playing Spotify Player - Positioned in hero empty space under main hero paper */}
+        {/* Currently Playing Spotify Player - Compact player in hero empty space */}
         <section className="grid-spotify-card" aria-label="Currently playing on Spotify">
-          <Paper variant="dark" rotation={1.2} padding="medium">
-            <div style={{ marginBottom: "1.5rem" }}>
+          <Paper variant="dark" rotation={1.2} padding="small">
+            <div style={{ marginBottom: "0.35rem" }}>
               <TypewriterLabel variant="dymo" rotation={-1.5}>
                 CURRENTLY PLAYING
               </TypewriterLabel>

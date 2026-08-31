@@ -207,7 +207,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "8rem" }}>
+    <main id="main-content" tabIndex={-1} className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "8rem" }}>
       {/* Wood Desk surface */}
       <DeskBackground />
 
@@ -291,7 +291,7 @@ export default function Contact() {
                 </p>
                 <div style={{ marginTop: "1rem" }}>
                   <HandwrittenNote color="pencil" tilt={-1.5} fontSize="1.05rem">
-                    or email directly: ram01singh4656@gmail.com
+                    or email directly: hello@ramsingh.dev
                   </HandwrittenNote>
                 </div>
               </Paper>

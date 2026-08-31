@@ -82,7 +82,7 @@ export async function sendProjectInquiryEmail(
   data: ProjectInquiryData
 ): Promise<{ success: boolean; error?: string }> {
   const apiKey = process.env.RESEND_API_KEY;
-  const destinationEmail = process.env.CONTACT_EMAIL || "ram01singh4656@gmail.com";
+  const destinationEmail = process.env.CONTACT_EMAIL || "hello@ramsingh.dev";
   // Resend default onboarding sender
   const senderEmail = process.env.CONTACT_SENDER || "onboarding@resend.dev";
   const fromAddress = formatSenderAddress(senderEmail);

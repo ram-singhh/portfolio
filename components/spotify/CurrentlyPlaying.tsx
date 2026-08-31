@@ -45,29 +45,47 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
   const track = data ? data.track : null;
   const hasError = error || (data && data.error && data.error !== "rate-limited");
 
+  // Helper function for rendering compact vintage cassette tape visual
+  const renderCassette = (tagText: string, spinning: boolean) => (
+    <div className="spotify-cassette-mini" aria-label={`Vintage cassette tape ${spinning ? "playing" : "idle"}`}>
+      <div className="cassette-screw top-left" />
+      <div className="cassette-screw top-right" />
+      <div className="cassette-screw bottom-left" />
+      <div className="cassette-screw bottom-right" />
+      <div className="cassette-label-mini">
+        <span className="cassette-tape-tag">{tagText}</span>
+        <div className="cassette-window-mini">
+          <div className="cassette-tape-strip" />
+          <div className="cassette-reels-mini" aria-hidden="true">
+            <div className="cassette-reel-mini" style={{ animationPlayState: spinning ? "running" : "paused" }} />
+            <div className="cassette-reel-mini" style={{ animationPlayState: spinning ? "running" : "paused" }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   // 1. LOADING STATE
   if (loading) {
     return (
-      <div className={`spotify-mock-player ${className}`} style={style} aria-busy="true" aria-live="polite">
-        <div className="spotify-cassette" aria-label="Vintage cassette tape representing spotify player loading">
-          <div className="cassette-label">
-            <span style={{ fontSize: "0.55rem", fontWeight: "bold", opacity: 0.6, letterSpacing: "0.15em", color: "#555" }}>
-              SPOTIFY TAPE
-            </span>
-            <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-mono)", fontWeight: "bold", color: "#666" }}>
-              [ CONNECTING... ]
-            </span>
+      <div className={`spotify-compact-player ${className}`} style={style} aria-busy="true" aria-live="polite">
+        <div className="spotify-main-layout">
+          {renderCassette("SPOTIFY", false)}
+          <div className="spotify-content-column">
+            <div className="spotify-track-container">
+              <div className="spotify-album-thumb-placeholder">💿</div>
+              <div className="spotify-track-details">
+                <span className="spotify-track-name">[ CONNECTING... ]</span>
+                <span className="spotify-track-artist">Checking deck connection...</span>
+              </div>
+            </div>
+            <div className="spotify-status-bar">
+              <span className="spotify-status-badge" style={{ color: "var(--text-muted)" }}>
+                ■ CONNECTING
+              </span>
+              <span className="spotify-deck-note">deck initializing</span>
+            </div>
           </div>
-          <div className="cassette-reels" aria-hidden="true">
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-          </div>
-        </div>
-        
-        <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", margin: 0 }}>
-            Checking deck connection...
-          </p>
         </div>
       </div>
     );
@@ -76,29 +94,23 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
   // 2. UNCONFIGURED STATE (SPOTIFY NOT CONNECTED)
   if (!isConfigured) {
     return (
-      <div className={`spotify-mock-player ${className}`} style={style} aria-live="polite">
-        <div className="spotify-cassette" aria-label="Vintage cassette tape representing spotify player unconfigured">
-          <div className="cassette-label">
-            <span style={{ fontSize: "0.55rem", fontWeight: "bold", opacity: 0.6, letterSpacing: "0.15em", color: "#555" }}>
-              SPOTIFY TAPE
-            </span>
-            <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-mono)", fontWeight: "bold", color: "var(--color-ink-red)" }}>
-              [ NOT CONNECTED ]
-            </span>
+      <div className={`spotify-compact-player ${className}`} style={style} aria-live="polite">
+        <div className="spotify-main-layout">
+          {renderCassette("UNCONFIG", false)}
+          <div className="spotify-content-column">
+            <div className="spotify-track-container">
+              <div className="spotify-album-thumb-placeholder" style={{ borderColor: "rgba(220, 38, 38, 0.3)" }}>⚠️</div>
+              <div className="spotify-track-details">
+                <span className="spotify-track-name" style={{ color: "var(--color-ink-red)" }}>[ NOT CONNECTED ]</span>
+                <span className="spotify-track-artist">Add credentials to environment variables</span>
+              </div>
+            </div>
+            <div className="spotify-status-bar">
+              <span className="spotify-status-badge" style={{ color: "var(--color-ink-red)" }}>
+                ■ NOT CONNECTED
+              </span>
+            </div>
           </div>
-          <div className="cassette-reels" aria-hidden="true">
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-          </div>
-        </div>
-        
-        <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--color-ink-red)", margin: 0, fontWeight: "bold" }}>
-            SPOTIFY NOT CONNECTED
-          </p>
-          <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>
-            Add credentials to environment variables.
-          </p>
         </div>
       </div>
     );
@@ -107,26 +119,23 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
   // 3. ERROR / OFFLINE STATE
   if (hasError) {
     return (
-      <div className={`spotify-mock-player ${className}`} style={style} aria-live="assertive">
-        <div className="spotify-cassette" aria-label="Vintage cassette tape representing spotify player error">
-          <div className="cassette-label">
-            <span style={{ fontSize: "0.55rem", fontWeight: "bold", opacity: 0.6, letterSpacing: "0.15em", color: "#555" }}>
-              SPOTIFY TAPE
-            </span>
-            <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-mono)", fontWeight: "bold", color: "var(--color-ink-red)" }}>
-              [ OFFLINE ]
-            </span>
+      <div className={`spotify-compact-player ${className}`} style={style} aria-live="assertive">
+        <div className="spotify-main-layout">
+          {renderCassette("OFFLINE", false)}
+          <div className="spotify-content-column">
+            <div className="spotify-track-container">
+              <div className="spotify-album-thumb-placeholder" style={{ borderColor: "rgba(220, 38, 38, 0.3)" }}>📡</div>
+              <div className="spotify-track-details">
+                <span className="spotify-track-name" style={{ color: "var(--color-ink-red)" }}>[ OFFLINE ]</span>
+                <span className="spotify-track-artist">Connection or API error</span>
+              </div>
+            </div>
+            <div className="spotify-status-bar">
+              <span className="spotify-status-badge" style={{ color: "var(--color-ink-red)" }}>
+                ▲ OFFLINE
+              </span>
+            </div>
           </div>
-          <div className="cassette-reels" aria-hidden="true">
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-            <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-          </div>
-        </div>
-        
-        <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--color-ink-red)", margin: 0 }}>
-            ▲ OFFLINE / CONNECTION ERROR
-          </p>
         </div>
       </div>
     );
@@ -136,151 +145,66 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
   if (isPlaying && track) {
     const progressMs = data ? data.progressMs : null;
     const durationMs = data ? data.durationMs : null;
-    const progressPercent = durationMs && progressMs ? (progressMs / durationMs) * 100 : 0;
+    const progressPercent = durationMs && progressMs ? Math.min((progressMs / durationMs) * 100, 100) : 0;
 
     return (
-      <div className={`spotify-mock-player ${className}`} style={style} aria-live="polite">
-        {/* Cassette Tape */}
-        <div className="spotify-cassette" aria-label={`Cassette tape spinning, playing ${track.name} by ${track.artist}`}>
-          <div className="cassette-label">
-            <span style={{ fontSize: "0.55rem", fontWeight: "bold", opacity: 0.6, letterSpacing: "0.15em", color: "#555" }}>
-              SPOTIFY TAPE
-            </span>
-            <span style={{ 
-              fontSize: "0.65rem", 
-              fontFamily: "var(--font-mono)", 
-              fontWeight: "bold", 
-              color: "#111", 
-              maxWidth: "100%", 
-              whiteSpace: "nowrap", 
-              overflow: "hidden", 
-              textOverflow: "ellipsis" 
-            }}>
-              {track.name}
-            </span>
-          </div>
-          <div className="cassette-reels" aria-hidden="true">
-            <div className="cassette-reel" style={{ animationPlayState: "running" }} />
-            <div className="cassette-reel" style={{ animationPlayState: "running" }} />
-          </div>
-        </div>
+      <div className={`spotify-compact-player ${className}`} style={style} aria-live="polite">
+        <div className="spotify-main-layout">
+          {renderCassette("SPOTIFY TAPE", true)}
+          <div className="spotify-content-column">
+            <div className="spotify-track-container">
+              {track.image ? (
+                <div className="spotify-album-thumb">
+                  <Image 
+                    src={track.image} 
+                    alt={`Album art for ${track.name} by ${track.artist}`}
+                    fill
+                    sizes="52px"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+              ) : (
+                <div className="spotify-album-thumb-placeholder">💿</div>
+              )}
 
-        {/* Track Details Card */}
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginTop: "0.75rem" }}>
-          {/* Album artwork */}
-          {track.image ? (
-            <div style={{ position: "relative", width: 64, height: 64, borderRadius: "4px", overflow: "hidden", flexShrink: 0, boxShadow: "0 2px 5px rgba(0,0,0,0.5)" }}>
-              <Image 
-                src={track.image} 
-                alt={`Album art for ${track.name} by ${track.artist}`}
-                fill
-                sizes="64px"
-                style={{ objectFit: "cover" }}
-              />
+              <div className="spotify-track-details">
+                <span className="spotify-track-name">{track.name}</span>
+                <span className="spotify-track-artist">{track.artist}</span>
+                {track.album && <span className="spotify-track-album">{track.album}</span>}
+              </div>
             </div>
-          ) : (
-            <div style={{ 
-              width: 64, 
-              height: 64, 
-              borderRadius: "4px", 
-              backgroundColor: "#222", 
-              display: "flex", 
-              alignItems: "center", 
-              justifyContent: "center", 
-              flexShrink: 0,
-              boxShadow: "0 2px 5px rgba(0,0,0,0.5)",
-              border: "1px solid rgba(255,255,255,0.05)"
-            }}>
-              <span style={{ fontSize: "1.5rem" }} role="img" aria-label="Music disc placeholder">💿</span>
-            </div>
-          )}
 
-          {/* Track Text */}
-          <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, minWidth: 0 }}>
-            <span style={{ 
-              fontFamily: "var(--font-mono)", 
-              fontSize: "0.9rem", 
-              fontWeight: "bold", 
-              color: "#fff", 
-              whiteSpace: "nowrap", 
-              overflow: "hidden", 
-              textOverflow: "ellipsis" 
-            }}>
-              {track.name}
-            </span>
-            
-            <span style={{ 
-              fontFamily: "var(--font-primary)", 
-              fontSize: "0.8rem", 
-              color: "var(--text-secondary)",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis"
-            }}>
-              {track.artist}
-            </span>
-
-            {track.album && (
-              <span style={{ 
-                fontFamily: "var(--font-primary)", 
-                fontSize: "0.7rem", 
-                color: "var(--text-muted)",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
-              }}>
-                {track.album}
+            <div className="spotify-status-bar">
+              <span className="spotify-status-badge" style={{ color: "#22c55e" }}>
+                <span className="pulse-dot" />
+                ● PLAYING
               </span>
+
+              {track.spotifyUrl && (
+                <a 
+                  href={track.spotifyUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="spotify-open-link"
+                  aria-label={`Open ${track.name} on Spotify`}
+                >
+                  OPEN IN SPOTIFY ↗
+                </a>
+              )}
+            </div>
+
+            {durationMs && progressMs !== null && (
+              <div className="spotify-progress-wrapper">
+                <div className="spotify-progress-bar" aria-hidden="true">
+                  <div className="spotify-progress-fill" style={{ width: `${progressPercent}%` }} />
+                </div>
+                <div className="spotify-progress-times">
+                  <span>{formatMs(progressMs)}</span>
+                  <span>{formatMs(durationMs)}</span>
+                </div>
+              </div>
             )}
           </div>
-        </div>
-
-        {/* Progress Bar */}
-        {durationMs && progressMs !== null && (
-          <div style={{ marginTop: "0.5rem" }}>
-            <div style={{ width: "100%", height: "4px", backgroundColor: "rgba(255,255,255,0.08)", borderRadius: "2px", overflow: "hidden" }} aria-hidden="true">
-              <div style={{ width: `${progressPercent}%`, height: "100%", backgroundColor: "var(--color-ink-red)", transition: "width 1s linear" }} />
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.6rem", fontFamily: "var(--font-mono)", color: "var(--text-muted)", marginTop: "0.25rem" }}>
-              <span>{formatMs(progressMs)}</span>
-              <span>{formatMs(durationMs)}</span>
-            </div>
-          </div>
-        )}
-
-        {/* Status & Spotify Link */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.5rem", flexWrap: "wrap", gap: "0.5rem" }}>
-          <span style={{ 
-            fontFamily: "var(--font-mono)", 
-            fontSize: "0.75rem", 
-            fontWeight: "bold", 
-            color: "#22c55e", 
-            display: "inline-flex", 
-            alignItems: "center", 
-            gap: "0.35rem" 
-          }}>
-            <span className="pulse-dot" style={{ width: "6px", height: "6px", backgroundColor: "#22c55e", borderRadius: "50%" }} />
-            ▶ PLAYING
-          </span>
-          
-          {track.spotifyUrl && (
-            <a 
-              href={track.spotifyUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ 
-                fontFamily: "var(--font-mono)", 
-                fontSize: "0.75rem", 
-                color: "var(--text-secondary)", 
-                textDecoration: "underline",
-                display: "inline-flex",
-                alignItems: "center"
-              }}
-              aria-label={`Open ${track.name} on Spotify`}
-            >
-              OPEN IN SPOTIFY ↗
-            </a>
-          )}
         </div>
       </div>
     );
@@ -288,36 +212,24 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
 
   // 5. PAUSED / NOT PLAYING STATE (Default fallback)
   return (
-    <div className={`spotify-mock-player ${className}`} style={style} aria-live="polite">
-      <div className="spotify-cassette" aria-label="Vintage cassette tape representing spotify player paused or not playing">
-        <div className="cassette-label">
-          <span style={{ fontSize: "0.55rem", fontWeight: "bold", opacity: 0.6, letterSpacing: "0.15em", color: "#555" }}>
-            SPOTIFY TAPE
-          </span>
-          <span style={{ fontSize: "0.7rem", fontFamily: "var(--font-mono)", fontWeight: "bold", color: "#666" }}>
-            [ NOT PLAYING ]
-          </span>
+    <div className={`spotify-compact-player ${className}`} style={style} aria-live="polite">
+      <div className="spotify-main-layout">
+        {renderCassette("SPOTIFY TAPE", false)}
+        <div className="spotify-content-column">
+          <div className="spotify-track-container">
+            <div className="spotify-album-thumb-placeholder">💿</div>
+            <div className="spotify-track-details">
+              <span className="spotify-track-name" style={{ color: "#999" }}>[ NOT PLAYING ]</span>
+              <span className="spotify-track-artist">No track currently playing</span>
+            </div>
+          </div>
+          <div className="spotify-status-bar">
+            <span className="spotify-status-badge" style={{ color: "var(--text-muted)" }}>
+              ■ NOT PLAYING
+            </span>
+            <span className="spotify-deck-note">deck ready</span>
+          </div>
         </div>
-        <div className="cassette-reels" aria-hidden="true">
-          <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-          <div className="cassette-reel" style={{ animationPlayState: "paused" }} />
-        </div>
-      </div>
-      
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.5rem" }}>
-        <span style={{ 
-          fontFamily: "var(--font-mono)", 
-          fontSize: "0.75rem", 
-          color: "var(--text-muted)", 
-          display: "inline-flex", 
-          alignItems: "center", 
-          gap: "0.35rem" 
-        }}>
-          ■ NOT PLAYING
-        </span>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "var(--text-muted)" }}>
-          deck ready
-        </span>
       </div>
     </div>
   );

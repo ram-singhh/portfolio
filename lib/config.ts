@@ -8,7 +8,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/Ram-singhh",
     linkedin: "https://www.linkedin.com/in/ram-singhh/",
-    email: "mailto:ram01singh4656@gmail.com",
+    email: "mailto:hello@ramsingh.dev",
     discord: "https://discord.com/users/874953017227628554"
   }
 };
