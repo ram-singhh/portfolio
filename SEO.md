@@ -113,8 +113,8 @@ Renders globally on all pages via `app/layout.tsx`.
 * **Image:** `https://www.ramsingh.dev/assets/images/Profile.jpg`
 * **Job Title:** `Freelance Web Developer`
 * **sameAs:** Only verified social links:
-  * GitHub: `https://github.com/Ramsingh4656`
-  * LinkedIn: `https://www.linkedin.com/in/ram-singh4656`
+  * GitHub: `https://github.com/Ram-singhh`
+  * LinkedIn: `https://www.linkedin.com/in/ram-singhh/`
 
 ### WebSite Schema
 Renders globally on all pages via `app/layout.tsx`.

@@ -348,8 +348,6 @@ textarea:valid {
 .glow-border {
     border: 1px solid var(--border-primary);
     background: var(--bg-card);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     position: relative;
@@ -604,8 +602,6 @@ textarea:valid {
 .floating-element {
     position: absolute;
     background: var(--bg-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-secondary);
     border-radius: var(--radius-lg);
     padding: 0.75rem 1.25rem;
@@ -703,8 +699,6 @@ textarea:valid {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: var(--shadow-xl);
     transition: all var(--transition-normal);
 }
@@ -792,8 +786,6 @@ textarea:valid {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: var(--shadow-md);
 }
 
@@ -1003,8 +995,6 @@ textarea:valid {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: var(--shadow-sm);
 }
 
@@ -1395,15 +1385,7 @@ textarea:valid {
     will-change: auto;
 }
 
-/* Optimize backdrop-filter usage */
-@supports (backdrop-filter: blur(8px)) {
-    .glow-border,
-    .card,
-    .skill-item {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-}
+
 
 /* Reduce motion for performance on low-end devices */
 @media (prefers-reduced-motion: reduce) {

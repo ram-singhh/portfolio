@@ -113,7 +113,7 @@ const skillCategories: SkillCategory[] = [
         name: "Git & GitHub",
         what: "Used for version control, repository branching workflows, commit tracking, and public source code hosting.",
         proofText: "Verified GitHub Repositories",
-        proofUrl: "https://github.com/Ramsingh4656",
+        proofUrl: "https://github.com/Ram-singhh",
         isExternal: true,
       },
       {

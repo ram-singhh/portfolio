@@ -68,8 +68,8 @@ python -m http.server 8000
 
 - **Email**: ram01singh4656@gmail.com
 - **Phone**: +91 93728 83774
-- **LinkedIn**: [linkedin.com/in/ram-singh4656](https://linkedin.com/in/ram-singh4656)
-- **GitHub**: [github.com/Ramsingh4656](https://github.com/Ramsingh4656)
+- **LinkedIn**: [linkedin.com/in/ram-singhh](https://www.linkedin.com/in/ram-singhh/)
+- **GitHub**: [github.com/Ram-singhh](https://github.com/Ram-singhh)
 
 ## Spotify Integration Setup
 
