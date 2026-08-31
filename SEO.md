@@ -287,4 +287,63 @@ The **Notes / Lab** system serves as a first-hand technical publishing environme
 * **Robots.txt:** Permitted for search engine crawlers (`Allow: /` covers `/notes/` and `/notes/*`).
 * **Sitemap.xml:** All 4 initial published note routes are explicitly listed in `app/sitemap.ts` with static modification timestamps and `priority: 0.8`.
 
+---
+
+## 12. Production SEO Verification & Checklist
+
+### Live Production Domain Audit
+* **Target Domain:** `https://www.ramsingh.dev/`
+* **Live HTTP Verification Status:** REACHABLE
+* **Audit Finding:** The live domain `https://www.ramsingh.dev/` currently serves an outdated legacy static HTML portfolio pointing to the legacy domain (`ramsingh.me`).
+* **Action Required:** Ram must trigger a fresh deployment of this Next.js repository codebase to production hosting (e.g. Vercel) so that `https://www.ramsingh.dev/` serves the refactored App Router platform.
+
+### Codebase Production Readiness Checklist
+
+| Verification Category | Status | Codebase Verification Details |
+| :--- | :--- | :--- |
+| **Canonical Domain** | VERIFIED IN CODE | Standardized as `https://www.ramsingh.dev/` across Next.js metadataBase, sitemap, JSON-LD, and page links. |
+| **Trailing Slash Consistency** | VERIFIED IN CODE | `trailingSlash: true` enforced in `next.config.js`. |
+| **Robots Exclusion** | VERIFIED IN CODE | Dynamic `app/robots.ts` allows public routes while blocking `/api/` and `/design-system/`. |
+| **Sitemap Generation** | VERIFIED IN CODE | Dynamic `app/sitemap.ts` maps all 21 indexable production routes with canonical URLs and priorities. |
+| **Search Console Meta Verification** | VERIFIED IN CODE | Dynamic meta verification hooks configured in `app/layout.tsx` reading `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` env vars. |
+| **Structured Data Schemas** | VERIFIED IN CODE | `Person`, `WebSite`, `BreadcrumbList`, and `Article` JSON-LD schemas rendered statically without errors. |
+| **Security Headers** | VERIFIED IN CODE | Added `X-Content-Type-Options`, `X-Frame-Options`, and `Referrer-Policy` headers to `next.config.js`. |
+| **RSS 2.0 Feed** | VERIFIED IN CODE | Served dynamically at `/notes/feed.xml/` with real note metadata. |
+
+### TODO: External Deployment & Search Console Setup (Action Required by Ram)
+
+- [ ] **TODO 1: Production Deployment** — Deploy this Next.js codebase to production hosting (e.g., Vercel or custom server).
+- [ ] **TODO 2: Configure Environment Variables** — Add `GOOGLE_SITE_VERIFICATION` (and optionally `BING_SITE_VERIFICATION`) in production host environment settings.
+- [ ] **TODO 3: Verify Search Console Property** — Open Google Search Console, select `https://www.ramsingh.dev/` property, and complete HTML Tag verification.
+- [ ] **TODO 4: Submit Sitemap** — In GSC, navigate to Sitemaps and submit `https://www.ramsingh.dev/sitemap.xml`.
+- [ ] **TODO 5: Request Homepage Indexing** — Perform URL Inspection on `https://www.ramsingh.dev/` and click "Request Indexing".
+
+---
+
+## 13. Production Deployment & Vercel Configuration Guide
+
+### Vercel Deployment Instructions
+
+1. **Log in to Vercel:** Open [vercel.com](https://vercel.com) and log in with your GitHub account.
+2. **Import Repository:** Click **Add New > Project**, select the `Ramsingh4656/portfolio` GitHub repository, and click **Import**.
+3. **Framework Preset:** Vercel automatically detects **Next.js**. Leave Build Command (`next build`) and Output Directory default. Do NOT select static export (`output: 'export'`) because the project requires server-side API handlers (`/api/contact/` & `/api/spotify/currently-playing/`).
+4. **Environment Variables Setup:** Add the following environment variables under **Project Settings > Environment Variables**:
+   * `SPOTIFY_CLIENT_ID` (Server-only credentials)
+   * `SPOTIFY_CLIENT_SECRET` (Server-only credentials)
+   * `SPOTIFY_REFRESH_TOKEN` (Server-only credentials)
+   * `RESEND_API_KEY` (Server-only credentials)
+   * `CONTACT_EMAIL` (Recipient email)
+   * `CONTACT_SENDER` (Sender email)
+   * `GOOGLE_SITE_VERIFICATION` (Optional Search Console verification string)
+   * `BING_SITE_VERIFICATION` (Optional Bing Webmaster verification string)
+5. **Deploy:** Click **Deploy**. Vercel will build the project and assign a preview URL (e.g. `ramsingh-portfolio.vercel.app`).
+6. **Assign Production Domain:**
+   * Navigate to **Settings > Domains**.
+   * Add `www.ramsingh.dev` (set as Primary / Canonical).
+   * Add `ramsingh.dev` (set to Redirect to `www.ramsingh.dev`).
+   * Verify DNS records in your domain registrar (e.g., CNAME `cname.vercel-dns.com` for `www` and A record `76.76.21.21` for apex domain).
+7. **Verify Live Deployment:** Once DNS propagates, verify that visiting `https://www.ramsingh.dev/` loads the new tactile Next.js website (and no longer serves the old static HTML site).
+
+
+
 
