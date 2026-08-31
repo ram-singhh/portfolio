@@ -77,14 +77,25 @@ function parseCurrentlyPlaying(data: any): SpotifyResponse {
     };
   }
 
-  const { item, is_playing, progress_ms } = data;
+  const { item, is_playing, progress_ms, currently_playing_type } = data;
   
-  const isTrack = item.type === "track";
+  if (currently_playing_type === "ad" || currently_playing_type === "unknown") {
+    return {
+      isConfigured: true,
+      isPlaying: false,
+      track: null,
+      progressMs: null,
+      durationMs: null,
+      timestamp: Date.now(),
+    };
+  }
+
+  const isTrack = item.type === "track" || currently_playing_type === "track";
   
   const track: SpotifyTrack = {
     name: item.name || "Unknown Track",
     artist: isTrack 
-      ? (item.artists || []).map((a: any) => a.name).join(", ") 
+      ? (item.artists || []).map((a: any) => a.name).filter(Boolean).join(", ") || "Unknown Artist" 
       : (item.show?.name || "Unknown Podcast"),
     album: isTrack 
       ? (item.album?.name || "") 
@@ -97,10 +108,10 @@ function parseCurrentlyPlaying(data: any): SpotifyResponse {
 
   return {
     isConfigured: true,
-    isPlaying: is_playing,
+    isPlaying: Boolean(is_playing),
     track,
-    progressMs: progress_ms || null,
-    durationMs: item.duration_ms || null,
+    progressMs: progress_ms ?? null,
+    durationMs: item.duration_ms ?? null,
     timestamp: Date.now(),
   };
 }
@@ -129,7 +140,7 @@ export async function getCurrentlyPlaying(): Promise<SpotifyResponse> {
   try {
     const accessToken = await getAccessToken();
 
-    const response = await fetch("https://api.spotify.com/v1/me/player", {
+    const response = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -158,7 +169,7 @@ export async function getCurrentlyPlaying(): Promise<SpotifyResponse> {
       cachedAccessToken = null;
       
       const retryAccessToken = await getAccessToken();
-      const retryResponse = await fetch("https://api.spotify.com/v1/me/player", {
+      const retryResponse = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
         headers: {
           Authorization: `Bearer ${retryAccessToken}`,
         },

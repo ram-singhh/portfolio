@@ -75,58 +75,52 @@ python -m http.server 8000
 
 The homepage features a dynamic, retro desk-styled **Currently Playing** widget that integrates with the official Spotify Web API.
 
-### 1. Create a Spotify Developer Application
-- Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in.
-- Click **Create App**.
-- Name the application and add a description.
-- Set the **Redirect URI** to `http://localhost:3000/callback` (or any redirect link you prefer).
-- Save the application settings.
+> [!NOTE]
+> **Single-Owner Architecture**: This is a single-owner Spotify integration. The portfolio server uses the site owner's existing refresh token to display the currently playing track. The production website does not perform visitor OAuth, does not ask visitors to connect their Spotify accounts, and does not expose authentication tokens to the client.
 
-### 2. Retrieve Credentials
-- Under your Spotify App settings, locate and copy the **Client ID**.
-- Click **Show client secret** and copy the **Client Secret**.
+> [!IMPORTANT]
+> **Spotify Development Mode Constraint**: The Spotify Developer application is intended solely for the portfolio owner's personal use under Spotify Developer Development Mode rules. It does not support multi-user authentication, nor does it request or claim extended production user quotas.
 
-### 3. Request Authorization Code
-Construct the authorization URL by replacing `YOUR_CLIENT_ID` and `YOUR_REDIRECT_URI` (must match exactly what you input in step 1, URL-encoded) below:
+### 1. Obtain Spotify Credentials & Refresh Token
+1. Log in to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and create an application.
+2. Retrieve your **Client ID** (`SPOTIFY_CLIENT_ID`) and **Client Secret** (`SPOTIFY_CLIENT_SECRET`).
+3. Set the Redirect URI in Spotify Dashboard settings to `http://localhost:3000/callback` (or `http://127.0.0.1:3000/callback`).
+4. Generate an authorization code by opening the following URL in your browser (with your Client ID):
+   ```
+   https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http://localhost:3000/callback&scope=user-read-currently-playing
+   ```
+5. Exchange the returned authorization code for a `SPOTIFY_REFRESH_TOKEN` via terminal POST request:
+   ```bash
+   curl -X POST https://accounts.spotify.com/api/token \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -u "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
+     -d grant_type=authorization_code \
+     -d code=AUTHORIZATION_CODE \
+     -d redirect_uri=http://localhost:3000/callback
+   ```
 
-```
-https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http://localhost:3000/callback&scope=user-read-currently-playing
-```
-
-- Navigate to this URL in your web browser.
-- Authorize your application.
-- You will be redirected to a URL like `http://localhost:3000/callback?code=AUTHORIZATION_CODE`.
-- Copy the `AUTHORIZATION_CODE` parameter from the URL query string.
-
-### 4. Exchange Code for Refresh Token
-Exchage the authorization code for a token package by running the following command in your terminal (replace placeholders accordingly):
-
-```bash
-curl -X POST https://accounts.spotify.com/api/token \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -u "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
-  -d grant_type=authorization_code \
-  -d code=AUTHORIZATION_CODE \
-  -d redirect_uri=http://localhost:3000/callback
-```
-
-- The JSON response will contain a `refresh_token`. Copy this token.
-
-### 5. Configure Local Environment Variables
-Create a file named `.env.local` in the project root and add the following keys with your retrieved credentials:
-
+### 2. Configure Local Environment Variables
+Create a `.env.local` file in the project root:
 ```env
 SPOTIFY_CLIENT_ID=your_client_id
 SPOTIFY_CLIENT_SECRET=your_client_secret
 SPOTIFY_REFRESH_TOKEN=your_refresh_token
 ```
+- Never commit `.env.local` to Git.
 
-### 6. Configure Production Environment Variables
-When deploying to Vercel (or any other hosting provider), navigate to your Project Settings -> **Environment Variables** and add:
-- `SPOTIFY_CLIENT_ID`
-- `SPOTIFY_CLIENT_SECRET`
-- `SPOTIFY_REFRESH_TOKEN`
-Do not prefix these variables with `NEXT_PUBLIC_` to keep them securely server-side.
+### 3. Vercel Production Environment Setup
+To deploy the Spotify integration to Vercel:
+1. Obtain Spotify credentials (`SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`) from the Spotify Developer Dashboard.
+2. Obtain the refresh token (`SPOTIFY_REFRESH_TOKEN`) through the standard OAuth process above.
+3. Open your project on the [Vercel Dashboard](https://vercel.com).
+4. Go to **Settings** → **Environment Variables**.
+5. Add the three required server-side variables:
+   - `SPOTIFY_CLIENT_ID`
+   - `SPOTIFY_CLIENT_SECRET`
+   - `SPOTIFY_REFRESH_TOKEN`
+6. Select **Production** (and Preview if applicable).
+7. Redeploy the project after adding or updating variables.
+8. Confirm `.env.local` remains ignored by Git and no secret values are committed.
 
 ## Freelance Project Brief & Inquiry System
 
