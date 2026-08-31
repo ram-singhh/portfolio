@@ -2,30 +2,30 @@
 
 A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my projects, certifications, and skills to potential employers and collaborators.
 
-🌐 **Live site**: [ramsingh.me](https://ramsingh.me/)
+🌐 **Live site**: [ramsingh.dev](https://www.ramsingh.dev/)
 
 ## About Me
 
-I'm Ram Singh, a first-year BSc-IT student at Chandrabhan Sharma College of Arts, Science and Commerce, Mumbai (2025–2028). I focus on frontend development, cloud computing, and AI/ML fundamentals, and I'm actively seeking internship opportunities.
+I'm Ram Singh, a freelance web developer and first-year BSc-IT student at Chandrabhan Sharma College of Arts, Science and Commerce, Mumbai (2025–2028). I focus on frontend architecture, responsive layouts, Next.js, and web application development.
 
 ## Tech Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: CSS Grid, Flexbox, CSS Variables
+- **Frontend**: Next.js, React, TypeScript, HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Tactile Paper-Desk visual system, CSS Grid, Flexbox, CSS Custom Variables
 - **Design**: Mobile-first responsive design
-- **Fonts**: Inter, JetBrains Mono
-- **Tools**: Git, GitHub Pages
-- **Form Integration**: Google Forms API
+- **Fonts**: Inter, Playfair Display, Courier Prime, Caveat
+- **Tools**: Git, GitHub, Vercel
+- **Integrations**: Spotify Web API, Resend Email API
 - **Accessibility**: WCAG 2.1 compliant
 
 ## Features
 
-- Responsive design for mobile, tablet, and desktop
-- Dark theme with violet accents
-- Smooth animations and hover effects
-- Contact form integrated with Google Forms
-- Accessible with proper ARIA labels and skip links
-- SEO optimised with structured data and meta tags
+- Tactile paper-desk visual identity with responsive rotation breaks
+- Dynamic Next.js App Router case studies and field notes
+- Server-side cached Spotify Currently Playing integration
+- Project brief submission flow with server validation
+- Accessible with proper ARIA labels, semantic landmarks, and skip links
+- Technical SEO optimized with Person, WebSite, BreadcrumbList, and Article JSON-LD
 
 ## Projects
 
@@ -34,7 +34,7 @@ A modular AI system built with Python and LLM APIs, demonstrating clean architec
 
 ### Modern Calculator
 Responsive calculator with keyboard support and error handling, built with vanilla JS.  
-→ [Live Demo](https://ramsingh.me/projects/mordencalulator/)
+→ [Live Demo](https://www.ramsingh.dev/projects/modern-calculator/)
 
 ### Portfolio Website
 This site — built from scratch with a focus on accessibility, SEO, and performance.

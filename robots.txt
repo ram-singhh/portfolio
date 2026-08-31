@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /design-system/
 
-Sitemap: https://ramsingh.me/sitemap.xml
+Sitemap: https://www.ramsingh.dev/sitemap.xml
