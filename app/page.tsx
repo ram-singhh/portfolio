@@ -69,8 +69,8 @@ export default function Home() {
           </Paper>
         </section>
 
-        {/* Right Side: Identity Polaroid & Projects Card */}
-        <section className="grid-projects-card" aria-label="Visual identity and selected projects teaser">
+        {/* Profile Polaroid */}
+        <section className="grid-profile-card" aria-label="Visual identity">
           <Polaroid
             src="/assets/images/Profile.jpg"
             alt="Freelance developer Ram Singh photographed at desk"
@@ -81,8 +81,23 @@ export default function Home() {
             width={260}
             height={260}
           />
-          
-          <Link href="/projects/" style={{ textDecoration: "none", width: "100%", maxWidth: "320px" }}>
+        </section>
+
+        {/* Currently Playing Spotify Player - Positioned in hero empty space under main hero paper */}
+        <section className="grid-spotify-card" aria-label="Currently playing on Spotify">
+          <Paper variant="dark" rotation={1.2} padding="medium">
+            <div style={{ marginBottom: "1.5rem" }}>
+              <TypewriterLabel variant="dymo" rotation={-1.5}>
+                CURRENTLY PLAYING
+              </TypewriterLabel>
+            </div>
+            <CurrentlyPlaying />
+          </Paper>
+        </section>
+
+        {/* Projects Archive Teaser Card */}
+        <section className="grid-projects-card" aria-label="Selected projects teaser">
+          <Link href="/projects/" style={{ textDecoration: "none", width: "100%", maxWidth: "320px", display: "block" }}>
             <Paper variant="grid" rotation={1.5} padding="medium" style={{ cursor: "pointer", textAlign: "center" }}>
               <div className="ascii-box-graphic" aria-hidden="true">
 {`┌───────────────┐
@@ -219,18 +234,6 @@ export default function Home() {
                 [ EXPLORE ALL SERVICES &rarr; ]
               </Link>
             </div>
-          </Paper>
-        </section>
-
-        {/* Section 4: Currently Playing */}
-        <section className="grid-spotify-card" style={{ marginTop: "2rem" }} aria-label="Spotify integration placeholder">
-          <Paper variant="dark" rotation={1.2} padding="medium">
-            <div style={{ marginBottom: "1.5rem" }}>
-              <TypewriterLabel variant="dymo" rotation={-1.5}>
-                CURRENTLY PLAYING
-              </TypewriterLabel>
-            </div>
-            <CurrentlyPlaying />
           </Paper>
         </section>
 
