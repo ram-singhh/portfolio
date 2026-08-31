@@ -18,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/experience",
     "/certificates",
     "/contact",
+    "/notes",
+    "/notes/physical-desk-portfolio",
+    "/notes/spotify-currently-playing",
+    "/notes/project-case-study-system",
+    "/notes/portfolio-to-freelance-site",
   ];
 
   return routes.map((route) => {

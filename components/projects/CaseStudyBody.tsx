@@ -7,6 +7,7 @@ import HandwrittenNote from "@/components/ui/HandwrittenNote";
 import DeskBackground from "@/components/ui/DeskBackground";
 import ProjectVisual from "./ProjectVisual";
 import { Project, projectsData } from "@/data/projects";
+import { notesData } from "@/data/notes";
 
 interface CaseStudyBodyProps {
   project: Project;
@@ -324,7 +325,7 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
 
             {/* Lessons */}
             {project.lessons && (
-              <div>
+              <div style={{ marginBottom: "1.5rem" }}>
                 <h3 style={{ 
                   fontFamily: "var(--font-mono)", 
                   fontSize: "0.9rem", 
@@ -339,6 +340,36 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
                 </p>
               </div>
             )}
+
+            {/* Related Field Notes */}
+            {(() => {
+              const relatedNotes = notesData.filter((n) => n.relatedProjects.includes(project.slug));
+              if (relatedNotes.length === 0) return null;
+              return (
+                <div style={{ marginTop: "1.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
+                  <h3 style={{ 
+                    fontFamily: "var(--font-mono)", 
+                    fontSize: "0.9rem", 
+                    fontWeight: 700, 
+                    color: "var(--color-ink-red)", 
+                    textTransform: "uppercase",
+                    marginBottom: "0.75rem"
+                  }}>
+                    Related Field Notes &amp; Lab Reports
+                  </h3>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem", fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>
+                    {relatedNotes.map((note) => (
+                      <li key={note.slug}>
+                        <span style={{ color: "var(--color-ink-red)" }}>&bull;</span>{" "}
+                        <Link href={`/notes/${note.slug}/`} style={{ color: "var(--text-dark)", textDecoration: "underline", fontWeight: 700 }}>
+                          {note.title} &rarr;
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
           </Paper>
         </section>
 

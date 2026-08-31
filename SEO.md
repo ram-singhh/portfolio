@@ -244,4 +244,47 @@ The site operates as a commercial freelance developer workspace and technical pr
 | `/services/website-redesign/` | `website redesign`, `frontend modernization`, `responsive website redesign` | Refactoring legacy desktop HTML/CSS into fluid responsive layouts, mobile viewport scaling, performance tuning. |
 | `/projects/` | `web development projects`, `frontend projects`, `JavaScript projects`, `React/Next.js projects` | Verified software filing cabinet showcasing Modern Calculator, AI Multi-Module System, and Tactile Portfolio Website. |
 | `/about/` | `Ram Singh`, `freelance developer`, `developer background` | Transparent background answering WHO Ram Singh is, WHAT he builds, TECH stack, INTERESTS, APPROACH, and HOW to work together. |
+| `/notes/` | `Ram Singh notes`, `web development field notes`, `frontend engineering blog` | Centralized index of first-hand technical field notes, build logs, and architecture reports. |
+| `/notes/physical-desk-portfolio/` | `tactile web design`, `CSS custom variables portfolio`, `physical desk UI` | Architectural breakdown of building custom CSS tactile paper-desk UI components and responsive skews. |
+| `/notes/spotify-currently-playing/` | `Spotify API Next.js`, `Spotify OAuth token cache`, `server route handler` | Technical walkthrough of building an isolated server-side Spotify API handler with OAuth token caching. |
+| `/notes/project-case-study-system/` | `developer case study design`, `Next.js dynamic case studies`, `portfolio architecture` | Architectural guide on decoupling project data definitions into dynamic Next.js case study routes. |
+| `/notes/portfolio-to-freelance-site/` | `freelance developer site architecture`, `portfolio to commercial site`, `technical SEO Next.js` | Refactoring a personal student portfolio into a commercial freelance website with search intent mapping. |
+
+---
+
+## 11. Notes / Lab System Specification
+
+### System Purpose
+The **Notes / Lab** system serves as a first-hand technical publishing environment (`/notes/` and `/notes/[slug]/`). It documents real engineering decisions, architectural patterns, debugging experiences, and performance observations from Ram Singh's actual project builds.
+
+### Core Content Principles
+* **100% First-Hand Grounding:** Every published note is strictly backed by actual source code (`lib/spotify.ts`, `data/projects.ts`, `components/ui/Paper.tsx`), configuration files, or build observations. No generic AI SEO fluff is permitted.
+* **Structured Section Hierarchy:** Every note enforces a clear 5-stage document flow:
+  1. `THE CONTEXT` (Problem definition)
+  2. `THE APPROACH` (Solution strategy)
+  3. `THE IMPLEMENTATION` (Code walkthrough with syntax-highlighted snippets)
+  4. `WHAT CHANGED` (Verified architectural outcomes)
+  5. `WHAT I LEARNED` (First-hand takeaways)
+* **Zero Fake Metrics:** Performance results, load times, or benchmark percentages are never fabricated. Only verified code structures and actual framework mechanisms are documented.
+
+### Note Categories
+* `DESIGN`: Tactile UI design systems, CSS variables, and layout aesthetics.
+* `TECHNICAL`: Backend integrations, API authentication, and serverless caching.
+* `BUILD LOG`: Codebase refactoring, component modularity, and data modeling.
+* `WEB ENGINEERING`: Commercial site transformations, technical SEO, and conversion architecture.
+
+### Structured Data & Metadata Integration
+* **Article Schema (`Article` JSON-LD):** Implemented on all note pages with `headline`, `description`, `datePublished`, `dateModified`, `author` (Ram Singh), and `mainEntityOfPage`.
+* **Breadcrumb Schema (`BreadcrumbList` JSON-LD):** Synchronized with visible breadcrumbs (`Home > Notes > [Category]`).
+* **Open Graph & Twitter Cards:** Configured using relative canonical routes with absolute metadata base references.
+
+### RSS 2.0 Feed Implementation
+* **Endpoint:** `/notes/feed.xml/`
+* **Format:** Valid RSS 2.0 XML with Atom self-referencing link.
+* **Content:** Dynamically maps real note metadata (`data/notes.ts`) to RSS item channels with pubDates and permalinks.
+
+### Crawling & Indexing Rules
+* **Robots.txt:** Permitted for search engine crawlers (`Allow: /` covers `/notes/` and `/notes/*`).
+* **Sitemap.xml:** All 4 initial published note routes are explicitly listed in `app/sitemap.ts` with static modification timestamps and `priority: 0.8`.
+
 

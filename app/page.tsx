@@ -251,13 +251,13 @@ export default function Home() {
           {/* Section 6: Notes Teaser */}
           <Paper variant="light" rotation={1.5} padding="medium" id="notes-lab">
             <h2 style={{ marginBottom: "1rem" }}>
-              <TypewriterLabel variant="plain">Notes / Lab Strategy</TypewriterLabel>
+              <TypewriterLabel variant="plain">Field Notes &amp; Lab</TypewriterLabel>
             </h2>
             <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.5rem" }}>
-              Technical implementation notes, performance tests, and code design decisions from real project builds.
+              First-hand technical build logs, architecture breakdowns, and engineering decisions from real development work.
             </p>
-            <Link href="/skills/" className="tactile-btn" aria-label="View technical web development skills and evidence">
-              [ VIEW SKILLS &amp; PROOF &rarr; ]
+            <Link href="/notes/" className="tactile-btn" aria-label="Explore field notes and technical lab reports">
+              [ READ FIELD NOTES &rarr; ]
             </Link>
           </Paper>
         </section>
