@@ -283,8 +283,11 @@ export default function Contact() {
                 }}>
                   Book a Web Development Project
                 </h1>
-                <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", color: "#2c251f", lineHeight: "1.5", margin: 0 }}>
-                  Fill out the parameters below to establish your project brief. I review submissions directly and will get in touch to discuss details.
+                <p style={{ fontFamily: "var(--font-primary)", fontSize: "1rem", fontWeight: 500, color: "#1a1816", lineHeight: "1.5", marginBottom: "0.75rem" }}>
+                  This is where you tell me what you're building.
+                </p>
+                <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.9rem", color: "#333", lineHeight: "1.5", margin: 0 }}>
+                  Sharing information about your project type, primary goals, existing website link, reference designs, and desired timeline helps me review your brief effectively.
                 </p>
                 <div style={{ marginTop: "1rem" }}>
                   <HandwrittenNote color="pencil" tilt={-1.5} fontSize="1.05rem">

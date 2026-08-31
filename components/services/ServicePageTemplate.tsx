@@ -67,12 +67,65 @@ export default function ServicePageTemplate({
 
       <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem", maxWidth: "800px" }}>
         
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: "1.5rem" }}>
+          <ol style={{ display: "flex", gap: "0.5rem", listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-muted)", alignItems: "center", flexWrap: "wrap" }}>
+            <li>
+              <Link href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>HOME</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li>
+              <Link href="/services/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>SERVICES</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li style={{ color: "var(--color-ink-red)", fontWeight: "bold" }}>
+              {h1Title.replace(" Services", "").toUpperCase()}
+            </li>
+          </ol>
+        </nav>
+
         {/* Back Link to Hub */}
         <div style={{ marginBottom: "2rem" }}>
           <Link href="/services/" className="tactile-btn" style={{ textDecoration: "none" }} aria-label="Back to services hub">
             [ &larr; BACK TO SERVICES ]
           </Link>
         </div>
+
+        {/* Breadcrumb JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.ramsingh.dev/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Services",
+                  "item": "https://www.ramsingh.dev/services/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": h1Title,
+                  "item": `https://www.ramsingh.dev/services/${
+                    serviceLabel.includes("WEB_DEVELOPMENT") ? "web-development" :
+                    serviceLabel.includes("FRONTEND_DEVELOPMENT") ? "frontend-development" :
+                    serviceLabel.includes("LANDING_PAGES") ? "landing-pages" :
+                    "website-redesign"
+                  }/`
+                }
+              ]
+            })
+          }}
+        />
 
         {/* 1. Header Sheet (Craft Paper style folder file) */}
         <section aria-labelledby="service-h1" style={{ marginBottom: "3.5rem" }}>

@@ -26,13 +26,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   return {
-    title: `${project.title} | Case Study by Ram Singh`,
+    title: `${project.title} Case Study`,
     description: project.shortDescription,
     alternates: {
       canonical: `/projects/${project.slug}/`,
     },
     openGraph: {
-      title: `${project.title} | Case Study by Ram Singh`,
+      title: `${project.title} Case Study | Ram Singh`,
       description: project.shortDescription,
       url: `/projects/${project.slug}/`,
       type: "article",

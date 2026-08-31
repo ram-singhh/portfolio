@@ -8,15 +8,15 @@ import HandwrittenNote from "@/components/ui/HandwrittenNote";
 import DeskBackground from "@/components/ui/DeskBackground";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development Services | Ram Singh",
+  title: "Freelance Web Development Services",
   description: "Explore professional freelance web development services by Ram Singh, including frontend development, landing pages, and legacy website redesigns.",
   alternates: {
-    canonical: "https://www.ramsingh.dev/services/",
+    canonical: "/services/",
   },
   openGraph: {
     title: "Freelance Web Development Services | Ram Singh",
     description: "Explore professional freelance web development services by Ram Singh, including frontend development, landing pages, and legacy website redesigns.",
-    url: "https://www.ramsingh.dev/services/",
+    url: "/services/",
     type: "website",
   },
   twitter: {
@@ -49,7 +49,7 @@ const services = [
     number: "SERVICE 03",
     title: "Landing Pages",
     href: "/services/landing-pages/",
-    description: "Single-page layouts structured around conversion actions, utilizing clear information hierarchies, mobile-first forms, and lightweight code.",
+    description: "Single-page web structures focused on clear message presentation, mobile-first forms, fast loading speeds, and direct user actions.",
     tech: ["HTML5", "CSS3", "JavaScript", "React", "Forms Integration"],
     rotation: -0.8,
     variant: "grid" as const

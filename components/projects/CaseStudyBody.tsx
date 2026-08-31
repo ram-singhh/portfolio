@@ -24,12 +24,60 @@ export default function CaseStudyBody({ project }: CaseStudyBodyProps) {
 
       <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem", maxWidth: "800px" }}>
         
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: "1.5rem" }}>
+          <ol style={{ display: "flex", gap: "0.5rem", listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-muted)", alignItems: "center", flexWrap: "wrap" }}>
+            <li>
+              <Link href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>HOME</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li>
+              <Link href="/projects/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>PROJECTS</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li style={{ color: "var(--color-ink-red)", fontWeight: "bold" }}>
+              {project.title.toUpperCase()}
+            </li>
+          </ol>
+        </nav>
+
         {/* Back Link */}
         <div style={{ marginBottom: "2rem" }}>
           <Link href="/projects/" className="tactile-btn" style={{ textDecoration: "none" }} aria-label="Back to project archive">
             [ &larr; BACK TO ARCHIVE ]
           </Link>
         </div>
+
+        {/* Breadcrumb JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.ramsingh.dev/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Projects",
+                  "item": "https://www.ramsingh.dev/projects/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": project.title,
+                  "item": `https://www.ramsingh.dev/projects/${project.slug}/`
+                }
+              ]
+            })
+          }}
+        />
 
         {/* 1. Main Folder / Header Sheet */}
         <section aria-labelledby="project-title" style={{ marginBottom: "3rem" }}>

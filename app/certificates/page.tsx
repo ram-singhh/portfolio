@@ -1,248 +1,247 @@
 import React from "react";
 import Link from "next/link";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import Paper from "@/components/ui/Paper";
+import Tape from "@/components/ui/Tape";
+import TypewriterLabel from "@/components/ui/TypewriterLabel";
+import HandwrittenNote from "@/components/ui/HandwrittenNote";
+import DeskBackground from "@/components/ui/DeskBackground";
 
 export const metadata = {
-  title: "Certifications",
-  description: "View the professional certifications earned by Ram Singh, including Microsoft Azure cloud engineering, AI/ML, and web development courses.",
+  title: "Certifications & Achievements",
+  description: "View verified training certificates earned by Ram Singh in Microsoft Azure cloud computing, AI concepts, and web fundamentals.",
   alternates: {
     canonical: "/certificates/",
   },
 };
 
+interface Certificate {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  tech: string[];
+  url?: string;
+}
+
+const certificates: Certificate[] = [
+  {
+    title: "Microsoft Azure Internship Completion",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "February 2026",
+    description: "Completed Microsoft Azure internship training program covering cloud deployment concepts, service configuration exercises, and cloud infrastructure lab modules.",
+    tech: ["Microsoft Azure", "Cloud Services", "Hands-on Labs"],
+    url: "https://drive.google.com/file/d/1-wA5HD_6ghKBzXUp-uJe_eCZW6SKw5dk/view?usp=drive_link",
+  },
+  {
+    title: "Cloud Administration & Engineering (40 Hours)",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "January 2026",
+    description: "40-hour guided course covering cloud administration basics, virtual machine configuration, and cloud engineering fundamentals.",
+    tech: ["Cloud Administration", "Cloud Engineering", "40 Hours Training"],
+    url: "https://drive.google.com/file/d/1BYAZmjvBYjhXJX5FWJfMutAaTxHX-tMA/view?usp=drive_link",
+  },
+  {
+    title: "Microsoft Azure – Course Completion (25 Hours)",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "January 2026",
+    description: "25-hour training course covering Microsoft Azure cloud platform fundamentals, core services, and deployment models.",
+    tech: ["Microsoft Azure", "Cloud Platform", "25 Hours Training"],
+    url: "https://drive.google.com/file/d/1_8-TxeHxiz1Rv_0WltT0DV2_j7tb5UNX/view?usp=drive_link",
+  },
+  {
+    title: "Artificial Intelligence & Machine Learning (20 Hours)",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "January 2026",
+    description: "20-hour introductory course on foundational artificial intelligence algorithms, machine learning principles, and practical application concepts.",
+    tech: ["Artificial Intelligence", "Machine Learning", "20 Hours Training"],
+    url: "https://drive.google.com/file/d/19KEqrLzh8Cje7k1VTukETJUZMHH7qcME/view?usp=drive_link",
+  },
+  {
+    title: "Microsoft Copilot Workshop",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "January 2026",
+    description: "Explored Microsoft Copilot assistance tools for workflow efficiency and AI prompt interaction across Microsoft application ecosystems.",
+    tech: ["Microsoft Copilot", "AI Productivity", "Prompt Interaction"],
+    url: "https://drive.google.com/file/d/12mR2zKaHs-0sJ51eZ8-Jj1CLxwtEEelw/view?usp=sharing",
+  },
+  {
+    title: "Power BI – Business Applications",
+    issuer: "Microsoft Elevate (AICTE Program)",
+    date: "January 2026",
+    description: "Learned foundational data visualization techniques, dashboard creation, and reporting structures using Microsoft Power BI.",
+    tech: ["Power BI", "Data Visualization", "Dashboard Reporting"],
+    url: "https://drive.google.com/file/d/1ufFLcqrMuZacKSlwwRl42RQN6f7fNpC-/view?usp=sharing",
+  },
+  {
+    title: "Cyber Security Workshop",
+    issuer: "Thetechnique Academy",
+    date: "February 2026",
+    description: "Workshop covering basic information security concepts, network safety practices, and threat awareness baselines.",
+    tech: ["Cybersecurity Fundamentals", "Information Security", "IT Safety"],
+    url: "https://drive.google.com/file/d/1RX-MUTAeG6HqqGs9OyvM2VwTbWZPvwgG/view?usp=drive_link",
+  },
+  {
+    title: "AI-Powered SEO Masterclass",
+    issuer: "Pankaj Kumar SEO",
+    date: "December 2025",
+    description: "Practical overview of search engine optimization principles, keyword intent mapping, and digital content structure optimization.",
+    tech: ["SEO Fundamentals", "Keyword Mapping", "On-Page Structure"],
+    url: "https://drive.google.com/file/d/1E2am8PTXRGRlftCjBMFt1FbFBbxypunb/view?usp=drive_link",
+  },
+  {
+    title: "AI Tools Workshop",
+    issuer: "be10x",
+    date: "February 2026",
+    description: "Introductory session exploring how AI tools support task efficiency, prompt execution, and workflow optimization.",
+    tech: ["AI Tools", "Workflow Automation", "Technology Awareness"],
+    url: "https://drive.google.com/file/d/1KJ6mzTZqKnqmAp3fzZmhPdkjP5KGpD6U/view?usp=drive_link",
+  },
+];
+
 export default function Certificates() {
-  const certificates = [
-    {
-      title: "Microsoft Azure Internship Completion",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "February 2026",
-      description: "Successfully completed Microsoft Azure internship program with hands-on experience in cloud services and deployment concepts.",
-      tech: ["Microsoft Azure", "Cloud Computing", "Internship", "Hands-on Labs"],
-      url: "https://drive.google.com/file/d/1-wA5HD_6ghKBzXUp-uJe_eCZW6SKw5dk/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "Microsoft Azure – Course Completion (25 Hours)",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "January 2026",
-      description: "Comprehensive 25-hour course covering Microsoft Azure fundamentals, services, and cloud deployment strategies.",
-      tech: ["Microsoft Azure", "Cloud Services", "25 Hours", "Fundamentals"],
-      url: "https://drive.google.com/file/d/1_8-TxeHxiz1Rv_0WltT0DV2_j7tb5UNX/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "Artificial Intelligence & Machine Learning (20 Hours)",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "January 2026",
-      description: "Comprehensive training in artificial intelligence and machine learning concepts, algorithms, and practical applications.",
-      tech: ["Artificial Intelligence", "Machine Learning", "20 Hours", "Algorithms"],
-      url: "https://drive.google.com/file/d/19KEqrLzh8Cje7k1VTukETJUZMHH7qcME/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "Microsoft Copilot",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "January 2026",
-      description: "Explored Microsoft Copilot's AI-powered capabilities to boost productivity, automate workflows, and integrate intelligent assistance across Microsoft 365 applications.",
-      tech: ["Microsoft Copilot", "AI Productivity", "Microsoft 365", "Automation"],
-      url: "https://drive.google.com/file/d/12mR2zKaHs-0sJ51eZ8-Jj1CLxwtEEelw/view?usp=sharing",
-      isEnabled: true,
-    },
-    {
-      title: "Cyber Security Workshop",
-      issuer: "Thetechnique Academy",
-      date: "February 2026",
-      description: "Learned the fundamentals of cybersecurity, common cyber threats, basic security practices, and methods to protect systems and data.",
-      tech: ["Cybersecurity", "Information Security", "Online Safety", "IT Fundamentals"],
-      url: "https://drive.google.com/file/d/1RX-MUTAeG6HqqGs9OyvM2VwTbWZPvwgG/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "AI-Powered SEO Masterclass",
-      issuer: "Pankaj Kumar SEO – Digital Marketing Institute & Agency",
-      date: "December 2025",
-      description: "Gained practical knowledge of SEO fundamentals including keyword research, on-page and off-page SEO, and the use of AI tools for improving website ranking and digital visibility.",
-      tech: ["Search Engine Optimization (SEO)", "Digital Marketing", "AI in Marketing"],
-      url: "https://drive.google.com/file/d/1E2am8PTXRGRlftCjBMFt1FbFBbxypunb/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "AI Tools Workshop",
-      issuer: "be10x",
-      date: "February 2026",
-      description: "Gained insights into how artificial intelligence can improve productivity, automate tasks, and support real-world problem-solving.",
-      tech: ["Artificial Intelligence (AI)", "AI Tools", "Automation", "Technology Awareness"],
-      url: "https://drive.google.com/file/d/1KJ6mzTZqKnqmAp3fzZmhPdkjP5KGpD6U/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "Power BI – For Business Applications",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "January 2026",
-      description: "Learned to create interactive dashboards, data visualizations, and business intelligence reports using Microsoft Power BI for data-driven decision making.",
-      tech: ["Power BI", "Data Visualization", "Business Intelligence", "Dashboards"],
-      url: "https://drive.google.com/file/d/1ufFLcqrMuZacKSlwwRl42RQN6f7fNpC-/view?usp=sharing",
-      isEnabled: true,
-    },
-    {
-      title: "Cloud Administration & Engineering (40 Hours)",
-      issuer: "Microsoft Elevate (AICTE)",
-      date: "January 2026",
-      description: "Extensive 40-hour program covering cloud administration, engineering practices, and enterprise cloud infrastructure management.",
-      tech: ["Cloud Administration", "Cloud Engineering", "40 Hours", "Infrastructure"],
-      url: "https://drive.google.com/file/d/1BYAZmjvBYjhXJX5FWJfMutAaTxHX-tMA/view?usp=drive_link",
-      isEnabled: true,
-    },
-    {
-      title: "Git & GitHub Mastery",
-      issuer: "Udemy",
-      date: "September 2025",
-      description: "Version control mastery including Git workflows, branching strategies, collaboration, and GitHub best practices.",
-      tech: ["Git", "GitHub", "Version Control", "Collaboration"],
-      url: "",
-      isEnabled: false,
-    },
-  ];
-
   return (
-    <>
-      <ScrollReveal />
-      
-      {/* Certificates Header */}
-      <section className="section-padding" style={{ paddingTop: "8rem" }}>
-        <div className="container">
-          <div className="section-header">
-            <h1 className="section-title">certificates</h1>
-            <p className="section-subtitle">
-              Professional certifications and achievements that validate my skills and knowledge
-            </p>
-          </div>
-        </div>
-      </section>
+    <main className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "8rem" }}>
+      <DeskBackground />
 
-      {/* Certificates Grid */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="cards-grid">
-            {certificates.map((cert) => (
-              <article key={cert.title} className="card glow-border reveal">
-                <div className="card-header">
-                  <div className="card-icon">
-                    {cert.tech.includes("Microsoft Azure") || cert.tech.includes("Cloud Administration") ? "☁️" : cert.tech.includes("Power BI") ? "📊" : cert.tech.includes("Artificial Intelligence") || cert.tech.includes("AI Tools") || cert.tech.includes("Microsoft Copilot") ? "🤖" : "🌐"}
-                  </div>
-                  <h3 className="card-title">{cert.title}</h3>
-                </div>
-                <div style={{ marginBottom: "1rem" }}>
-                  <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                    {cert.issuer}
-                  </p>
-                  <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Completed: {cert.date}</p>
-                </div>
-                <p className="card-description">{cert.description}</p>
-                <div className="card-tech">
-                  {cert.tech.map((t) => (
-                    <span key={t} className="tech-tag">{t}</span>
-                  ))}
-                </div>
-                <div className="card-actions">
-                  {cert.isEnabled ? (
-                    <a href={cert.url} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                      View Certificate
-                    </a>
-                  ) : (
-                    <span className="btn btn-primary" style={{ opacity: 0.6, cursor: "not-allowed" }}>
-                      View Certificate
-                    </span>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Certifications */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Currently Pursuing
-          </h2>
-          
-          <div className="cards-grid">
-            <article className="card glow-border reveal" style={{ opacity: 0.8 }}>
-              <div className="card-header">
-                <div className="card-icon">⚛️</div>
-                <h3 className="card-title">React Development</h3>
+      <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem", maxWidth: "800px" }}>
+        
+        {/* Header Document */}
+        <section aria-labelledby="certs-h1" style={{ marginBottom: "3.5rem", textAlign: "center" }}>
+          <div style={{ transform: "rotate(-0.5deg)", display: "inline-block", width: "100%" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ margin: "0 auto", textAlign: "left" }}>
+              <div style={{ marginBottom: "0.75rem" }}>
+                <TypewriterLabel variant="dymo" rotation={1}>
+                  CERTIFICATIONS &amp; TRAINING
+                </TypewriterLabel>
               </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>Meta (Facebook)</p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>Expected: March 2026</p>
-              </div>
-              <p className="card-description">
-                Comprehensive React development course covering components, hooks, state management, and modern React patterns.
+              <h1 id="certs-h1" style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "clamp(2.25rem, 5.5vw, 3.25rem)", 
+                fontWeight: 700, 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                margin: "0 0 1rem 0" 
+              }}>
+                Certifications &amp; Training
+              </h1>
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "1rem", color: "#333", lineHeight: "1.5", margin: 0 }}>
+                Verified course completions, guided lab certificates, and technical workshops that support my software engineering capabilities.
               </p>
-              <div className="card-tech">
-                <span className="tech-tag">React</span>
-                <span className="tech-tag">Hooks</span>
-                <span className="tech-tag">State Management</span>
-                <span className="tech-tag">JSX</span>
-              </div>
-              <div className="card-actions">
-                <span className="btn btn-secondary" style={{ opacity: 0.6, cursor: "not-allowed" }}>
-                  In Progress
-                </span>
-              </div>
-            </article>
+            </Paper>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="cards-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>8+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Certificates Earned</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>200+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Hours of Learning</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>4+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>Platforms Used</p>
-            </div>
-            <div className="card glow-border reveal" style={{ textAlign: "center" }}>
-              <h3 style={{ fontSize: "2.5rem", color: "var(--accent-primary)", marginBottom: "0.5rem" }}>2+</h3>
-              <p style={{ color: "var(--text-secondary)" }}>In Progress</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Certificate Cards List */}
+        <section aria-label="List of certificates" style={{ display: "flex", flexDirection: "column", gap: "2.5rem", marginBottom: "4rem" }}>
+          {certificates.map((cert, idx) => {
+            const rotation = idx % 2 === 0 ? -0.8 : 0.8;
+            const paperVariant = idx % 3 === 0 ? "light" : idx % 3 === 1 ? "lined" : "craft";
 
-      {/* Continuous Learning Philosophy */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="card glow-border reveal" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
-            <div className="card-header" style={{ justifyContent: "center" }}>
-              <div className="card-icon">🎓</div>
-              <h3 className="card-title">Continuous Learning</h3>
-            </div>
-            <p style={{ color: "var(--text-secondary)", marginBottom: "2rem", fontSize: "1.125rem", lineHeight: "1.6" }}>
-              I believe in continuous learning and staying updated with the latest technologies. These certificates represent my commitment to professional growth and my dedication to mastering the skills needed to build exceptional web experiences.
-            </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" className="btn btn-primary">
-                Discuss Opportunities
-              </Link>
-              <Link href="/projects/" className="btn btn-secondary">
-                View My Work
-              </Link>
-            </div>
+            return (
+              <article key={cert.title} style={{ transform: `rotate(${rotation}deg)` }}>
+                <Paper variant={paperVariant} rotation={0} padding="large" style={{ position: "relative" }}>
+                  <Tape rotation={idx % 2 === 0 ? 1.5 : -1.5} position="top-right" width="85px" />
+
+                  <header style={{ marginBottom: "1rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem" }}>
+                      <TypewriterLabel variant="plain">{cert.issuer.toUpperCase()}</TypewriterLabel>
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", fontWeight: 700, color: "var(--color-ink-red)" }}>
+                        {cert.date.toUpperCase()}
+                      </span>
+                    </div>
+
+                    <h2 style={{ 
+                      fontFamily: "var(--font-serif)", 
+                      fontSize: "1.5rem", 
+                      fontWeight: 700, 
+                      fontStyle: "italic", 
+                      color: "var(--text-dark)", 
+                      margin: "0.5rem 0 0 0" 
+                    }}>
+                      {cert.title}
+                    </h2>
+                  </header>
+
+                  <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.55", color: paperVariant === "craft" ? "#2c251f" : "#333", marginBottom: "1.25rem" }}>
+                    {cert.description}
+                  </p>
+
+                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+                    {cert.tech.map((t) => (
+                      <span 
+                        key={t}
+                        style={{ 
+                          fontFamily: "var(--font-mono)", 
+                          fontSize: "0.7rem", 
+                          fontWeight: "bold",
+                          backgroundColor: "rgba(0,0,0,0.06)",
+                          border: "1px solid rgba(0,0,0,0.12)",
+                          borderRadius: "2px",
+                          padding: "1px 5px",
+                          color: "#333"
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {cert.url && (
+                    <div>
+                      <a 
+                        href={cert.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="tactile-btn"
+                        aria-label={`View certificate verification document for ${cert.title}`}
+                      >
+                        [ VERIFY CERTIFICATE &rarr; ]
+                      </a>
+                    </div>
+                  )}
+                </Paper>
+              </article>
+            );
+          })}
+        </section>
+
+        {/* Call to Action */}
+        <section aria-labelledby="certs-cta-heading" style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ transform: "rotate(1deg)", width: "100%", maxWidth: "560px" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ textAlign: "center" }}>
+              <h2 id="certs-cta-heading" style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "1.8rem", 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                marginBottom: "0.5rem" 
+              }}>
+                WANT TO SEE PRACTICAL APPLICATION?
+              </h2>
+              
+              <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.45", marginBottom: "1.5rem" }}>
+                Certificates validate foundational study. Inspect my verified project case studies to see how technical skills are applied in code.
+              </p>
+
+              <div style={{ margin: "1.5rem 0" }}>
+                <HandwrittenNote color="blue" tilt={-1.5}>
+                  practical web implementation
+                </HandwrittenNote>
+              </div>
+
+              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
+                <Link href="/projects/" className="tactile-btn tactile-btn-primary" aria-label="View verified web projects">
+                  [ EXPLORE CASE STUDIES ]
+                </Link>
+                <Link href="/contact/" className="tactile-btn" aria-label="Book a project with Ram Singh">
+                  [ BOOK A PROJECT ]
+                </Link>
+              </div>
+            </Paper>
           </div>
-        </div>
-      </section>
-    </>
+        </section>
+
+      </div>
+    </main>
   );
 }

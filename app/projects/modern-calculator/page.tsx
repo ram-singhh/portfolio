@@ -187,12 +187,60 @@ export default function ModernCalculator() {
 
       <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem", maxWidth: "800px" }}>
         
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: "1.5rem" }}>
+          <ol style={{ display: "flex", gap: "0.5rem", listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-muted)", alignItems: "center", flexWrap: "wrap" }}>
+            <li>
+              <Link href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>HOME</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li>
+              <Link href="/projects/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>PROJECTS</Link>
+            </li>
+            <li aria-hidden="true" style={{ margin: "0 0.2rem" }}>&gt;</li>
+            <li style={{ color: "var(--color-ink-red)", fontWeight: "bold" }}>
+              {project.title.toUpperCase()}
+            </li>
+          </ol>
+        </nav>
+
         {/* Back Link */}
         <div style={{ marginBottom: "2rem" }}>
           <Link href="/projects/" className="tactile-btn" style={{ textDecoration: "none" }} aria-label="Back to project archive">
             [ &larr; BACK TO ARCHIVE ]
           </Link>
         </div>
+
+        {/* Breadcrumb JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.ramsingh.dev/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Projects",
+                  "item": "https://www.ramsingh.dev/projects/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": project.title,
+                  "item": "https://www.ramsingh.dev/projects/modern-calculator/"
+                }
+              ]
+            })
+          }}
+        />
 
         {/* Interactive Calculator Section */}
         <section aria-labelledby="project-title" style={{ marginBottom: "3rem" }}>
@@ -390,10 +438,10 @@ export default function ModernCalculator() {
                   </div>
                 </div>
 
-                <div className="features" style={{ width: "100%", maxWidth: "340px", margin: "0 auto" }}>
-                  <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "1rem", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
+                 <div className="features" style={{ width: "100%", maxWidth: "340px", margin: "0 auto" }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "1rem", fontWeight: "bold", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
                     Features
-                  </h3>
+                  </div>
                   <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", color: "#333", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
                     <li>✓ Keyboard support</li>
                     <li>✓ All basic operations</li>
@@ -403,9 +451,9 @@ export default function ModernCalculator() {
                   </ul>
 
                   <div className="keyboard-shortcuts" style={{ marginTop: "1rem" }}>
-                    <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
+                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: "bold", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
                       Keyboard Shortcuts
-                    </h4>
+                    </div>
                     <div className="shortcut-list">
                       <div className="shortcut">
                         <kbd>0-9</kbd>

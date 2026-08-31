@@ -1,10 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import Paper from "@/components/ui/Paper";
+import Tape from "@/components/ui/Tape";
+import TypewriterLabel from "@/components/ui/TypewriterLabel";
+import HandwrittenNote from "@/components/ui/HandwrittenNote";
+import DeskBackground from "@/components/ui/DeskBackground";
 
 export const metadata = {
-  title: "Experience",
-  description: "Explore the professional experience of Ram Singh, including his Microsoft Azure cloud internship and his IT academic background.",
+  title: "Experience & Journey",
+  description: "Review the experience, academic background, and Microsoft Azure cloud internship details of freelance web developer Ram Singh.",
   alternates: {
     canonical: "/experience/",
   },
@@ -12,367 +16,202 @@ export const metadata = {
 
 export default function Experience() {
   return (
-    <>
-      <ScrollReveal />
-      
-      {/* Experience Header */}
-      <section className="section-padding" style={{ paddingTop: "8rem" }}>
-        <div className="container">
-          <div className="section-header">
-            <h1 className="section-title">experience</h1>
-            <p className="section-subtitle">My professional journey, internships, and career development in technology</p>
-          </div>
-        </div>
-      </section>
+    <main className="home-workspace" style={{ minHeight: "100vh", position: "relative", paddingBottom: "8rem" }}>
+      <DeskBackground />
 
-      {/* Professional Experience Timeline */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Professional Experience
-          </h2>
-          
-          <div className="timeline">
-            {/* Microsoft Azure Internship */}
-            <div className="timeline-item reveal">
-              <div className="timeline-marker">
-                <div className="timeline-dot"></div>
+      <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: "8rem", maxWidth: "800px" }}>
+        
+        {/* Page Header Document */}
+        <section aria-labelledby="experience-h1" style={{ marginBottom: "3.5rem", textAlign: "center" }}>
+          <div style={{ transform: "rotate(-0.5deg)", display: "inline-block", width: "100%" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ margin: "0 auto", textAlign: "left" }}>
+              <div style={{ marginBottom: "0.75rem" }}>
+                <TypewriterLabel variant="dymo" rotation={1}>
+                  EXPERIENCE &amp; TIMELINE
+                </TypewriterLabel>
               </div>
-              <div className="timeline-content">
-                <div className="card glow-border">
-                  <div className="card-header">
-                    <div className="card-icon">☁️</div>
-                    <div>
-                      <h3 className="card-title">Microsoft Azure Intern</h3>
-                      <p className="timeline-company">Microsoft Elevate (AICTE)</p>
-                      <p className="timeline-date">Jan 2026 – Feb 2026</p>
-                    </div>
-                  </div>
-                  <p className="card-description">
-                    Worked with Microsoft Azure services and cloud deployment concepts. Completed guided hands-on labs and service configuration exercises. Developed understanding of cloud infrastructure and enterprise use cases.
-                  </p>
-                  <div className="card-tech">
-                    <span className="tech-tag">Microsoft Azure</span>
-                    <span className="tech-tag">Cloud Computing</span>
-                    <span className="tech-tag">Cloud Deployment</span>
-                    <span className="tech-tag">Service Configuration</span>
-                  </div>
-                  <div className="experience-highlights">
-                    <h4>Key Achievements:</h4>
-                    <ul>
-                      <li>Completed hands-on labs with Azure services</li>
-                      <li>Learned cloud deployment and configuration</li>
-                      <li>Gained understanding of enterprise cloud solutions</li>
-                      <li>Developed practical cloud infrastructure skills</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Current Status */}
-            <div className="timeline-item reveal">
-              <div className="timeline-marker current">
-                <div className="timeline-dot"></div>
-              </div>
-              <div className="timeline-content">
-                <div className="card glow-border">
-                  <div className="card-header">
-                    <div className="card-icon">🎓</div>
-                    <div>
-                      <h3 className="card-title">BSc-IT Student</h3>
-                      <p className="timeline-company">Currently Pursuing</p>
-                      <p className="timeline-date">2026 - Present</p>
-                    </div>
-                  </div>
-                  <p className="card-description">
-                    Currently in my first year of Bachelor of Science in Information Technology, focusing on web development, programming fundamentals, and modern software engineering practices.
-                  </p>
-                  <div className="card-tech">
-                    <span className="tech-tag">Web Development</span>
-                    <span className="tech-tag">Programming</span>
-                    <span className="tech-tag">Software Engineering</span>
-                    <span className="tech-tag">Database Management</span>
-                  </div>
-                  <div className="experience-highlights">
-                    <h4>Key Learning Areas:</h4>
-                    <ul>
-                      <li>Frontend development with HTML, CSS, JavaScript</li>
-                      <li>Programming languages: Python, Java, C/C++</li>
-                      <li>Database design and management with MySQL</li>
-                      <li>Software development lifecycle and best practices</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Seeking Opportunities */}
-            <div className="timeline-item reveal">
-              <div className="timeline-marker seeking">
-                <div className="timeline-dot"></div>
-              </div>
-              <div className="timeline-content">
-                <div className="card glow-border">
-                  <div className="card-header">
-                    <div className="card-icon">🔍</div>
-                    <div>
-                      <h3 className="card-title">Seeking Internship Opportunities</h3>
-                      <p className="timeline-company">Open to Opportunities</p>
-                      <p className="timeline-date">Available Now</p>
-                    </div>
-                  </div>
-                  <p className="card-description">
-                    Actively seeking opportunities in frontend development, cloud computing, or software engineering to leverage my Microsoft Azure internship experience and contribute to meaningful projects.
-                  </p>
-                  <div className="card-tech">
-                    <span className="tech-tag">Frontend Development</span>
-                    <span className="tech-tag">Cloud Computing</span>
-                    <span className="tech-tag">Microsoft Azure</span>
-                    <span className="tech-tag">AI/ML</span>
-                  </div>
-                  <div className="experience-highlights">
-                    <h4>What I'm Looking For:</h4>
-                    <ul>
-                      <li>Frontend development roles</li>
-                      <li>Cloud computing positions</li>
-                      <li>Software engineering opportunities</li>
-                      <li>AI/ML related projects</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects & Contributions */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Projects & Contributions
-          </h2>
-          
-          <div className="cards-grid">
-            <article className="card glow-border reveal">
-              <div className="card-header">
-                <div className="card-icon">💼</div>
-                <h3 className="card-title">Personal Portfolio Website</h3>
-              </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                  Personal Project
-                </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>December 2024</p>
-              </div>
-              <p className="card-description">
-                Designed and developed a modern, responsive portfolio website showcasing my skills and projects. Features dark theme, smooth animations, and clean architecture.
+              <h1 id="experience-h1" style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "clamp(2.25rem, 5.5vw, 3.25rem)", 
+                fontWeight: 700, 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                margin: "0 0 1rem 0" 
+              }}>
+                Experience &amp; Background
+              </h1>
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "1rem", color: "#333", lineHeight: "1.5", margin: 0 }}>
+                An accurate timeline of my freelance web development work, Microsoft Azure cloud internship program, and BSc-IT academic foundation.
               </p>
-              <div className="card-tech">
-                <span className="tech-tag">HTML5</span>
-                <span className="tech-tag">CSS3</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">Responsive Design</span>
-              </div>
-              <div className="experience-highlights">
-                <h4>Key Achievements:</h4>
-                <ul>
-                  <li>Built from scratch using vanilla technologies</li>
-                  <li>Implemented modern dark theme with purple accents</li>
-                  <li>Created responsive design for all devices</li>
-                  <li>Optimized for SEO and accessibility</li>
+            </Paper>
+          </div>
+        </section>
+
+        {/* Experience Timeline Documents */}
+        <section aria-label="Experience timeline" style={{ display: "flex", flexDirection: "column", gap: "3rem", marginBottom: "4rem" }}>
+          
+          {/* Item 1: Freelance Web Developer */}
+          <article style={{ transform: "rotate(-1deg)" }}>
+            <Paper variant="craft" rotation={0} padding="large" style={{ position: "relative" }}>
+              <Tape rotation={-2} position="top-right" width="90px" />
+
+              <header style={{ marginBottom: "1.25rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <TypewriterLabel variant="dymo" rotation={-1}>FREELANCE</TypewriterLabel>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", fontWeight: 700, color: "var(--color-ink-red)" }}>
+                    2025 – PRESENT
+                  </span>
+                </div>
+                <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontWeight: 700, fontStyle: "italic", color: "var(--text-dark)", margin: "0.5rem 0 0.25rem 0" }}>
+                  Freelance Web Developer
+                </h2>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "#333", display: "block" }}>
+                  Independent / Online Client Services — India
+                </span>
+              </header>
+
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.6", color: "#1a1816", marginBottom: "1.25rem" }}>
+                Designing and building custom responsive websites, React and Next.js frontend user interfaces, speed-optimized landing pages, and legacy site modernizations for clients.
+              </p>
+
+              <div style={{ marginBottom: "1.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 700, color: "var(--text-dark)", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                  Key Execution Areas:
+                </h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.4rem", fontFamily: "var(--font-primary)", fontSize: "0.9rem", color: "#222" }}>
+                  <li>&bull; Hand-crafting responsive layout grids and CSS custom properties styling.</li>
+                  <li>&bull; Building stateful React component applications and Next.js static builds.</li>
+                  <li>&bull; Refactoring non-responsive legacy HTML into fluid, mobile-friendly containers.</li>
                 </ul>
               </div>
-            </article>
 
-            <article className="card glow-border reveal">
-              <div className="card-header">
-                <div className="card-icon">🧮</div>
-                <h3 className="card-title">Modern Calculator Application</h3>
+              <div>
+                <Link href="/services/" className="tactile-btn tactile-btn-primary" aria-label="Explore freelance web development services">
+                  [ VIEW FREELANCE SERVICES &rarr; ]
+                </Link>
               </div>
-              <div style={{ marginBottom: "1rem" }}>
-                <p style={{ color: "var(--accent-primary)", fontWeight: 600, marginBottom: "0.5rem" }}>
-                  Personal Project
-                </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>November 2024</p>
-              </div>
-              <p className="card-description">
-                Developed a fully functional calculator with keyboard support, error handling, and modern UI design. Features all basic mathematical operations.
+            </Paper>
+          </article>
+
+          {/* Item 2: Microsoft Azure Cloud Intern */}
+          <article style={{ transform: "rotate(0.8deg)" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ position: "relative" }}>
+              <Tape rotation={1.5} position="top-right" width="85px" />
+
+              <header style={{ marginBottom: "1.25rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <TypewriterLabel variant="plain">INTERNSHIP PROGRAM</TypewriterLabel>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", fontWeight: 700, color: "var(--color-ink-blue)" }}>
+                    JAN 2026 – FEB 2026
+                  </span>
+                </div>
+                <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontWeight: 700, fontStyle: "italic", color: "var(--text-dark)", margin: "0.5rem 0 0.25rem 0" }}>
+                  Microsoft Azure Cloud Intern
+                </h2>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)", display: "block" }}>
+                  Microsoft Elevate / AICTE Internship Program
+                </span>
+              </header>
+
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.6", color: "#1a1816", marginBottom: "1.25rem" }}>
+                Participated in a structured Microsoft Azure cloud internship program supported by AICTE, completing hands-on lab modules, cloud administration exercises, and service configuration workflows.
               </p>
-              <div className="card-tech">
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">CSS3</span>
-                <span className="tech-tag">HTML5</span>
-                <span className="tech-tag">Event Handling</span>
-              </div>
-              <div className="experience-highlights">
-                <h4>Key Features:</h4>
-                <ul>
-                  <li>Full keyboard support for accessibility</li>
-                  <li>Error handling and input validation</li>
-                  <li>Responsive design with modern UI</li>
-                  <li>Clean, maintainable code structure</li>
+
+              <div style={{ marginBottom: "1.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 700, color: "var(--text-dark)", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                  Completed Modules &amp; Coverage:
+                </h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.4rem", fontFamily: "var(--font-primary)", fontSize: "0.9rem", color: "#222" }}>
+                  <li>&bull; 25-Hour &amp; 40-Hour Azure fundamentals and cloud administration training.</li>
+                  <li>&bull; Hands-on lab exercises with cloud deployment concepts and resource groups.</li>
+                  <li>&bull; AI &amp; Machine Learning fundamentals overview workshops.</li>
                 </ul>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      {/* Skills Development Journey */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Skills Development Journey
-          </h2>
-          
-          <div className="skills-timeline">
-            <div className="skill-progress-item reveal">
-              <div className="skill-period">
-                <h3>2026</h3>
-                <p>Cloud Computing</p>
+              <div>
+                <Link href="/certificates/" className="tactile-btn" aria-label="View verified Azure internship certificates">
+                  [ VIEW INTERNSHIP CERTIFICATE &rarr; ]
+                </Link>
               </div>
-              <div className="skill-content">
-                <h4>Microsoft Azure Internship</h4>
-                <p>Gained hands-on experience with cloud services and enterprise solutions</p>
-                <div className="skill-tags">
-                  <span className="tech-tag">Microsoft Azure</span>
-                  <span className="tech-tag">Cloud Computing</span>
-                  <span className="tech-tag">AI/ML</span>
-                  <span className="tech-tag">Cloud Administration</span>
+            </Paper>
+          </article>
+
+          {/* Item 3: BSc-IT Academic Studies */}
+          <article style={{ transform: "rotate(-0.5deg)" }}>
+            <Paper variant="light" rotation={0} padding="large" style={{ position: "relative" }}>
+              <Tape rotation={-1.5} position="top-right" width="80px" />
+
+              <header style={{ marginBottom: "1.25rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <TypewriterLabel variant="plain">ACADEMIC</TypewriterLabel>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", fontWeight: 700, color: "var(--text-dark)" }}>
+                    2026 – PRESENT
+                  </span>
                 </div>
-              </div>
-            </div>
+                <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontWeight: 700, fontStyle: "italic", color: "var(--text-dark)", margin: "0.5rem 0 0.25rem 0" }}>
+                  BSc-IT Undergraduate Student
+                </h2>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)", display: "block" }}>
+                  Bachelor of Science in Information Technology
+                </span>
+              </header>
 
-            <div className="skill-progress-item reveal">
-              <div className="skill-period">
-                <h3>2025 - Present</h3>
-                <p>Current Focus</p>
-              </div>
-              <div className="skill-content">
-                <h4>Frontend Development Mastery</h4>
-                <p>Deepening expertise in modern web technologies and frameworks</p>
-                <div className="skill-tags">
-                  <span className="tech-tag">React</span>
-                  <span className="tech-tag">Advanced CSS</span>
-                  <span className="tech-tag">JavaScript ES6+</span>
-                  <span className="tech-tag">Responsive Design</span>
-                </div>
-              </div>
-            </div>
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.6", color: "#222", marginBottom: "1.25rem" }}>
+                Currently in my first year of BSc-IT studies, building strong academic foundations in core computer science, object-oriented programming, network fundamentals, and database systems.
+              </p>
 
-            <div className="skill-progress-item reveal">
-              <div className="skill-period">
-                <h3>2026</h3>
-                <p>Foundation Building</p>
+              <div>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 700, color: "var(--text-dark)", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+                  Core Curriculum Focus:
+                </h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.4rem", fontFamily: "var(--font-primary)", fontSize: "0.9rem", color: "#333" }}>
+                  <li>&bull; Web engineering principles and client-side scripting.</li>
+                  <li>&bull; Programming fundamentals in Python, Java, and C/C++.</li>
+                  <li>&bull; Database design with MySQL and SQL queries.</li>
+                </ul>
               </div>
-              <div className="skill-content">
-                <h4>Web Development Fundamentals</h4>
-                <p>Built strong foundation in core web technologies and programming</p>
-                <div className="skill-tags">
-                  <span className="tech-tag">HTML5</span>
-                  <span className="tech-tag">CSS3</span>
-                  <span className="tech-tag">JavaScript</span>
-                  <span className="tech-tag">Python</span>
-                </div>
-              </div>
-            </div>
+            </Paper>
+          </article>
 
-            <div className="skill-progress-item reveal">
-              <div className="skill-period">
-                <h3>2025-2026</h3>
-                <p>Programming Start</p>
+        </section>
+
+        {/* Final Call to Action */}
+        <section aria-labelledby="exp-cta-heading" style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ transform: "rotate(1deg)", width: "100%", maxWidth: "560px" }}>
+            <Paper variant="lined" rotation={0} padding="large" style={{ textAlign: "center" }}>
+              <h2 id="exp-cta-heading" style={{ 
+                fontFamily: "var(--font-serif)", 
+                fontSize: "1.8rem", 
+                fontStyle: "italic", 
+                color: "var(--text-dark)", 
+                marginBottom: "0.5rem" 
+              }}>
+                READY TO COLLABORATE?
+              </h2>
+              
+              <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.45", marginBottom: "1.5rem" }}>
+                Have a web project that needs clean execution, responsive styling, and fast performance? Send me your brief.
+              </p>
+
+              <div style={{ margin: "1.5rem 0" }}>
+                <HandwrittenNote color="blue" tilt={-1.5}>
+                  let me know what you're building
+                </HandwrittenNote>
               </div>
-              <div className="skill-content">
-                <h4>Programming Fundamentals</h4>
-                <p>Started programming journey with basic languages and concepts</p>
-                <div className="skill-tags">
-                  <span className="tech-tag">C/C++</span>
-                  <span className="tech-tag">Java</span>
-                  <span className="tech-tag">MySQL</span>
-                  <span className="tech-tag">Git</span>
-                </div>
+
+              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
+                <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a web development project">
+                  [ BOOK A PROJECT ]
+                </Link>
+                <Link href="/projects/" className="tactile-btn" aria-label="Explore verified project work">
+                  [ VIEW PROJECTS ]
+                </Link>
               </div>
-            </div>
+            </Paper>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Career Goals & Aspirations */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "var(--accent-primary)", fontFamily: "var(--font-mono)" }}>
-            Career Goals & Aspirations
-          </h2>
-          
-          <div className="cards-grid">
-            <article className="card glow-border reveal">
-              <div className="card-header">
-                <div className="card-icon">🎯</div>
-                <h3 className="card-title">Short-term Goals (6-12 months)</h3>
-              </div>
-              <ul className="goals-list" style={{ paddingLeft: "1.25rem", color: "var(--text-secondary)", lineHeight: "2" }}>
-                <li>Secure a frontend or cloud development role</li>
-                <li>Master React and modern JavaScript frameworks</li>
-                <li>Deepen Microsoft Azure cloud expertise</li>
-                <li>Build 5+ professional-quality projects</li>
-                <li>Complete advanced web development certifications</li>
-                <li>Contribute to open-source projects</li>
-              </ul>
-            </article>
-
-            <article className="card glow-border reveal">
-              <div className="card-header">
-                <div className="card-icon">🚀</div>
-                <h3 className="card-title">Long-term Vision (2-3 years)</h3>
-              </div>
-              <ul className="goals-list" style={{ paddingLeft: "1.25rem", color: "var(--text-secondary)", lineHeight: "2" }}>
-                <li>Become a full-stack cloud developer</li>
-                <li>Lead development and cloud projects</li>
-                <li>Mentor other aspiring developers</li>
-                <li>Specialize in cloud architecture and AI/ML</li>
-                <li>Start my own tech venture</li>
-              </ul>
-            </article>
-
-            <article className="card glow-border reveal">
-              <div className="card-header">
-                <div className="card-icon">💡</div>
-                <h3 className="card-title">Areas of Interest</h3>
-              </div>
-              <ul className="goals-list" style={{ paddingLeft: "1.25rem", color: "var(--text-secondary)", lineHeight: "2" }}>
-                <li>Frontend Development & UI/UX</li>
-                <li>Cloud Computing & Microsoft Azure</li>
-                <li>Artificial Intelligence & Machine Learning</li>
-                <li>Web Performance Optimization</li>
-                <li>Progressive Web Applications</li>
-                <li>Cloud Architecture & DevOps</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="card glow-border reveal" style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
-            <h2 style={{ marginBottom: "1rem" }}>Let's Work Together!</h2>
-            <p style={{ color: "var(--text-secondary)", marginBottom: "2rem" }}>
-              I'm actively seeking internship opportunities and would love to contribute to your team. Let's discuss how I can add value to your projects!
-            </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact/" className="btn btn-primary">
-                Get in Touch
-              </Link>
-              <a href="/Ram-Singh-Resume.pdf" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                Download Resume
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </main>
   );
 }

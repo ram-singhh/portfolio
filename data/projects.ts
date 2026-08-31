@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/Ramsingh4656/portfolio",
     image: null,
     featured: true,
-    whyItExists: "Designed to host and present Ram Singh's work, certifications, and skills to freelance clients and employers, functioning as a high-conversion sales page rather than a boilerplate resume.",
+    whyItExists: "Designed to present Ram Singh's work, certifications, and technical capabilities to freelance clients and potential partners, functioning as a tactile digital workspace and case study hub rather than a boilerplate resume.",
     problem: "Standard web portfolios look like uniform templates, failing to create a memorable, tactile brand impression or demonstrate advanced web engineering capabilities.",
     approach: "Migrated the codebase to Next.js 14 to leverage React components for repetitive layouts. Designed custom CSS-only layout wrappers representing physical desk objects like notebook sheets, Polaroid pictures, tape segments, and Dymo labels.",
     implementation: "Developed a server-side route handler that requests Spotify tokens via OAuth refresh flows, caching the token and the API response in server memory to respect rate limits. Built responsive grid systems and media query hooks to shrink and adjust document skew rotations on smaller screens.",

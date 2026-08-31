@@ -3,125 +3,130 @@ import { Metadata } from "next";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development Services | Ram Singh",
-  description: "Freelance web development services by Ram Singh. I build responsive, semantic, and high-performance websites for businesses, creators, and individuals.",
+  title: "Freelance Web Development Services",
+  description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
   alternates: {
-    canonical: "https://www.ramsingh.dev/services/web-development/",
+    canonical: "/services/web-development/",
   },
   openGraph: {
     title: "Freelance Web Development Services | Ram Singh",
-    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and high-performance websites for businesses, creators, and individuals.",
-    url: "https://www.ramsingh.dev/services/web-development/",
+    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
+    url: "/services/web-development/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Freelance Web Development Services | Ram Singh",
-    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and high-performance websites for businesses, creators, and individuals.",
+    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
   },
 };
 
 const whoThisIsFor = [
-  "Creators, business owners, and individuals needing a solid, high-performing web presence.",
-  "Projects requiring clean structural layouts, standard JavaScript interactions, and modern rendering setups.",
-  "Clients looking for an honest, single-point developer partner based in India who works online."
+  "Businesses, creators, and individuals needing a solid, custom web presence without bloated page builders.",
+  "Projects requiring clear structural layouts, standard JavaScript client-side interactions, and modern static site setups.",
+  "Clients looking for an honest, single-point developer based in India working online globally."
 ];
 
 const whatICanBuild = {
-  intro: "I focus on core web technologies to construct lightweight, stable, and highly performant website structures.",
+  intro: "I focus on core web standards to construct lightweight, stable, and search-friendly website structures.",
   items: [
     {
-      name: "Responsive Website Structures",
-      description: "Layouts that shift fluidly to fit mobile phones, tablets, and desktop monitors, ensuring a seamless user experience on all screen sizes."
+      name: "Custom Responsive Websites",
+      description: "Fluid website layouts built to adapt naturally across mobile phones, tablets, and desktop displays without horizontal scroll breaks."
     },
     {
       name: "Interactive Web Applications",
-      description: "Client-side utilities and interactive page systems built with vanilla JavaScript or component structures like React."
+      description: "Client-side utility apps and interactive page components constructed with vanilla JavaScript or React state structures."
     },
     {
       name: "SEO & Speed Foundations",
-      description: "Clean, semantic HTML markup combined with lightweight assets to achieve fast loading speeds and search-friendly structures."
+      description: "Semantic HTML5 outlines, clean meta structures, and lightweight assets optimized for fast initial render times."
     },
     {
-      name: "Accessible Interface Implementations",
-      description: "Web spaces built in line with accessibility guidelines, including proper ARIA landmark tags, keyboard focus styles, and screen-reader compatibility."
+      name: "Accessible Web Interfaces",
+      description: "Web layouts configured with appropriate document landmarks, keyboard focus outlines, and screen-reader navigable tags."
     }
   ]
 };
 
 const howIWork = {
-  intro: "My process is straightforward, structured, and collaborative.",
+  intro: "A transparent 5-stage project workflow focused on clear deliverables.",
   steps: [
     {
       number: "1",
-      title: "Requirement Scoping",
-      description: "We detail your target objectives, required page layouts, design files or ideas, and technical constraints."
+      title: "Brief",
+      description: "You share your website goals, target audience, preferred design references, and required functionality via the contact brief."
     },
     {
       number: "2",
-      title: "Static File Development",
-      description: "I write semantic HTML, clean CSS files, and responsive scripts using component-oriented file structures."
+      title: "Scope",
+      description: "We define the page structure, screen viewports, content assets, technical stack, and project boundaries before coding begins."
     },
     {
       number: "3",
-      title: "Quality & Accessibility Checks",
-      description: "The layout is verified across various screen widths, checked for keyboard accessibility, and tested for performance speed."
+      title: "Build",
+      description: "I write clean semantic HTML5, modern CSS custom properties, and modular React/Next.js components to construct your site."
     },
     {
       number: "4",
-      title: "Deployment",
-      description: "I configure your website on modern hosting platforms (such as Vercel or GitHub Pages) and hand over the complete codebase."
+      title: "Review",
+      description: "We review the built website across mobile viewports, verify keyboard accessibility, and audit page loading speeds."
+    },
+    {
+      number: "5",
+      title: "Launch",
+      description: "I configure your website on production static hosting (Vercel or GitHub Pages), connect custom domains, and transfer complete source code."
     }
   ]
 };
 
 const technology = [
-  "HTML5",
+  "HTML5 Semantic Landmarks",
   "CSS3 / CSS Variables",
   "JavaScript (ES6+)",
   "React",
-  "Next.js",
+  "Next.js App Router",
   "TypeScript",
-  "Responsive Grid Layouts"
+  "Responsive CSS Grid & Flexbox"
 ];
 
 const qualityChecks = [
-  "Responsive testing down to 375px wide viewports",
-  "Accessibility check for keyboard navigation and focus outline visibility",
-  "Page speed diagnostic and performance check",
-  "W3C-compliant semantic markup validation",
+  "Responsive layout testing down to 375px wide mobile viewports",
+  "Full keyboard navigation accessibility path and focus outline audit",
+  "Lighthouse page speed and performance diagnostic check",
+  "W3C-compliant semantic HTML markup verification",
   "Cross-browser layout compatibility checks"
 ];
 
 const relevantWork = [
   {
     slug: "modern-calculator",
-    title: "Modern Calculator",
-    description: "An interactive, responsive utility application built in React and Next.js, showcasing DOM event management, keyboard shortcuts, and clean component states."
+    title: "Modern Calculator Case Study",
+    description: "An interactive utility application built in React and Next.js demonstrating DOM event handling, keyboard control mapping, and responsive grid layouts."
   },
   {
     slug: "portfolio-website",
-    title: "Tactile Portfolio Website",
-    description: "The very portfolio you are browsing, featuring Next.js, server-side caching API routes, and a fully custom responsive tactile paper-desk theme."
+    title: "Tactile Portfolio Website Case Study",
+    description: "A custom web engineering project featuring Next.js, server-side cached API routes, and a fully custom responsive paper-desk design system."
   }
 ];
 
 const faq = [
   {
-    question: "What kind of website can you build?",
-    answer: "I focus on responsive informational websites, personal portfolios, utility web applications, and landing pages. I use semantic HTML, modern CSS, and React/Next.js to construct high-quality web spaces."
+    question: "What kind of websites can you build?",
+    answer: "I build responsive business websites, personal portfolios, utility web applications, landing pages, and legacy site modernizations using semantic HTML, modern CSS, React, and Next.js."
   },
   {
     question: "Do you offer website hosting?",
-    answer: "I do not host sites directly, but I configure and set up your project on modern deployment platforms like Vercel or GitHub Pages, making hosting easy for you to manage."
+    answer: "I do not host sites directly on my own servers, but I configure and set up your site on static deployment platforms like Vercel or GitHub Pages, making hosting easy for you to maintain."
   },
   {
-    question: "Can you build complex backend databases?",
-    answer: "My primary focus is on frontend engineering and client-side logic. For backend operations, I build focused integrations (like API endpoints or serverless handlers) as shown in my Spotify integration."
+    question: "Do you build complex backend databases?",
+    answer: "My focus is on frontend development and client-side web application logic. For backend features, I integrate focused serverless handlers or API endpoints (such as contact form processing or external token handlers)."
   },
   {
     question: "How do I start a project?",
-    answer: "You can click the 'Book a Project' button to send a message via my contact page. We will discuss your goals, requirements, and scope to start development."
+    answer: "Click 'Book a Project' to send your project details through the contact page. We will review your goals, scope the requirements, and agree on deliverables before starting."
   }
 ];
 
@@ -130,7 +135,7 @@ export default function WebDevelopment() {
     <ServicePageTemplate
       serviceLabel="SERVICE_01 // WEB_DEVELOPMENT"
       h1Title="Freelance Web Development Services"
-      introduction="I build clean, accessible, and responsive website structures optimized for visitors and speed, backed by inspected codebase architectures."
+      introduction="I build clean, accessible, and responsive website structures optimized for speed and search engines, backed by inspected codebase architectures."
       whoThisIsFor={whoThisIsFor}
       whatICanBuild={whatICanBuild}
       howIWork={howIWork}

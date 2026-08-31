@@ -9,7 +9,7 @@ import ProjectVisual from "@/components/projects/ProjectVisual";
 import { projectsData } from "@/data/projects";
 
 export const metadata = {
-  title: "Web Development Project Archive | Ram Singh",
+  title: "Web Development Projects & Case Studies",
   description: "Explore the verified software projects and case studies built by freelance web developer Ram Singh, featuring the Modern Calculator and AI Multi-Module System.",
   alternates: {
     canonical: "/projects/",
