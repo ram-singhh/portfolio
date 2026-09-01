@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Ram Singh",
+  siteName: "Ram Singh",
   title: "Ram Singh | Freelance Web Developer",
   description: "Ram Singh is a freelance web developer based in Mumbai, India, building fast, responsive websites, React/Next.js frontend interfaces, and landing pages.",
   url: "https://www.ramsingh.dev",

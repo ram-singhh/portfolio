@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
+import JsonLd from "@/components/JsonLd";
 import { Inter, Playfair_Display, Courier_Prime, Caveat } from "next/font/google";
 import "./globals.css";
 
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     url: "/",
-    siteName: "Ram Singh Portfolio",
+    siteName: siteConfig.siteName,
     images: [
       {
         url: "/assets/images/Profile.jpg",
@@ -113,6 +114,7 @@ export default function RootLayout({
         <Footer />
         <PersonJsonLd />
         <WebSiteJsonLd />
+        <JsonLd />
       </body>
     </html>
   );
