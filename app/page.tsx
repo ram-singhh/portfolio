@@ -50,15 +50,36 @@ export default function Home() {
               >
                 THIS IS NOT A PORTFOLIO.
               </div>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 3.2vw, 1.4rem)", lineHeight: "1.45", color: "#2c251f", maxWidth: "540px", margin: "0 0 1.5rem 0" }}>
-                I design and build websites and web experiences for people with something to build, sell, or share.
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 3.2vw, 1.4rem)", lineHeight: "1.45", color: "#2c251f", maxWidth: "540px", margin: "0 0 1.25rem 0" }}>
+                I design and build custom websites and web applications for founders, creators, and businesses with something to build, sell, or share.
               </p>
-              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.5", color: "#333", maxWidth: "520px", margin: 0 }}>
-                Specialized in custom responsive websites, clean React/Next.js frontend interfaces, fast landing pages, and legacy site modernizations. Verified through real source code and technical case studies.
+              <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.55", color: "#333", maxWidth: "540px", margin: "0 0 1.5rem 0" }}>
+                Specialized in custom responsive websites, clean React/Next.js and TypeScript frontend interfaces, fast landing pages, and REST API integrations. Verified through real open-source code and technical case studies.
               </p>
+
+              {/* Technologies Badges Bar in Hero */}
+              <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", margin: "1.25rem 0" }}>
+                {["Next.js", "React", "TypeScript", "JavaScript", "HTML5 & CSS3", "REST APIs", "Vercel"].map((tech) => (
+                  <span 
+                    key={tech} 
+                    style={{ 
+                      fontFamily: "var(--font-mono)", 
+                      fontSize: "0.72rem", 
+                      fontWeight: "bold",
+                      backgroundColor: "rgba(0,0,0,0.06)",
+                      border: "1px solid rgba(0,0,0,0.14)",
+                      borderRadius: "2px",
+                      padding: "2px 6px",
+                      color: "var(--color-ink-blue)"
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", marginTop: "2.5rem" }}>
+            <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", marginTop: "2rem" }}>
               <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a web development project with Ram Singh">
                 [ BOOK A PROJECT ]
               </Link>
@@ -116,7 +137,61 @@ export default function Home() {
           </Link>
         </section>
 
-        {/* Section 2: Projects List */}
+        {/* Section 2: Technical Proof & Value Proposition Card */}
+        <section style={{ gridColumn: "span 12", marginTop: "2rem" }} aria-label="Technical proof and engineering capabilities">
+          <Paper variant="lined" rotation={-0.6} padding="large">
+            <header style={{ marginBottom: "1.25rem" }}>
+              <TypewriterLabel variant="dymo" rotation={1}>WHY WORK WITH ME // TECHNICAL PROOF</TypewriterLabel>
+              <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.5rem" }}>
+                Engineering Standards &amp; Verified Capabilities
+              </h2>
+            </header>
+            
+            <p style={{ fontSize: "0.95rem", color: "#333", lineHeight: "1.55", marginBottom: "1.5rem" }}>
+              Every feature on this website reflects real engineering practices built directly into the codebase:
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem" }}>
+              <div style={{ borderLeft: "3px solid var(--color-ink-red)", paddingLeft: "0.85rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.88rem", fontWeight: 700, color: "var(--color-ink-red)", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                  1. Clean Frontend Architecture
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: "#333", lineHeight: "1.45" }}>
+                  Modular Next.js 14 App Router layout components, React state controls, and strict TypeScript schema definitions for type safety.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: "3px solid var(--color-ink-blue)", paddingLeft: "0.85rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.88rem", fontWeight: 700, color: "var(--color-ink-blue)", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                  2. Server API Route Caching
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: "#333", lineHeight: "1.45" }}>
+                  Server-side Spotify OAuth token refresh flow with dual in-memory caching to isolate credentials and protect against rate limits.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: "3px solid var(--color-ink-green)", paddingLeft: "0.85rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.88rem", fontWeight: 700, color: "var(--color-ink-green)", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                  3. Brief Validation &amp; Security
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: "#333", lineHeight: "1.45" }}>
+                  Multi-field contact brief validation with Resend email delivery, honeypot anti-spam traps, and server IP rate limiting.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: "3px solid var(--color-pencil)", paddingLeft: "0.85rem" }}>
+                <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "0.88rem", fontWeight: 700, color: "var(--color-pencil)", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                  4. Responsive &amp; Accessible CSS
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: "#333", lineHeight: "1.45" }}>
+                  Custom CSS variables, mobile transform rotation fallbacks down to 375px viewports, focus indicators, and reduced-motion support.
+                </p>
+              </div>
+            </div>
+          </Paper>
+        </section>
+
+        {/* Section 3: Projects List (Card Hierarchy: NAME -> CATEGORY -> PURPOSE -> TECH -> CHALLENGE -> BUTTONS) */}
         <section id="projects" style={{ gridColumn: "span 12", marginTop: "2rem" }}>
           <h2 style={{ marginBottom: "1.5rem" }}>
             <TypewriterLabel variant="paper" rotation={-1}>Verified Projects &amp; Technical Proof</TypewriterLabel>
@@ -127,22 +202,18 @@ export default function Home() {
             <article>
               <Paper variant="light" rotation={1} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
                 <header style={{ marginBottom: "0.75rem" }}>
-                  <TypewriterLabel variant="plain">01. UTILITY APP</TypewriterLabel>
-                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0 0 0.25rem 0" }}>
                     Modern Calculator
                   </h3>
+                  <TypewriterLabel variant="plain">UTILITY APP</TypewriterLabel>
                 </header>
 
                 <p style={{ color: "#333", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
-                  <strong>Purpose:</strong> An interactive, responsive browser calculator supporting full keyboard hotkeys, modulo calculations, and division-by-zero protection.
+                  An interactive, responsive browser calculator supporting full keyboard hotkey navigation, modulo calculations, and division-by-zero error handling.
                 </p>
 
-                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-blue)", paddingLeft: "0.75rem" }}>
-                  <strong>Tech Challenge:</strong> Managing keyboard state listeners without stale closures while handling decimal accuracy and arithmetic edge cases.
-                </div>
-
-                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-                  {["React", "Next.js", "TypeScript", "CSS Grid", "Keyboard API"].map((tech) => (
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  {["React", "Next.js", "TypeScript", "JavaScript", "CSS Grid", "Keyboard Event API"].map((tech) => (
                     <span 
                       key={tech} 
                       style={{ 
@@ -161,12 +232,19 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Explore Modern Calculator case study and demo">
-                    [ CASE STUDY &amp; DEMO ]
+                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.5rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-blue)", paddingLeft: "0.75rem" }}>
+                  <strong>Technical Challenge:</strong> Managing global keyboard event listeners without stale closures in React while implementing decimal precision and error recovery.
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Read case study for Modern Calculator">
+                    [ CASE STUDY ]
+                  </Link>
+                  <Link href="/projects/modern-calculator/" className="tactile-btn" aria-label="Open live demo for Modern Calculator">
+                    [ LIVE DEMO ]
                   </Link>
                   <a href="https://github.com/Ramsingh4656/Modern-Calculator" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Modern Calculator source code on GitHub">
-                    [ GITHUB SOURCE ]
+                    [ SOURCE ]
                   </a>
                 </div>
               </Paper>
@@ -176,22 +254,18 @@ export default function Home() {
             <article>
               <Paper variant="lined" rotation={-1.5} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
                 <header style={{ marginBottom: "0.75rem" }}>
-                  <TypewriterLabel variant="plain">02. PYTHON SCRIPTING</TypewriterLabel>
-                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0 0 0.25rem 0" }}>
                     AI Multi-Module System
                   </h3>
+                  <TypewriterLabel variant="plain">PYTHON SCRIPTING / AI</TypewriterLabel>
                 </header>
 
                 <p style={{ color: "#333", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
-                  <strong>Purpose:</strong> A modular Python framework demonstrating scalable LLM API orchestration, structured prompts, and independent action modules.
+                  A modular Python AI framework supporting multiple AI-powered functionalities through independent, reusable script modules.
                 </p>
 
-                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
-                  <strong>Tech Challenge:</strong> Decoupling script boundaries so new AI capabilities can be registered without modifying the core orchestrator.
-                </div>
-
-                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-                  {["Python", "AI/LLM APIs", "Modular Architecture", "API Integration"].map((tech) => (
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  {["Python", "AI/LLM APIs", "Modular Architecture", "REST APIs"].map((tech) => (
                     <span 
                       key={tech} 
                       style={{ 
@@ -210,12 +284,19 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <Link href="/projects/ai-multi-module-system/" className="tactile-btn tactile-btn-primary" aria-label="Explore AI Multi-Module system case study">
-                    [ OPEN CASE STUDY ]
+                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.5rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
+                  <strong>Technical Challenge:</strong> Decoupling script boundaries so new AI capabilities can be registered without modifying the core orchestrator script.
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/ai-multi-module-system/" className="tactile-btn tactile-btn-primary" aria-label="Read case study for AI Multi-Module System">
+                    [ CASE STUDY ]
                   </Link>
+                  <a href="https://multi-module-ai-system.vercel.app/" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="Open live demo for AI Multi-Module System">
+                    [ LIVE DEMO ]
+                  </a>
                   <a href="https://github.com/Ramsingh4656/MultiModule-AI-System" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View AI Multi-Module source code on GitHub">
-                    [ GITHUB SOURCE ]
+                    [ SOURCE ]
                   </a>
                 </div>
               </Paper>
@@ -225,22 +306,18 @@ export default function Home() {
             <article>
               <Paper variant="craft" rotation={0.8} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
                 <header style={{ marginBottom: "0.75rem" }}>
-                  <TypewriterLabel variant="plain">03. WEB ENGINEERING</TypewriterLabel>
-                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0 0 0.25rem 0" }}>
                     Tactile Portfolio Website
                   </h3>
+                  <TypewriterLabel variant="plain">WEB ENGINEERING</TypewriterLabel>
                 </header>
 
                 <p style={{ color: "#221e1a", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
-                  <strong>Purpose:</strong> A Next.js portfolio presenting developer proof, services, and live Spotify integration inside a dark tactile desk environment.
+                  A Next.js developer portfolio with a custom dark tactile desk design system, TypeScript schemas, and server-cached Spotify OAuth integration.
                 </p>
 
-                <div style={{ fontSize: "0.85rem", color: "#332c25", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid #221e1a", paddingLeft: "0.75rem" }}>
-                  <strong>Tech Challenge:</strong> Building cached OAuth Spotify handlers and accessible paper/polaroid/tape CSS components without runtime layout shifts.
-                </div>
-
-                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-                  {["Next.js 14", "React", "TypeScript", "Spotify API", "SEO / ARIA"].map((tech) => (
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  {["Next.js 14", "React", "TypeScript", "CSS Custom Variables", "Spotify Web API", "OAuth 2.0", "Vercel"].map((tech) => (
                     <span 
                       key={tech} 
                       style={{ 
@@ -259,12 +336,19 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <Link href="/projects/portfolio-website/" className="tactile-btn tactile-btn-primary" aria-label="Explore Portfolio Website case study">
-                    [ OPEN CASE STUDY ]
+                <div style={{ fontSize: "0.85rem", color: "#332c25", marginBottom: "1.5rem", flexGrow: 1, borderLeft: "2px solid #221e1a", paddingLeft: "0.75rem" }}>
+                  <strong>Technical Challenge:</strong> Developing server-side OAuth token refresh flows, in-memory caching to prevent HTTP 429 rate limits, and mobile breakpoint rotation clamping.
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/portfolio-website/" className="tactile-btn tactile-btn-primary" aria-label="Read case study for Portfolio Website">
+                    [ CASE STUDY ]
+                  </Link>
+                  <Link href="/" className="tactile-btn" aria-label="View live demo of portfolio website">
+                    [ LIVE DEMO ]
                   </Link>
                   <a href="https://github.com/Ramsingh4656/portfolio" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="View Portfolio Website source code on GitHub">
-                    [ GITHUB SOURCE ]
+                    [ SOURCE ]
                   </a>
                 </div>
               </Paper>
@@ -272,14 +356,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 3: Services */}
+        {/* Section 4: Services mapped to real proof */}
         <section id="services" className="grid-services-card" style={{ marginTop: "2rem" }}>
           <Paper variant="craft" rotation={-1} padding="medium">
             <h2 style={{ marginBottom: "1.25rem" }}>
               <TypewriterLabel variant="paper" rotation={1.5}>Freelance Web Services</TypewriterLabel>
             </h2>
             <p style={{ fontSize: "0.9rem", color: "#221e1a", marginBottom: "1.5rem", lineHeight: "1.5" }}>
-              I design and build fast, responsive, and accessible websites tailored to your specific requirements.
+              I design and build fast, responsive, accessible web layouts backed by inspected project code:
             </p>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "0.85rem", fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>
               <li>
@@ -287,24 +371,36 @@ export default function Home() {
                 <Link href="/services/web-development/" style={{ color: "#1a1816", textDecoration: "underline", fontWeight: 700 }}>
                   Web Development Services
                 </Link>
+                <span style={{ fontSize: "0.78rem", color: "#444", display: "block", marginTop: "0.15rem", fontFamily: "var(--font-primary)" }}>
+                  &rarr; Proof: Modern Calculator &amp; Portfolio Website
+                </span>
               </li>
               <li>
                 <span style={{ color: "var(--color-ink-red)" }}>&bull;</span>{" "}
                 <Link href="/services/frontend-development/" style={{ color: "#1a1816", textDecoration: "underline", fontWeight: 700 }}>
                   Frontend Development (React / Next.js)
                 </Link>
+                <span style={{ fontSize: "0.78rem", color: "#444", display: "block", marginTop: "0.15rem", fontFamily: "var(--font-primary)" }}>
+                  &rarr; Proof: Next.js App Router &amp; TypeScript interfaces
+                </span>
               </li>
               <li>
                 <span style={{ color: "var(--color-ink-red)" }}>&bull;</span>{" "}
                 <Link href="/services/landing-pages/" style={{ color: "#1a1816", textDecoration: "underline", fontWeight: 700 }}>
                   Landing Page Development
                 </Link>
+                <span style={{ fontSize: "0.78rem", color: "#444", display: "block", marginTop: "0.15rem", fontFamily: "var(--font-primary)" }}>
+                  &rarr; Proof: AI Multi-Module system page
+                </span>
               </li>
               <li>
                 <span style={{ color: "var(--color-ink-red)" }}>&bull;</span>{" "}
                 <Link href="/services/website-redesign/" style={{ color: "#1a1816", textDecoration: "underline", fontWeight: 700 }}>
                   Website Redesign &amp; Modernization
                 </Link>
+                <span style={{ fontSize: "0.78rem", color: "#444", display: "block", marginTop: "0.15rem", fontFamily: "var(--font-primary)" }}>
+                  &rarr; Proof: HTML-to-Next.js refactor case study
+                </span>
               </li>
             </ul>
             <div style={{ marginTop: "1.75rem" }}>
@@ -315,18 +411,23 @@ export default function Home() {
           </Paper>
         </section>
 
-        {/* Section 5: About Section Teaser */}
+        {/* Section 5: About Section Teaser with Recruiter Signals */}
         <section className="grid-navigation-card" style={{ marginTop: "2rem" }} aria-label="Biography and Notes shortcuts">
           <Paper variant="light" rotation={-1.5} padding="medium">
             <h2 style={{ marginBottom: "1rem" }}>
               <TypewriterLabel variant="plain">About Ram Singh</TypewriterLabel>
             </h2>
-            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.5rem" }}>
-              Freelance web developer and first-year BSc-IT student focusing on frontend architecture, responsive layout structures, and practical web solutions.
+            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.25rem" }}>
+              Freelance web developer based in Mumbai, India. Specialized in Next.js, React, TypeScript, Frontend Development, Web Development, REST API Integration, Responsive Design, Git/GitHub, and Vercel deployments.
             </p>
-            <Link href="/about/" className="tactile-btn" aria-label="Read full biography and developer background">
-              [ ABOUT RAM SINGH &rarr; ]
-            </Link>
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              <Link href="/about/" className="tactile-btn" aria-label="Read full biography and developer background">
+                [ ABOUT RAM SINGH &rarr; ]
+              </Link>
+              <Link href="/skills/" className="tactile-btn" aria-label="View verified skills and technical evidence">
+                [ SEE SKILLS &amp; PROOF &rarr; ]
+              </Link>
+            </div>
           </Paper>
 
           {/* Section 6: Notes Teaser */}
@@ -334,8 +435,8 @@ export default function Home() {
             <h2 style={{ marginBottom: "1rem" }}>
               <TypewriterLabel variant="plain">Field Notes &amp; Lab</TypewriterLabel>
             </h2>
-            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.5rem" }}>
-              First-hand technical build logs, architecture breakdowns, and engineering decisions from real development work.
+            <p style={{ fontSize: "0.9rem", color: "#333", lineHeight: "1.5", marginBottom: "1.25rem" }}>
+              First-hand technical build logs covering Spotify OAuth caching, tactile CSS paper architecture, dynamic case study schemas, and freelance platform engineering.
             </p>
             <Link href="/notes/" className="tactile-btn" aria-label="Explore field notes and technical lab reports">
               [ READ FIELD NOTES &rarr; ]
@@ -346,11 +447,14 @@ export default function Home() {
         {/* Section 7: Final Conversion CTA Note */}
         <section className="grid-cta-card" aria-label="Booking call to action">
           <Paper variant="lined" rotation={-0.5} padding="large">
-            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontStyle: "italic", color: "var(--text-dark)", marginBottom: "1rem" }}>
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontStyle: "italic", color: "var(--text-dark)", marginBottom: "0.75rem" }}>
               HAVE SOMETHING IN MIND?
             </h2>
-            <p style={{ color: "#333", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "1.5rem", maxWidth: "500px", marginLeft: "auto", marginRight: "auto" }}>
-              Send me the brief. Tell me about your website, landing page, or frontend layout requirements.
+            <p style={{ color: "#333", fontSize: "1.05rem", lineHeight: "1.5", marginBottom: "1.25rem", maxWidth: "520px", marginLeft: "auto", marginRight: "auto" }}>
+              Send me your project brief. We can discuss your website parameters, frontend requirements, reference designs, and desired timeline.
+            </p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--color-ink-blue)", marginBottom: "1.5rem" }}>
+              Email directly: <a href="mailto:hello@ramsingh.dev" style={{ color: "var(--color-ink-blue)", textDecoration: "underline", fontWeight: 700 }}>hello@ramsingh.dev</a>
             </p>
             
             <div style={{ margin: "1.5rem 0" }}>

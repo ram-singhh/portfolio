@@ -114,8 +114,8 @@ export default function Projects() {
                   </div>
 
                   {/* Tech stack badges */}
-                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-                    {project.technologies.slice(0, 4).map((tech) => (
+                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                    {project.technologies.map((tech) => (
                       <span 
                         key={tech} 
                         style={{ 
@@ -132,24 +132,41 @@ export default function Projects() {
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "var(--text-muted)", padding: "1px 5px" }}>
-                        +{project.technologies.length - 4} more
-                      </span>
-                    )}
+                  </div>
+
+                  {/* Implementation Highlight / Challenge */}
+                  <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.5rem", borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
+                    <strong>Technical Challenge:</strong> {
+                      project.slug === "modern-calculator" ? "Managing keyboard state listeners without stale closures in React while handling decimal precision and error recovery." :
+                      project.slug === "ai-multi-module-system" ? "Decoupling script boundaries so new AI capabilities can be registered without modifying the core orchestrator script." :
+                      "Developing server-side OAuth token refresh flows, in-memory caching to prevent HTTP 429 rate limits, and mobile breakpoint rotation clamping."
+                    }
                   </div>
 
                   {/* Action Buttons */}
-                  <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
                     <Link 
                       href={project.slug === "modern-calculator" ? "/projects/modern-calculator/" : `/projects/${project.slug}/`} 
                       className="tactile-btn tactile-btn-primary"
                       style={{ textDecoration: "none" }}
                       aria-label={`Read case study for ${project.title}`}
                     >
-                      [ OPEN CASE STUDY ]
+                      [ CASE STUDY ]
                     </Link>
                     
+                    {project.liveUrl && (
+                      <a 
+                        href={project.liveUrl} 
+                        target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
+                        rel={project.liveUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="tactile-btn"
+                        style={{ textDecoration: "none" }}
+                        aria-label={`Open live demo for ${project.title}`}
+                      >
+                        [ LIVE DEMO ]
+                      </a>
+                    )}
+
                     {project.githubUrl && (
                       <a 
                         href={project.githubUrl} 
@@ -159,7 +176,7 @@ export default function Projects() {
                         style={{ textDecoration: "none" }}
                         aria-label={`View source code for ${project.title} on GitHub`}
                       >
-                        [ GITHUB SOURCE ]
+                        [ SOURCE ]
                       </a>
                     )}
                   </div>
