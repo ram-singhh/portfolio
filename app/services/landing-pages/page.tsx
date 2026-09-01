@@ -4,20 +4,20 @@ import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Landing Page Development Services",
-  description: "Landing page development services by Ram Singh. Optimized for fast loading speeds, responsive layouts, accessibility, and clear call-to-action paths.",
+  description: "Landing page development services by Ram Singh, freelance web developer based in Mumbai, India. Speed-optimized, responsive single-page web structures.",
   alternates: {
     canonical: "/services/landing-pages/",
   },
   openGraph: {
     title: "Landing Page Development Services | Ram Singh",
-    description: "Landing page development services by Ram Singh. Optimized for fast loading speeds, responsive layouts, accessibility, and clear call-to-action paths.",
+    description: "Landing page development services by Ram Singh, freelance web developer based in Mumbai, India. Speed-optimized, responsive single-page web structures.",
     url: "/services/landing-pages/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Landing Page Development Services | Ram Singh",
-    description: "Landing page development services by Ram Singh. Optimized for fast loading speeds, responsive layouts, accessibility, and clear call-to-action paths.",
+    description: "Landing page development services by Ram Singh, freelance web developer based in Mumbai, India. Speed-optimized, responsive single-page web structures.",
   },
 };
 

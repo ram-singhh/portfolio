@@ -9,7 +9,7 @@ import CurrentlyPlaying from "@/components/spotify/CurrentlyPlaying";
 
 export const metadata = {
   title: "Ram Singh | Freelance Web Developer",
-  description: "I design and build fast, responsive websites and web experiences for people with things to build, sell, or share. Freelance web development, frontend engineering, and landing pages.",
+  description: "Ram Singh is a freelance web developer based in Mumbai, India, building fast, responsive websites, React/Next.js frontend interfaces, and landing pages.",
   alternates: {
     canonical: "/",
   },
@@ -32,7 +32,7 @@ export default function Home() {
                 Ram Singh — Freelance Web Developer
               </h1>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)", display: "block", marginTop: "0.25rem" }}>
-                Freelance Web Developer based in India
+                Freelance Web Developer based in Mumbai, India
               </span>
             </header>
 

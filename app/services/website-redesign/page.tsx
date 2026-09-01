@@ -4,20 +4,20 @@ import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Website Redesign & Modernization Services",
-  description: "Website redesign and frontend modernization services by Ram Singh. Upgrade your existing website with responsive layout grids, semantic markup, and performance tuning.",
+  description: "Website redesign and frontend modernization services by Ram Singh in Mumbai, India. Refactoring legacy code into responsive, accessible Next.js layouts.",
   alternates: {
     canonical: "/services/website-redesign/",
   },
   openGraph: {
     title: "Website Redesign & Modernization Services | Ram Singh",
-    description: "Website redesign and frontend modernization services by Ram Singh. Upgrade your existing website with responsive layout grids, semantic markup, and performance tuning.",
+    description: "Website redesign and frontend modernization services by Ram Singh in Mumbai, India. Refactoring legacy code into responsive, accessible Next.js layouts.",
     url: "/services/website-redesign/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Website Redesign & Modernization Services | Ram Singh",
-    description: "Website redesign and frontend modernization services by Ram Singh. Upgrade your existing website with responsive layout grids, semantic markup, and performance tuning.",
+    description: "Website redesign and frontend modernization services by Ram Singh in Mumbai, India. Refactoring legacy code into responsive, accessible Next.js layouts.",
   },
 };
 

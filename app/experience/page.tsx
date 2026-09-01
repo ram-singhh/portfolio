@@ -66,7 +66,7 @@ export default function Experience() {
                   Freelance Web Developer
                 </h2>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "#333", display: "block" }}>
-                  Independent / Online Client Services — India
+                  Independent / Online Client Services — Mumbai, India
                 </span>
               </header>
 

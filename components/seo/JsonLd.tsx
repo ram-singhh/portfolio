@@ -9,6 +9,16 @@ export function PersonJsonLd() {
     "url": `${siteConfig.url}/`,
     "image": `${siteConfig.url}/assets/images/Profile.jpg`,
     "jobTitle": "Freelance Web Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Self-Employed / Freelance"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
     "sameAs": [
       siteConfig.links.github,
       siteConfig.links.linkedin

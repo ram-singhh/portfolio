@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Ram Singh",
   title: "Ram Singh | Freelance Web Developer",
-  description: "Freelance web developer Ram Singh builds fast, responsive and modern websites and web experiences for businesses, creators and individuals.",
+  description: "Ram Singh is a freelance web developer based in Mumbai, India, building fast, responsive websites, React/Next.js frontend interfaces, and landing pages.",
   url: "https://www.ramsingh.dev",
   ogImage: "https://www.ramsingh.dev/assets/images/Profile.jpg",
   author: "Ram Singh",

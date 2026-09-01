@@ -3,28 +3,28 @@ import { Metadata } from "next";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development Services",
-  description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
+  title: "Web Development Services",
+  description: "Custom web development services by Ram Singh, freelance web developer based in Mumbai, India. Responsive, fast, and accessible web solutions.",
   alternates: {
     canonical: "/services/web-development/",
   },
   openGraph: {
-    title: "Freelance Web Development Services | Ram Singh",
-    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
+    title: "Web Development Services | Ram Singh",
+    description: "Custom web development services by Ram Singh, freelance web developer based in Mumbai, India. Responsive, fast, and accessible web solutions.",
     url: "/services/web-development/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freelance Web Development Services | Ram Singh",
-    description: "Freelance web development services by Ram Singh. I build responsive, semantic, and fast websites for businesses, creators, and individuals.",
+    title: "Web Development Services | Ram Singh",
+    description: "Custom web development services by Ram Singh, freelance web developer based in Mumbai, India. Responsive, fast, and accessible web solutions.",
   },
 };
 
 const whoThisIsFor = [
   "Businesses, creators, and individuals needing a solid, custom web presence without bloated page builders.",
   "Projects requiring clear structural layouts, standard JavaScript client-side interactions, and modern static site setups.",
-  "Clients looking for an honest, single-point developer based in India working online globally."
+  "Clients looking for an honest freelance web developer based in Mumbai, India working online globally."
 ];
 
 const whatICanBuild = {

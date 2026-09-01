@@ -10,7 +10,7 @@ export const metadata = {
   title: {
     absolute: "About Ram Singh | Freelance Web Developer",
   },
-  description: "Learn about Ram Singh, an independent freelance web developer based in India building fast, responsive, accessible websites and React/Next.js frontend interfaces.",
+  description: "Learn about Ram Singh, a freelance web developer and frontend developer based in Mumbai, India, building fast, responsive websites and modern React/Next.js web interfaces.",
   alternates: {
     canonical: "/about/",
   },
@@ -43,7 +43,7 @@ export default function About() {
                 About Ram Singh
               </h1>
               <p style={{ fontFamily: "var(--font-primary)", fontSize: "1.05rem", color: "#2c251f", lineHeight: "1.5", margin: 0, fontWeight: 500 }}>
-                Freelance web developer based in India, combining hands-on technical execution with academic IT study to build fast, responsive, accessible web interfaces.
+                Freelance web developer based in Mumbai, India, combining hands-on technical execution with academic IT study to build fast, responsive, accessible web interfaces.
               </p>
             </Paper>
           </div>
@@ -66,7 +66,7 @@ export default function About() {
             </h2>
 
             <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.6", color: "#1a1816", marginBottom: "1.25rem" }}>
-              I am Ram Singh, an independent web developer and first-year BSc-IT student based in India. I specialize in designing and building custom websites, interactive React/Next.js frontend interfaces, speed-focused landing pages, and legacy site modernizations.
+              I am Ram Singh, a freelance web developer and frontend developer based in Mumbai, India. I specialize in designing and building custom responsive websites, interactive React/Next.js frontend interfaces, speed-focused landing pages, and legacy site modernizations.
             </p>
 
             <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.6", color: "#1a1816", margin: 0 }}>

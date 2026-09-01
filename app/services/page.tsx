@@ -8,21 +8,21 @@ import HandwrittenNote from "@/components/ui/HandwrittenNote";
 import DeskBackground from "@/components/ui/DeskBackground";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development Services",
-  description: "Explore professional freelance web development services by Ram Singh, including frontend development, landing pages, and legacy website redesigns.",
+  title: "Freelance Web Development Services Index",
+  description: "Explore professional freelance web development services by Ram Singh in Mumbai, India, including custom frontend engineering, landing page builds, and website redesigns.",
   alternates: {
     canonical: "/services/",
   },
   openGraph: {
-    title: "Freelance Web Development Services | Ram Singh",
-    description: "Explore professional freelance web development services by Ram Singh, including frontend development, landing pages, and legacy website redesigns.",
+    title: "Freelance Web Development Services Index | Ram Singh",
+    description: "Explore professional freelance web development services by Ram Singh in Mumbai, India, including custom frontend engineering, landing page builds, and website redesigns.",
     url: "/services/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freelance Web Development Services | Ram Singh",
-    description: "Explore professional freelance web development services by Ram Singh, including frontend development, landing pages, and legacy website redesigns.",
+    title: "Freelance Web Development Services Index | Ram Singh",
+    description: "Explore professional freelance web development services by Ram Singh in Mumbai, India, including custom frontend engineering, landing page builds, and website redesigns.",
   },
 };
 

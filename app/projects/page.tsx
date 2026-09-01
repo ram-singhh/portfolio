@@ -10,7 +10,7 @@ import { projectsData } from "@/data/projects";
 
 export const metadata = {
   title: "Web Development Projects & Case Studies",
-  description: "Explore the verified software projects and case studies built by freelance web developer Ram Singh, featuring the Modern Calculator and AI Multi-Module System.",
+  description: "Explore verified web development projects and technical case studies built by freelance web developer Ram Singh in Mumbai, India.",
   alternates: {
     canonical: "/projects/",
   },

@@ -4,20 +4,20 @@ import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 export const metadata: Metadata = {
   title: "Frontend Development Services",
-  description: "Professional frontend development services by Ram Singh. Specialized in translating designs into responsive, accessible, and clean React and Next.js applications.",
+  description: "Frontend development services by Ram Singh, frontend developer based in Mumbai, India. Specialized in translating designs into responsive React and Next.js applications.",
   alternates: {
     canonical: "/services/frontend-development/",
   },
   openGraph: {
     title: "Frontend Development Services | Ram Singh",
-    description: "Professional frontend development services by Ram Singh. Specialized in translating designs into responsive, accessible, and clean React and Next.js applications.",
+    description: "Frontend development services by Ram Singh, frontend developer based in Mumbai, India. Specialized in translating designs into responsive React and Next.js applications.",
     url: "/services/frontend-development/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Frontend Development Services | Ram Singh",
-    description: "Professional frontend development services by Ram Singh. Specialized in translating designs into responsive, accessible, and clean React and Next.js applications.",
+    description: "Frontend development services by Ram Singh, frontend developer based in Mumbai, India. Specialized in translating designs into responsive React and Next.js applications.",
   },
 };
 
