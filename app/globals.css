@@ -2642,9 +2642,9 @@ kbd {
     overflow: hidden;
 }
 
-/* Paper Hover Lift */
+/* Paper Hover Lift - No scale transform to keep text 100% crisp and sharp */
 .paper-component:hover {
-    transform: translateY(-4px) rotate(calc(var(--paper-rotation, 0deg) * 0.9)) scale(1.008);
+    transform: translateY(-3px) rotate(calc(var(--paper-rotation, 0deg) * 0.85));
     box-shadow: var(--shadow-floating);
 }
 
@@ -2720,9 +2720,9 @@ kbd {
         transform: rotate(calc(var(--paper-rotation, 0deg) * 0.25)) !important;
     }
     .paper-component:hover {
-        transform: translateY(-2px) rotate(calc(var(--paper-rotation, 0deg) * 0.2)) scale(1.002) !important;
+        transform: translateY(-2px) rotate(calc(var(--paper-rotation, 0deg) * 0.2)) !important;
     }
-    .paper-padding-large { padding: 2rem; }
+    .paper-padding-large { padding: 1.75rem; }
     .paper-variant-lined .paper-content {
         padding-left: 45px;
     }
@@ -2738,12 +2738,10 @@ kbd {
     width: var(--tape-width, 90px);
     background-color: var(--color-tape-base);
     box-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.05),
-        inset 0 0 3px rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(0.5px);
-    -webkit-backdrop-filter: blur(0.5px);
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 0 3px rgba(255, 255, 255, 0.3);
     z-index: 10;
-    opacity: 0.9;
+    opacity: 0.92;
     pointer-events: none;
     transform: rotate(var(--tape-rotation, 1.5deg));
     
@@ -2838,9 +2836,9 @@ kbd {
     word-break: break-word;
 }
 
-/* Polaroid Hover Interaction */
+/* Polaroid Hover Interaction - No scale transform to keep photo and caption 100% crisp */
 .polaroid-component:hover {
-    transform: translateY(-8px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.6)) scale(1.02);
+    transform: translateY(-6px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.6));
 }
 
 @media (max-width: 768px) {
@@ -2849,7 +2847,7 @@ kbd {
         margin: 0.5rem;
     }
     .polaroid-component:hover {
-        transform: translateY(-3px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.2)) scale(1.005) !important;
+        transform: translateY(-3px) rotate(calc(var(--polaroid-rotation, -1.5deg) * 0.2)) !important;
     }
 }
 
@@ -3427,4 +3425,21 @@ kbd {
         display: none !important;
     }
 }
+
+/* Responsive 2-column form and service grids */
+.form-grid-2col,
+.service-tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .form-grid-2col,
+    .service-tech-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+}
+
 

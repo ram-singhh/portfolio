@@ -106,6 +106,7 @@ export default function Header() {
             key={link.href}
             href={link.href}
             className={isActive(link.href) ? "active" : ""}
+            aria-current={isActive(link.href) ? "page" : undefined}
             onClick={() => setIsOpen(false)}
           >
             {link.name}

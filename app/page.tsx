@@ -119,23 +119,49 @@ export default function Home() {
         {/* Section 2: Projects List */}
         <section id="projects" style={{ gridColumn: "span 12", marginTop: "2rem" }}>
           <h2 style={{ marginBottom: "1.5rem" }}>
-            <TypewriterLabel variant="paper" rotation={-1}>Verified Projects & Technical Proof</TypewriterLabel>
+            <TypewriterLabel variant="paper" rotation={-1}>Verified Projects &amp; Technical Proof</TypewriterLabel>
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
             {/* Real Project 1: Modern Calculator */}
             <article>
               <Paper variant="light" rotation={1} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-                <header style={{ marginBottom: "1rem" }}>
+                <header style={{ marginBottom: "0.75rem" }}>
                   <TypewriterLabel variant="plain">01. UTILITY APP</TypewriterLabel>
                   <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
                     Modern Calculator
                   </h3>
                 </header>
-                <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
-                  An interactive, responsive browser calculator with keyboard shortcut support, basic arithmetic operations, modulo calculations, and division-by-zero protection built in React and Next.js.
+
+                <p style={{ color: "#333", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
+                  <strong>Purpose:</strong> An interactive, responsive browser calculator supporting full keyboard hotkeys, modulo calculations, and division-by-zero protection.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+
+                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-blue)", paddingLeft: "0.75rem" }}>
+                  <strong>Tech Challenge:</strong> Managing keyboard state listeners without stale closures while handling decimal accuracy and arithmetic edge cases.
+                </div>
+
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+                  {["React", "Next.js", "TypeScript", "CSS Grid", "Keyboard API"].map((tech) => (
+                    <span 
+                      key={tech} 
+                      style={{ 
+                        fontFamily: "var(--font-mono)", 
+                        fontSize: "0.7rem", 
+                        fontWeight: "bold",
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        border: "1px solid rgba(0,0,0,0.12)",
+                        borderRadius: "2px",
+                        padding: "1px 5px",
+                        color: "#222"
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
                   <Link href="/projects/modern-calculator/" className="tactile-btn tactile-btn-primary" aria-label="Explore Modern Calculator case study and demo">
                     [ CASE STUDY &amp; DEMO ]
                   </Link>
@@ -149,16 +175,42 @@ export default function Home() {
             {/* Real Project 2: AI Multi-Module System */}
             <article>
               <Paper variant="lined" rotation={-1.5} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-                <header style={{ marginBottom: "1rem" }}>
+                <header style={{ marginBottom: "0.75rem" }}>
                   <TypewriterLabel variant="plain">02. PYTHON SCRIPTING</TypewriterLabel>
                   <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
                     AI Multi-Module System
                   </h3>
                 </header>
-                <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
-                  A modular Python framework demonstrating scalable API orchestration, prompt design patterns, and independent AI action scripts communicating through a system core.
+
+                <p style={{ color: "#333", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
+                  <strong>Purpose:</strong> A modular Python framework demonstrating scalable LLM API orchestration, structured prompts, and independent action modules.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+
+                <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
+                  <strong>Tech Challenge:</strong> Decoupling script boundaries so new AI capabilities can be registered without modifying the core orchestrator.
+                </div>
+
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+                  {["Python", "AI/LLM APIs", "Modular Architecture", "API Integration"].map((tech) => (
+                    <span 
+                      key={tech} 
+                      style={{ 
+                        fontFamily: "var(--font-mono)", 
+                        fontSize: "0.7rem", 
+                        fontWeight: "bold",
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        border: "1px solid rgba(0,0,0,0.12)",
+                        borderRadius: "2px",
+                        padding: "1px 5px",
+                        color: "#222"
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
                   <Link href="/projects/ai-multi-module-system/" className="tactile-btn tactile-btn-primary" aria-label="Explore AI Multi-Module system case study">
                     [ OPEN CASE STUDY ]
                   </Link>
@@ -172,16 +224,42 @@ export default function Home() {
             {/* Real Project 3: Portfolio Website */}
             <article>
               <Paper variant="craft" rotation={0.8} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-                <header style={{ marginBottom: "1rem" }}>
+                <header style={{ marginBottom: "0.75rem" }}>
                   <TypewriterLabel variant="plain">03. WEB ENGINEERING</TypewriterLabel>
                   <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", marginTop: "0.25rem" }}>
                     Tactile Portfolio Website
                   </h3>
                 </header>
-                <p style={{ color: "#221e1a", fontSize: "0.95rem", lineHeight: "1.5", flexGrow: 1 }}>
-                  The website you are using now. Built with Next.js, TypeScript, and custom CSS variables, refactored from legacy HTML into a custom physical-desk visual system with cached Spotify API integration.
+
+                <p style={{ color: "#221e1a", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
+                  <strong>Purpose:</strong> A Next.js portfolio presenting developer proof, services, and live Spotify integration inside a dark tactile desk environment.
                 </p>
-                <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+
+                <div style={{ fontSize: "0.85rem", color: "#332c25", marginBottom: "1.25rem", flexGrow: 1, borderLeft: "2px solid #221e1a", paddingLeft: "0.75rem" }}>
+                  <strong>Tech Challenge:</strong> Building cached OAuth Spotify handlers and accessible paper/polaroid/tape CSS components without runtime layout shifts.
+                </div>
+
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
+                  {["Next.js 14", "React", "TypeScript", "Spotify API", "SEO / ARIA"].map((tech) => (
+                    <span 
+                      key={tech} 
+                      style={{ 
+                        fontFamily: "var(--font-mono)", 
+                        fontSize: "0.7rem", 
+                        fontWeight: "bold",
+                        backgroundColor: "rgba(0,0,0,0.07)",
+                        border: "1px solid rgba(0,0,0,0.15)",
+                        borderRadius: "2px",
+                        padding: "1px 5px",
+                        color: "#111"
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
                   <Link href="/projects/portfolio-website/" className="tactile-btn tactile-btn-primary" aria-label="Explore Portfolio Website case study">
                     [ OPEN CASE STUDY ]
                   </Link>

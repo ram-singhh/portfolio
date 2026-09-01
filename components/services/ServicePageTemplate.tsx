@@ -327,7 +327,7 @@ export default function ServicePageTemplate({
         {/* 5. Technology & Quality Checks (Light paper sheet) */}
         <section aria-label="Technology and quality assurances" style={{ marginBottom: "3.5rem" }}>
           <Paper variant="light" rotation={-0.5} padding="large">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem", minWidth: 0 }}>
+            <div className="service-tech-grid" style={{ minWidth: 0 }}>
               {/* Technology */}
               <div style={{ minWidth: 0 }}>
                 <h2 id="section-technology" style={{ 
