@@ -3403,6 +3403,12 @@ kbd {
     }
 }
 
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 @media (max-width: 992px) {
     .grid-hero-card { grid-column: span 12; }
     .grid-profile-card { grid-column: span 12; justify-self: center; }
@@ -3413,16 +3419,31 @@ kbd {
 }
 
 @media (max-width: 768px) {
+    .home-workspace {
+        padding: 5.5rem clamp(0.75rem, 3.5vw, 1.25rem) 4rem clamp(0.75rem, 3.5vw, 1.25rem) !important;
+        gap: 2rem !important;
+    }
     .home-layout-grid {
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 2rem !important;
     }
     .grid-services-card, .grid-spotify-card, .grid-profile-card, .grid-projects-card {
         width: 100%;
     }
     .header-cta-btn {
         display: none !important;
+    }
+    .nav-right-group {
+        gap: 0.5rem;
+    }
+    .mobile-menu {
+        width: min(320px, 85vw) !important;
+    }
+    .mobile-menu a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -3440,6 +3461,79 @@ kbd {
         grid-template-columns: 1fr !important;
         gap: 1rem;
     }
+    
+    .paper-component {
+        transform: rotate(calc(var(--paper-rotation, 0deg) * 0.15)) !important;
+    }
+    .paper-component:hover {
+        transform: translateY(-2px) rotate(calc(var(--paper-rotation, 0deg) * 0.1)) !important;
+    }
+    .paper-padding-large { padding: clamp(1.15rem, 4vw, 1.5rem) !important; }
+    .paper-padding-medium { padding: clamp(1rem, 3.5vw, 1.25rem) !important; }
+    .paper-padding-small { padding: clamp(0.75rem, 3vw, 1rem) !important; }
+
+    .tape-pos-top-left {
+        left: 0px !important;
+        top: -6px !important;
+    }
+    .tape-pos-top-right {
+        right: 0px !important;
+        top: -6px !important;
+    }
 }
+
+@media (max-width: 480px) {
+    .paper-variant-lined .paper-content {
+        padding-left: 26px !important;
+    }
+    .paper-variant-lined::before {
+        left: 18px !important;
+    }
+    .hero-btn-container,
+    .card-btn-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+    }
+    .hero-btn-container .tactile-btn,
+    .card-btn-container .tactile-btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    .social-link {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+/* Touch Target Accessibility Fixes */
+.tactile-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+/* Prevent auto-zoom on iOS inputs */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
 
 

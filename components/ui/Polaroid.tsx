@@ -34,7 +34,8 @@ export default function Polaroid({
   const combinedStyle = {
     ...style,
     "--polaroid-rotation": `${rotation}deg`,
-    width: `${width}px`,
+    width: `min(${width}px, 100%)`,
+    maxWidth: "100%",
   } as React.CSSProperties;
 
   return (

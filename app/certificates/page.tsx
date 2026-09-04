@@ -229,7 +229,7 @@ export default function Certificates() {
                 </HandwrittenNote>
               </div>
 
-              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
+              <div className="card-btn-container" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
                 <Link href="/projects/" className="tactile-btn tactile-btn-primary" aria-label="View verified web projects">
                   [ EXPLORE CASE STUDIES ]
                 </Link>

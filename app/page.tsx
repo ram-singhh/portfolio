@@ -28,29 +28,30 @@ export default function Home() {
           <Paper variant="lined" rotation={-1} padding="large">
             <header style={{ marginBottom: "1.5rem" }}>
               {/* Visually styled, semantically correct H1 */}
-              <h1 style={{ fontSize: "1.1rem", fontFamily: "var(--font-mono)", fontWeight: 700, letterSpacing: "0.05em", color: "var(--color-ink-red)", textTransform: "uppercase", margin: 0 }}>
+              <h1 className="hero-main-title" style={{ fontSize: "clamp(0.82rem, 3.8vw, 1.1rem)", fontFamily: "var(--font-mono)", fontWeight: 700, letterSpacing: "0.05em", color: "var(--color-ink-red)", textTransform: "uppercase", margin: 0, wordBreak: "break-word" }}>
                 Ram Singh — Freelance Web Developer
               </h1>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)", display: "block", marginTop: "0.25rem" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(0.75rem, 2.8vw, 0.85rem)", color: "var(--text-muted)", display: "block", marginTop: "0.25rem" }}>
                 Freelance Web Developer based in Mumbai, India
               </span>
             </header>
 
-            <div style={{ margin: "2rem 0" }}>
+            <div style={{ margin: "1.5rem 0" }}>
               <div 
                 style={{ 
                   fontFamily: "var(--font-serif)", 
-                  fontSize: "clamp(2rem, 5.5vw, 3.25rem)", 
+                  fontSize: "clamp(1.45rem, 6vw, 3.25rem)", 
                   fontWeight: 700, 
                   fontStyle: "italic", 
                   lineHeight: 1.1, 
                   color: "var(--text-dark)", 
-                  marginBottom: "1.25rem" 
+                  marginBottom: "1.25rem",
+                  wordBreak: "break-word"
                 }}
               >
                 THIS IS NOT A PORTFOLIO.
               </div>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.1rem, 3.2vw, 1.4rem)", lineHeight: "1.45", color: "#2c251f", maxWidth: "540px", margin: "0 0 1.25rem 0" }}>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1rem, 3.2vw, 1.4rem)", lineHeight: "1.45", color: "#2c251f", maxWidth: "540px", margin: "0 0 1.25rem 0" }}>
                 I design and build custom websites and web applications for founders, creators, and businesses with something to build, sell, or share.
               </p>
               <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", lineHeight: "1.55", color: "#333", maxWidth: "540px", margin: "0 0 1.5rem 0" }}>
@@ -79,7 +80,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", marginTop: "2rem" }}>
+            <div className="hero-btn-container" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.75rem" }}>
               <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a web development project with Ram Singh">
                 [ BOOK A PROJECT ]
               </Link>

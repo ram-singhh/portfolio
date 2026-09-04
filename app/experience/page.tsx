@@ -199,7 +199,7 @@ export default function Experience() {
                 </HandwrittenNote>
               </div>
 
-              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
+              <div className="card-btn-container" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>
                 <Link href="/contact/" className="tactile-btn tactile-btn-primary" aria-label="Book a web development project">
                   [ BOOK A PROJECT ]
                 </Link>

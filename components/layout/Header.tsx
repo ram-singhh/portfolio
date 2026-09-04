@@ -59,7 +59,7 @@ export default function Header() {
           <Link href="/" className="nav-logo">
             @ramsingh
           </Link>
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <div className="nav-right-group">
             <nav aria-label="Main navigation">
               <ul className="nav-links">
                 {navLinks.map((link) => (
@@ -86,11 +86,11 @@ export default function Header() {
             </Link>
             <button
               className={`mobile-menu-btn ${isOpen ? "active" : ""}`}
-              aria-label="Toggle mobile menu"
+              aria-label={isOpen ? "Close mobile menu" : "Open mobile menu"}
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
             >
-              ☰
+              {isOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>

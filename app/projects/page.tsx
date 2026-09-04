@@ -144,7 +144,7 @@ export default function Projects() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
+                  <div className="card-btn-container" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
                     <Link 
                       href={project.slug === "modern-calculator" ? "/projects/modern-calculator/" : `/projects/${project.slug}/`} 
                       className="tactile-btn tactile-btn-primary"

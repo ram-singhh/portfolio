@@ -614,7 +614,7 @@ export default function Contact() {
                   </fieldset>
 
                   {/* Submission Row */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+                  <div className="card-btn-container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
                     <div aria-live="polite" style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--text-muted)" }}>
                       {isSubmitting ? "Submitting inquiry..." : ""}
                     </div>
