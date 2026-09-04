@@ -280,9 +280,28 @@ export default function ModernCalculator() {
 
             {/* Interactive Calculator Widget */}
             <div style={{ margin: "2rem 0" }}>
-              <div className="calculator-container" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", width: "100%", margin: "0 auto" }}>
-                <div className="calculator" style={{ margin: "0 auto", width: "100%", maxWidth: "340px" }}>
+              <div className="calculator-container">
+                {/* Physical Desk Calculator Body */}
+                <div className="calculator" aria-label="Modern Desk Calculator">
+                  {/* Calculator Header & Branding */}
+                  <div className="calc-header">
+                    <div className="calc-brand">
+                      RAM SINGH // RS-31
+                    </div>
+                    <div className="calc-solar-cell" title="Desk Solar Cell" aria-hidden="true">
+                      <div className="calc-solar-segment" />
+                      <div className="calc-solar-segment" />
+                      <div className="calc-solar-segment" />
+                      <div className="calc-solar-segment" />
+                    </div>
+                  </div>
+
+                  {/* Calculator LCD Display */}
                   <div className="display">
+                    <div className="display-meta" aria-hidden="true">
+                      <span>{isError ? "STATUS: ERR" : "STATUS: OK"}</span>
+                      <span>{operation ? `OP: ${operation}` : "MATH: RAD"}</span>
+                    </div>
                     <div className="previous-operand" id="previous">
                       {previousOperand}
                     </div>
@@ -297,7 +316,9 @@ export default function ModernCalculator() {
                       {currentOperand}
                     </div>
                   </div>
-                  <div className="buttons">
+
+                  {/* Physical Buttons Grid */}
+                  <div className="buttons" role="group" aria-label="Calculator keypad">
                     <button
                       className={`btn btn-function ${pressedKey === "Escape" ? "btn-pressed" : ""}`}
                       onClick={clear}
@@ -436,50 +457,64 @@ export default function ModernCalculator() {
                       =
                     </button>
                   </div>
+
+                  {/* Calculator Footer Annotation */}
+                  <div className="calc-footer-tag">
+                    <span>DESK TOOL — 001</span>
+                    <span>BUILT WITH JAVASCRIPT</span>
+                  </div>
                 </div>
 
-                 <div className="features" style={{ width: "100%", maxWidth: "340px", margin: "0 auto" }}>
-                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "1rem", fontWeight: "bold", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
-                    Features
-                  </div>
-                  <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", color: "#333", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                    <li>✓ Keyboard support</li>
-                    <li>✓ All basic operations</li>
-                    <li>✓ Modulo operation</li>
-                    <li>✓ Error handling</li>
-                    <li>✓ Responsive design</li>
-                  </ul>
+                {/* Features & Keyboard Guide Sheet */}
+                <div className="features-paper">
+                  <Paper variant="grid" rotation={1.5} padding="medium" style={{ border: "1px solid rgba(0,0,0,0.15)" }}>
+                    <Tape rotation={-2} position="top-right" width="70px" />
+                    
+                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: "bold", color: "var(--color-ink-red)", textTransform: "uppercase", marginBottom: "0.75rem", letterSpacing: "0.05em" }}>
+                      // SYSTEM SPECS &amp; KEYS
+                    </div>
 
-                  <div className="keyboard-shortcuts" style={{ marginTop: "1rem" }}>
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: "bold", color: "var(--text-dark)", marginBottom: "0.5rem" }}>
-                      Keyboard Shortcuts
+                    <ul style={{ listStyle: "none", padding: 0, fontSize: "0.825rem", color: "#2c251f", display: "flex", flexDirection: "column", gap: "0.35rem", fontFamily: "var(--font-primary)", fontWeight: 500 }}>
+                      <li>✓ Physical Tactile Keypad</li>
+                      <li>✓ Realtime Keyboard Support</li>
+                      <li>✓ Arithmetic &amp; Modulo Ops</li>
+                      <li>✓ Precision Floating Point</li>
+                      <li>✓ Zero-Division Shield</li>
+                    </ul>
+
+                    <div className="keyboard-shortcuts" style={{ marginTop: "1.25rem", paddingTop: "1rem", borderTop: "1px dashed rgba(0,0,0,0.15)" }}>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", fontWeight: "bold", color: "var(--text-dark)", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+                        [ KEYBOARD MAPPINGS ]
+                      </div>
+                      <div className="shortcut-list" style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                        <div className="shortcut" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 6px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>0-9</kbd>
+                          <span style={{ fontSize: "0.78rem", color: "#444", fontFamily: "var(--font-mono)" }}>Input Digits</span>
+                        </div>
+                        <div className="shortcut" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <div style={{ display: "flex", gap: "2px" }}>
+                            <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 5px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>+</kbd>
+                            <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 5px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>-</kbd>
+                            <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 5px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>*</kbd>
+                            <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 5px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>/</kbd>
+                          </div>
+                          <span style={{ fontSize: "0.78rem", color: "#444", fontFamily: "var(--font-mono)" }}>Operators</span>
+                        </div>
+                        <div className="shortcut" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 6px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>Enter</kbd>
+                          <span style={{ fontSize: "0.78rem", color: "#444", fontFamily: "var(--font-mono)" }}>Calculate</span>
+                        </div>
+                        <div className="shortcut" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 6px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>Esc</kbd>
+                          <span style={{ fontSize: "0.78rem", color: "#444", fontFamily: "var(--font-mono)" }}>Clear All</span>
+                        </div>
+                        <div className="shortcut" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <kbd style={{ backgroundColor: "#fff", border: "1px solid #ccc", color: "#111", padding: "2px 6px", borderRadius: "3px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>Backspace</kbd>
+                          <span style={{ fontSize: "0.78rem", color: "#444", fontFamily: "var(--font-mono)" }}>Delete Digit</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="shortcut-list">
-                      <div className="shortcut">
-                        <kbd>0-9</kbd>
-                        <span>Numbers</span>
-                      </div>
-                      <div className="shortcut">
-                        <kbd>+</kbd>
-                        <kbd>-</kbd>
-                        <kbd>*</kbd>
-                        <kbd>/</kbd>
-                        <span>Operations</span>
-                      </div>
-                      <div className="shortcut">
-                        <kbd>Enter</kbd>
-                        <span>Calculate</span>
-                      </div>
-                      <div className="shortcut">
-                        <kbd>Esc</kbd>
-                        <span>Clear</span>
-                      </div>
-                      <div className="shortcut">
-                        <kbd>Backspace</kbd>
-                        <span>Delete</span>
-                      </div>
-                    </div>
-                  </div>
+                  </Paper>
                 </div>
               </div>
             </div>

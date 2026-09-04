@@ -16,14 +16,14 @@ export default function ProjectVisual({ slug, className = "", style }: ProjectVi
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#161514",
-          border: "2px solid var(--border-secondary)",
-          borderRadius: "var(--radius-md)",
-          padding: "1.5rem",
+          backgroundColor: "#171513",
+          border: "2px solid #2b2724",
+          borderRadius: "12px",
+          padding: "1rem",
           width: "100%",
           maxWidth: "320px",
           margin: "0 auto",
-          boxShadow: "inset 0 0 15px rgba(0,0,0,0.6)",
+          boxShadow: "0 12px 24px rgba(0,0,0,0.45), inset 0 1px 1px rgba(255,255,255,0.08)",
           fontFamily: "var(--font-mono)",
           fontSize: "0.85rem",
           color: "var(--text-secondary)",
@@ -32,53 +32,102 @@ export default function ProjectVisual({ slug, className = "", style }: ProjectVi
         }}
         aria-hidden="true"
       >
+        {/* Mock Header */}
+        <div style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "0.5rem",
+          fontSize: "0.6rem",
+          color: "var(--text-muted)",
+          letterSpacing: "0.05em"
+        }}>
+          <span>RAM SINGH // RS-31</span>
+          <div style={{ display: "flex", gap: "2px", background: "#1a1610", padding: "2px 4px", border: "1px solid #362e22", borderRadius: "2px" }}>
+            <div style={{ width: "6px", height: "8px", background: "#423522" }} />
+            <div style={{ width: "6px", height: "8px", background: "#423522" }} />
+            <div style={{ width: "6px", height: "8px", background: "#423522" }} />
+          </div>
+        </div>
+
         {/* Mock calculator display */}
         <div style={{
           width: "100%",
-          height: "36px",
-          backgroundColor: "#0d0c0c",
-          border: "1px solid var(--border-subtle)",
-          borderRadius: "var(--radius-sm)",
+          height: "38px",
+          backgroundColor: "#0c100e",
+          border: "1.5px solid #1a221f",
+          borderRadius: "6px",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          padding: "0 0.5rem",
-          marginBottom: "1rem",
-          color: "#22c55e",
-          fontWeight: "bold",
-          fontSize: "1rem",
-          boxShadow: "inset 0 2px 4px rgba(0,0,0,0.8)"
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "flex-end",
+          padding: "0 0.6rem",
+          marginBottom: "0.75rem",
+          boxShadow: "inset 0 2px 6px rgba(0,0,0,0.8)"
         }}>
-          123,456.78
+          <span style={{ fontSize: "0.55rem", color: "#94a3b8", lineHeight: 1 }}>125 × 8</span>
+          <span style={{ color: "#34d399", fontWeight: "bold", fontSize: "1.1rem", lineHeight: 1.1 }}>1,000</span>
         </div>
+
         {/* Mock buttons */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "0.5rem",
+          gap: "0.4rem",
           width: "100%"
         }}>
-          {["C", "±", "%", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="].map((btn, idx) => (
-            <div 
-              key={idx} 
-              style={{
-                gridColumn: btn === "0" ? "span 2" : undefined,
-                height: "28px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: btn === "=" ? "var(--color-ink-red)" : "#221e1b",
-                color: btn === "=" ? "#fff" : "var(--text-primary)",
-                border: "1px solid rgba(0,0,0,0.3)",
-                borderRadius: "2px",
-                fontSize: "0.75rem",
-                fontWeight: "bold",
-                boxShadow: "0 1px 2px rgba(0,0,0,0.4)"
-              }}
-            >
-              {btn}
-            </div>
-          ))}
+          {[
+            { label: "AC", type: "fn" }, { label: "DEL", type: "fn" }, { label: "%", type: "fn" }, { label: "÷", type: "op" },
+            { label: "7", type: "num" }, { label: "8", type: "num" }, { label: "9", type: "num" }, { label: "×", type: "op" },
+            { label: "4", type: "num" }, { label: "5", type: "num" }, { label: "6", type: "num" }, { label: "-", type: "op" },
+            { label: "1", type: "num" }, { label: "2", type: "num" }, { label: "3", type: "num" }, { label: "+", type: "op" },
+            { label: "0", type: "num" }, { label: ".", type: "num" }, { label: "=", type: "eq" }
+          ].map((btn, idx) => {
+            let bg = "#24211e";
+            let color = "#f2ede4";
+            let shadow = "0 2px 0 #12100e";
+            let border = "1px solid #383430";
+
+            if (btn.type === "fn") {
+              bg = "#36291e";
+              color = "#fcd34d";
+              shadow = "0 2px 0 #1c140d";
+              border = "1px solid #4a3a2c";
+            } else if (btn.type === "op") {
+              bg = "#1e293b";
+              color = "#93c5fd";
+              shadow = "0 2px 0 #0f172a";
+              border = "1px solid #334155";
+            } else if (btn.type === "eq") {
+              bg = "#9e1f1f";
+              color = "#ffffff";
+              shadow = "0 2px 0 #580d0d";
+              border = "1px solid #b91c1c";
+            }
+
+            return (
+              <div 
+                key={idx} 
+                style={{
+                  gridColumn: btn.label === "0" ? "span 2" : undefined,
+                  height: "26px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: bg,
+                  color: color,
+                  border: border,
+                  borderRadius: "4px",
+                  fontSize: "0.7rem",
+                  fontWeight: "bold",
+                  boxShadow: shadow
+                }}
+              >
+                {btn.label}
+              </div>
+            );
+          })}
         </div>
       </div>
     );
