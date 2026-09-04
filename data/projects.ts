@@ -19,6 +19,24 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    slug: "wrapped-wishes",
+    title: "Wrapped Wishes",
+    category: "E-Commerce / Gift Store Website",
+    shortDescription: "An expressive gifting storefront built for product discovery, curated collections, occasion-based browsing, and WhatsApp ordering.",
+    description: "Wrapped Wishes is a responsive gifting storefront designed around curated collections, product discovery, occasion-based browsing, and WhatsApp-based ordering. Built with traditional HTML5, CSS3, and vanilla JavaScript, it uses Supabase for dynamic product data, categories, testimonials, and image storage, and is deployed on Vercel.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Supabase", "Vercel"],
+    liveUrl: "https://wrappedwishes.vercel.app/",
+    githubUrl: null,
+    image: "/assets/images/wrapped-wishes-home-desktop.webp",
+    featured: true,
+    whyItExists: "Wrapped Wishes was designed as an online gifting storefront where customers can explore curated products and collections, browse by occasion/category, and place orders through WhatsApp.",
+    problem: "Small artisanal gift storefronts need dynamic product discovery, search, and category management without the complexity or overhead of traditional payment gateways or heavy JavaScript frameworks.",
+    approach: "Built a lightweight responsive storefront using semantic HTML, custom CSS, and vanilla JavaScript modules. Integrated Supabase as a cloud database for products, categories, and image storage, while converting product selections into structured WhatsApp order messages for direct seller contact.",
+    implementation: "Frontend JavaScript modules (main.js, shop.js, storage.js, config.js, admin.js) manage storefront rendering, category filtering, search, URL query parameters, Supabase storage calls, and admin dashboard operations. Hosted on Vercel for fast BaaS-backed storefront performance.",
+    result: "A responsive, fast-loading gifting storefront with gift-oriented visual branding, real-time product search and filtering, Supabase content management, and zero-friction WhatsApp order generation.",
+    lessons: "Demonstrated that dynamic storefront capabilities including search, category filtering, and backend content management can be cleanly built using vanilla web standards and lightweight BaaS APIs without framework complexity."
+  },
+  {
     slug: "modern-calculator",
     title: "Modern Calculator",
     category: "Utility Web App",

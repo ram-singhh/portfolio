@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/skills",
     "/projects",
+    "/projects/wrapped-wishes",
     "/projects/modern-calculator",
     "/projects/ai-multi-module-system",
     "/projects/portfolio-website",

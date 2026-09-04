@@ -200,6 +200,55 @@ export default function Home() {
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem" }}>
+            {/* Real Project: Wrapped Wishes */}
+            <article>
+              <Paper variant="craft" rotation={-0.8} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                <header style={{ marginBottom: "0.75rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0 0 0.25rem 0" }}>
+                    Wrapped Wishes
+                  </h3>
+                  <TypewriterLabel variant="plain">E-COMMERCE / GIFT STORE WEBSITE</TypewriterLabel>
+                </header>
+
+                <p style={{ color: "#2c251f", fontSize: "0.92rem", lineHeight: "1.5", marginBottom: "1rem" }}>
+                  An expressive gifting storefront built for product discovery, curated collections, occasion-based browsing, and WhatsApp ordering.
+                </p>
+
+                <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+                  {["HTML5", "CSS3", "JavaScript", "Supabase", "Vercel"].map((tech) => (
+                    <span 
+                      key={tech} 
+                      style={{ 
+                        fontFamily: "var(--font-mono)", 
+                        fontSize: "0.7rem", 
+                        fontWeight: "bold",
+                        backgroundColor: "rgba(0,0,0,0.07)",
+                        border: "1px solid rgba(0,0,0,0.14)",
+                        borderRadius: "2px",
+                        padding: "1px 5px",
+                        color: "#111"
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ fontSize: "0.85rem", color: "#332c25", marginBottom: "1.5rem", flexGrow: 1, borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
+                  <strong>Technical Challenge:</strong> Combining dynamic product discovery, category filtering, Supabase database operations, image storage, and WhatsApp ordering within a lightweight HTML/CSS/JS storefront architecture.
+                </div>
+
+                <div style={{ marginTop: "auto", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  <Link href="/projects/wrapped-wishes/" className="tactile-btn tactile-btn-primary" aria-label="Read case study for Wrapped Wishes">
+                    [ CASE STUDY ]
+                  </Link>
+                  <a href="https://wrappedwishes.vercel.app/" target="_blank" rel="noopener noreferrer" className="tactile-btn" aria-label="Open live website for Wrapped Wishes">
+                    [ LIVE DEMO ]
+                  </a>
+                </div>
+              </Paper>
+            </article>
+
             {/* Real Project 1: Modern Calculator */}
             <article>
               <Paper variant="light" rotation={1} padding="medium" style={{ height: "100%", display: "flex", flexDirection: "column" }}>

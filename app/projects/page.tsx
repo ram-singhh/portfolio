@@ -137,6 +137,7 @@ export default function Projects() {
                   {/* Implementation Highlight / Challenge */}
                   <div style={{ fontSize: "0.85rem", color: "#444", marginBottom: "1.5rem", borderLeft: "2px solid var(--color-ink-red)", paddingLeft: "0.75rem" }}>
                     <strong>Technical Challenge:</strong> {
+                      project.slug === "wrapped-wishes" ? "Combining dynamic product discovery, category filtering, Supabase database operations, image storage, and WhatsApp ordering within a lightweight HTML/CSS/JS storefront architecture." :
                       project.slug === "modern-calculator" ? "Managing keyboard state listeners without stale closures in React while handling decimal precision and error recovery." :
                       project.slug === "ai-multi-module-system" ? "Decoupling script boundaries so new AI capabilities can be registered without modifying the core orchestrator script." :
                       "Developing server-side OAuth token refresh flows, in-memory caching to prevent HTTP 429 rate limits, and mobile breakpoint rotation clamping."

@@ -11,9 +11,9 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
-  // Exclude modern-calculator because it has a dedicated static route
+  // Exclude modern-calculator and wrapped-wishes because they have dedicated static routes
   return projectsData
-    .filter((project) => project.slug !== "modern-calculator")
+    .filter((project) => project.slug !== "modern-calculator" && project.slug !== "wrapped-wishes")
     .map((project) => ({
       slug: project.slug,
     }));
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 export default function ProjectPage({ params }: ProjectPageProps) {
   const project = projectsData.find((p) => p.slug === params.slug);
   
-  if (!project || project.slug === "modern-calculator") {
+  if (!project || project.slug === "modern-calculator" || project.slug === "wrapped-wishes") {
     notFound();
   }
 

@@ -202,5 +202,47 @@ export default function ProjectVisual({ slug, className = "", style }: ProjectVi
     );
   }
 
+  if (slug === "wrapped-wishes") {
+    return (
+      <div 
+        className={`project-visual-wrapped-wishes ${className}`} 
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#221a22",
+          border: "1px solid rgba(236,72,153,0.3)",
+          borderRadius: "var(--radius-md)",
+          padding: "1rem",
+          width: "100%",
+          maxWidth: "320px",
+          margin: "0 auto",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+          fontFamily: "var(--font-mono)",
+          fontSize: "0.75rem",
+          color: "#fbcfe8",
+          position: "relative",
+          overflow: "hidden",
+          ...style
+        }}
+        aria-hidden="true"
+      >
+        <div style={{ borderBottom: "1px solid rgba(236,72,153,0.2)", paddingBottom: "0.5rem", marginBottom: "0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ color: "#f472b6", fontWeight: "bold" }}>Wrapped Wishes 🎀</span>
+          <span style={{ fontSize: "0.65rem", padding: "1px 6px", backgroundColor: "#831843", color: "#fbcfe8", borderRadius: "10px" }}>Storefront</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+          <div style={{ width: "50px", height: "50px", backgroundColor: "#3b0764", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", border: "1px solid #701a75" }}>
+            🎁
+          </div>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "3px" }}>
+            <span style={{ color: "#fff", fontWeight: "bold", fontSize: "0.8rem" }}>Gifts That Feel Like a Hug</span>
+            <span style={{ color: "#f472b6", fontSize: "0.7rem" }}>Supabase • Vercel • HTML/CSS/JS</span>
+            <span style={{ color: "#22c55e", fontSize: "0.68rem", fontWeight: "bold", marginTop: "2px" }}>[ WhatsApp Order Enabled ]</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return null;
 }
