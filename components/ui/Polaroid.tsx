@@ -13,6 +13,8 @@ export interface PolaroidProps {
   height?: number;
   className?: string;
   style?: React.CSSProperties;
+  priority?: boolean;
+  sizes?: string;
 }
 
 export default function Polaroid({
@@ -26,6 +28,8 @@ export default function Polaroid({
   height = 280,
   className = "",
   style,
+  priority = false,
+  sizes,
 }: PolaroidProps) {
   const combinedStyle = {
     ...style,
@@ -45,6 +49,8 @@ export default function Polaroid({
             height={height}
             className="polaroid-image"
             style={{ objectFit: "cover", width: "100%", height: "auto" }}
+            priority={priority}
+            sizes={sizes || "(max-width: 640px) 260px, (max-width: 1024px) 280px, 320px"}
           />
           {/* Film gloss effect */}
           <div className="polaroid-gloss" />

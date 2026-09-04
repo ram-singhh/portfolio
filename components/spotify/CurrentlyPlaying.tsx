@@ -34,9 +34,30 @@ export default function CurrentlyPlaying({ className = "", style }: CurrentlyPla
   useEffect(() => {
     fetchStatus();
 
-    // Poll every 25 seconds to reflect track state reasonably quickly without hammering
-    const interval = setInterval(fetchStatus, 25000);
-    return () => clearInterval(interval);
+    // Refresh immediately when returning to active tab
+    const handleVisibilityChange = () => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        fetchStatus();
+      }
+    };
+
+    // Poll every 25 seconds only when document is active/visible
+    const interval = setInterval(() => {
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        fetchStatus();
+      }
+    }, 25000);
+
+    if (typeof document !== "undefined") {
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+    }
+
+    return () => {
+      clearInterval(interval);
+      if (typeof document !== "undefined") {
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+    };
   }, []);
 
   // Compute state flags

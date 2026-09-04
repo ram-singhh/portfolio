@@ -101,6 +101,7 @@ export default function Home() {
             tapeRotation={1}
             width={260}
             height={260}
+            priority={true}
           />
         </section>
 
