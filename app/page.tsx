@@ -462,6 +462,38 @@ export default function Home() {
           </Paper>
         </section>
 
+        {/* Section: Compact Resume CTA */}
+        <section aria-label="Resume and credentials summary" style={{ gridColumn: "span 12", marginTop: "2rem" }}>
+          <Paper variant="light" rotation={0.8} padding="medium">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.25rem" }}>
+              <div>
+                <TypewriterLabel variant="dymo" rotation={-1}>MY RESUME</TypewriterLabel>
+                <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.45rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0.4rem 0 0.25rem 0" }}>
+                  Want the complete picture?
+                </h2>
+                <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.9rem", color: "#333", margin: 0 }}>
+                  View my experience, skills, projects and background.
+                </p>
+              </div>
+              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+                <Link href="/resume/" className="tactile-btn tactile-btn-primary" aria-label="View Ram Singh's complete resume">
+                  [ VIEW RESUME ]
+                </Link>
+                <a
+                  href="/Ram-Singh-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Ram-Singh-Resume.pdf"
+                  className="tactile-btn"
+                  aria-label="Download Ram Singh Resume PDF"
+                >
+                  [ DOWNLOAD PDF ]
+                </a>
+              </div>
+            </div>
+          </Paper>
+        </section>
+
         {/* Section 5: About Section Teaser with Recruiter Signals */}
         <section className="grid-navigation-card" style={{ marginTop: "2rem" }} aria-label="Biography and Notes shortcuts">
           <Paper variant="light" rotation={-1.5} padding="medium">

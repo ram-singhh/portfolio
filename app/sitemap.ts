@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/landing-pages",
     "/services/website-redesign",
     "/experience",
+    "/resume",
     "/certificates",
     "/contact",
     "/notes",

@@ -100,6 +100,13 @@
   </url>
 
   <url>
+    <loc>https://www.ramsingh.dev/resume/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.ramsingh.dev/certificates/</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>

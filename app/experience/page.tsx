@@ -172,7 +172,43 @@ export default function Experience() {
               </div>
             </Paper>
           </article>
+        </section>
 
+        {/* Strong Resume CTA Section */}
+        <section aria-label="Resume CTA" style={{ marginBottom: "3.5rem" }}>
+          <div style={{ transform: "rotate(-0.6deg)" }}>
+            <Paper variant="craft" rotation={0} padding="large" style={{ position: "relative" }}>
+              <Tape rotation={-1.5} position="top-right" width="90px" />
+              
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.25rem" }}>
+                <div>
+                  <TypewriterLabel variant="plain">OFFICIAL RESUME</TypewriterLabel>
+                  <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "1.6rem", fontStyle: "italic", color: "var(--text-dark)", margin: "0.4rem 0 0.35rem 0" }}>
+                    See my complete professional background.
+                  </h2>
+                  <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.95rem", color: "#2c251f", margin: 0, maxWidth: "520px" }}>
+                    View my full HTML resume with technical skills breakdown, project case studies, and education, or download the official PDF.
+                  </p>
+                </div>
+                
+                <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+                  <Link href="/resume/" className="tactile-btn tactile-btn-primary" aria-label="View Ram Singh's complete HTML resume">
+                    [ VIEW FULL RESUME ]
+                  </Link>
+                  <a
+                    href="/Ram-Singh-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download="Ram-Singh-Resume.pdf"
+                    className="tactile-btn"
+                    aria-label="Download Ram Singh Resume PDF"
+                  >
+                    [ DOWNLOAD PDF ]
+                  </a>
+                </div>
+              </div>
+            </Paper>
+          </div>
         </section>
 
         {/* Final Call to Action */}

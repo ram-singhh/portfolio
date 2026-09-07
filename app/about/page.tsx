@@ -188,6 +188,21 @@ export default function About() {
                   [ VIEW SERVICES ]
                 </Link>
               </div>
+
+              {/* Secondary Resume CTA */}
+              <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px dashed rgba(0,0,0,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+                <div style={{ textAlign: "left" }}>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 700, color: "var(--text-dark)", textTransform: "uppercase" }}>
+                    Want the short version?
+                  </span>
+                  <p style={{ fontFamily: "var(--font-primary)", fontSize: "0.85rem", color: "#444", margin: "0.15rem 0 0 0" }}>
+                    Review my organized experience, skills, and background.
+                  </p>
+                </div>
+                <Link href="/resume/" className="tactile-btn" aria-label="View Ram Singh's resume">
+                  [ VIEW RESUME &rarr; ]
+                </Link>
+              </div>
             </Paper>
           </div>
         </section>

@@ -21,6 +21,9 @@ export default function Footer() {
                 <Link href="/about/" style={{ color: "var(--text-dark)", textDecoration: "none" }}>About</Link>
               </li>
               <li>
+                <Link href="/resume/" style={{ color: "var(--text-dark)", textDecoration: "none" }}>Resume</Link>
+              </li>
+              <li>
                 <Link href="/notes/" style={{ color: "var(--text-dark)", textDecoration: "none" }}>Notes</Link>
               </li>
               <li>

@@ -12,6 +12,7 @@ export default function Header() {
     { name: "Work", href: "/projects/" },
     { name: "Services", href: "/services/" },
     { name: "About", href: "/about/" },
+    { name: "Resume", href: "/resume/" },
     { name: "Notes", href: "/notes/" },
     { name: "Contact", href: "/contact/" },
   ];
@@ -21,7 +22,9 @@ export default function Header() {
     if (href === "/") {
       return pathname === "/";
     }
-    return pathname.startsWith(href);
+    const cleanHref = href.replace(/\/$/, "");
+    const cleanPath = (pathname || "").replace(/\/$/, "");
+    return cleanPath === cleanHref || cleanPath.startsWith(`${cleanHref}/`);
   };
 
   useEffect(() => {
