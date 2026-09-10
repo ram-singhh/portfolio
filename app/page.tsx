@@ -537,7 +537,7 @@ export default function Home() {
               Send me your project brief. We can discuss your website parameters, frontend requirements, reference designs, and desired timeline.
             </p>
             <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--color-ink-blue)", marginBottom: "1.5rem" }}>
-              Email directly: <a href="mailto:hello@ramsingh.dev" style={{ color: "var(--color-ink-blue)", textDecoration: "underline", fontWeight: 700 }}>hello@ramsingh.dev</a>
+              Email directly: <a href="mailto:ram01siingh4656@gmail.com" style={{ color: "var(--color-ink-blue)", textDecoration: "underline", fontWeight: 700 }}>ram01siingh4656@gmail.com</a>
             </p>
             
             <div style={{ margin: "1.5rem 0" }}>

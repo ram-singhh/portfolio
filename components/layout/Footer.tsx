@@ -35,11 +35,11 @@ export default function Footer() {
           {/* Email CTA & Social Profiles */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap" }}>
             <a 
-              href="mailto:hello@ramsingh.dev" 
+              href="mailto:ram01siingh4656@gmail.com" 
               style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--color-ink-blue)", textDecoration: "underline", fontWeight: 700 }}
-              aria-label="Email Ram Singh at hello@ramsingh.dev"
+              aria-label="Email Ram Singh at ram01siingh4656@gmail.com"
             >
-              hello@ramsingh.dev
+              ram01siingh4656@gmail.com
             </a>
 
             <div style={{ display: "flex", gap: "1rem", alignItems: "center" }} className="social-links">

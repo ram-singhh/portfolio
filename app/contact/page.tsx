@@ -291,7 +291,7 @@ export default function Contact() {
                 </p>
                 <div style={{ marginTop: "1rem" }}>
                   <HandwrittenNote color="pencil" tilt={-1.5} fontSize="1.05rem">
-                    or email directly: hello@ramsingh.dev
+                    or email directly: ram01siingh4656@gmail.com
                   </HandwrittenNote>
                 </div>
               </Paper>

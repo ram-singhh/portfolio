@@ -666,10 +666,10 @@ export default function ResumePage() {
                     Direct Email
                   </span>
                   <a 
-                    href="mailto:hello@ramsingh.dev" 
+                    href="mailto:ram01siingh4656@gmail.com" 
                     style={{ fontFamily: "var(--font-mono)", fontSize: "0.9rem", color: "var(--color-ink-blue)", textDecoration: "underline", fontWeight: 700 }}
                   >
-                    hello@ramsingh.dev
+                    ram01siingh4656@gmail.com
                   </a>
                 </div>
 
